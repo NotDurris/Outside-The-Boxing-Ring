@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bst7cn8b0ldyg" path="res://Assets/Themes/_UI/ipadinterface.tres" id="1_jy1cj"]
 [ext_resource type="Texture2D" uid="uid://bcrchuutkxi8i" path="res://Assets/Sprites/icons/profile.png" id="2_4wtcj"]
+[ext_resource type="Texture2D" uid="uid://cwbx6kmlscjr0" path="res://Assets/Sprites/icons/clock.png" id="2_ujqeo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy1cj"]
 bg_color = Color(0.06666667, 0.13725491, 0.09411765, 1)
@@ -23,86 +24,97 @@ color = Color(0.015686275, 0.047058824, 0.023529412, 1)
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=653743081]
 layout_mode = 2
 
-[node name="PanelContainer4" type="PanelContainer" parent="VBoxContainer" unique_id=240139030]
+[node name="Header" type="PanelContainer" parent="VBoxContainer" unique_id=240139030]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 theme_override_styles/panel = SubResource("StyleBoxFlat_jy1cj")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer4" unique_id=1272666744]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Header" unique_id=1272666744]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer4/MarginContainer" unique_id=740617357]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header/MarginContainer" unique_id=740617357]
 layout_mode = 2
 
-[node name="Progress" type="ProgressBar" parent="VBoxContainer/PanelContainer4/MarginContainer/HBoxContainer" unique_id=1127220208]
+[node name="Clock" type="MarginContainer" parent="VBoxContainer/Header/MarginContainer/HBoxContainer" unique_id=1507473735]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Header/MarginContainer/HBoxContainer/Clock" unique_id=315860145]
+self_modulate = Color(0.93333334, 1, 0.8, 1)
+layout_mode = 2
+texture = ExtResource("2_ujqeo")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Progress" type="ProgressBar" parent="VBoxContainer/Header/MarginContainer/HBoxContainer" unique_id=1127220208]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+value = 1.0
 
-[node name="Stats" type="MarginContainer" parent="VBoxContainer/PanelContainer4/MarginContainer/HBoxContainer" unique_id=771647037]
+[node name="Stats" type="MarginContainer" parent="VBoxContainer/Header/MarginContainer/HBoxContainer" unique_id=771647037]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="cost" type="Label" parent="VBoxContainer/Header/MarginContainer/HBoxContainer/Stats" unique_id=1747586178]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "$100"
+
+[node name="Profile" type="MarginContainer" parent="VBoxContainer/Header/MarginContainer/HBoxContainer" unique_id=1134816350]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer4/MarginContainer/HBoxContainer/Stats" unique_id=1078653041]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Header/MarginContainer/HBoxContainer/Profile" unique_id=717061054]
 self_modulate = Color(0.93333334, 1, 0.8, 1)
 layout_mode = 2
 texture = ExtResource("2_4wtcj")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Profile" type="MarginContainer" parent="VBoxContainer/PanelContainer4/MarginContainer/HBoxContainer" unique_id=1134816350]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer4/MarginContainer/HBoxContainer/Profile" unique_id=717061054]
-self_modulate = Color(0.93333334, 1, 0.8, 1)
-layout_mode = 2
-texture = ExtResource("2_4wtcj")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="PanelContainer3" type="Control" parent="VBoxContainer" unique_id=1931257305]
+[node name="Body" type="Control" parent="VBoxContainer" unique_id=1931257305]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer" unique_id=920850235]
+[node name="Footer" type="PanelContainer" parent="VBoxContainer" unique_id=920850235]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 theme_override_styles/panel = SubResource("StyleBoxFlat_jy1cj")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer2" unique_id=216337289]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Footer" unique_id=216337289]
 layout_mode = 2
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="Career" type="Button" parent="VBoxContainer/PanelContainer2/HBoxContainer" unique_id=1378952252]
+[node name="Career" type="Button" parent="VBoxContainer/Footer/HBoxContainer" unique_id=1378952252]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Career"
 
-[node name="Fight" type="Button" parent="VBoxContainer/PanelContainer2/HBoxContainer" unique_id=1725343477]
+[node name="Fighter" type="Button" parent="VBoxContainer/Footer/HBoxContainer" unique_id=1725343477]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Fighting"
+text = "Fighter"
 
-[node name="Training" type="Button" parent="VBoxContainer/PanelContainer2/HBoxContainer" unique_id=1428542595]
+[node name="Jobs" type="Button" parent="VBoxContainer/Footer/HBoxContainer" unique_id=1428542595]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Training"
+text = "Jobs"
 
-[node name="Betting" type="Button" parent="VBoxContainer/PanelContainer2/HBoxContainer" unique_id=1892611040]
+[node name="Shop" type="Button" parent="VBoxContainer/Footer/HBoxContainer" unique_id=1892611040]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Betting"
+text = "Shop"

@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://ck4tbqhbpy1ff"]
 
 [ext_resource type="Script" uid="uid://ccy4xsxwcr4u8" path="res://Levels/ScenesLogic/level.gd" id="1_h48gd"]
+[ext_resource type="PackedScene" uid="uid://bppsb38p6a8d2" path="res://Components/Ipad/ipad.tscn" id="2_7hykl"]
 
-[node name="Game" type="Node2D" unique_id=370713056]
+[node name="Game" type="Node3D" unique_id=413611698]
 script = ExtResource("1_h48gd")
 current_level = "Game"
 next_level = "EndScreen"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1189298633]
+transform = Transform3D(1, 0, 0, 0, 0.9648332, 0.26286283, 0, -0.26286283, 0.9648332, 0, 0.6592084, 1.8671789)
+
+[node name="Ipad" parent="." unique_id=1638631390 instance=ExtResource("2_7hykl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0784606)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1619290139]
+transform = Transform3D(1, 0, 0, 0, 0.46695778, 0.8842796, 0, -0.8842796, 0.46695778, 0, 0, 0)

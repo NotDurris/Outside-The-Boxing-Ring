@@ -14,9 +14,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="GameTemplate"
+config/name="Outside The Boxing Ring"
 run/main_scene="res://Levels/ScenesLogic/scene_switcher.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="uid://svomvgeynia"
 
 [audio]
 

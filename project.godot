@@ -32,12 +32,17 @@ GlobalSignals="*uid://bej2xyqf7mwg6"
 
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
 "res://Assets/": "red",
 "res://Components/": "orange",
-"res://Levels/": "gray"
+"res://Levels/": "gray",
+"res://addons/": "blue"
 }
 
 [input]

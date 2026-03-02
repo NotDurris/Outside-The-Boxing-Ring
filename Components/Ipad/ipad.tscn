@@ -1,9 +1,7 @@
 [gd_scene format=4 uid="uid://bppsb38p6a8d2"]
 
 [ext_resource type="PackedScene" uid="uid://cdry02xops1qh" path="res://Components/Ipad/ipad_screen.tscn" id="1_clnm8"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_clnm8"]
-viewport_path = NodePath("SubViewport")
+[ext_resource type="Shader" uid="uid://bhkvgosvd4d4o" path="res://Components/Ipad/ipad_screen.gdshader" id="2_m15dt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awkcm"]
 resource_name = "Metal"
@@ -105,18 +103,27 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yqlll")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_78u2d"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x2aec"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_m15dt")
+shader_parameter/albedo = SubResource("ViewportTexture_78u2d")
+shader_parameter/scale = 1000.0
+shader_parameter/screen_intensity = 0.20000000298024
+shader_parameter/bloom_intensity = 0.70000001043084
+
 [node name="Ipad" type="Node3D" unique_id=1638631390]
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1314344765]
-size = Vector2i(1200, 900)
+size_2d_override = Vector2i(512, 433)
 
 [node name="IpadScreen" parent="SubViewport" unique_id=1865218726 instance=ExtResource("1_clnm8")]
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2082481721]
-transform = Transform3D(0.5031114, 0, 0, 0, -0.0051462036, 0.9954128, 0, -0.53125197, -0.0096424995, 6.558505, 0.07340121, 0)
-texture = SubResource("ViewportTexture_clnm8")
 
 [node name="tablet" type="MeshInstance3D" parent="." unique_id=140423673]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ch41a")
 skeleton = NodePath("")
+surface_material_override/2 = SubResource("ShaderMaterial_x2aec")

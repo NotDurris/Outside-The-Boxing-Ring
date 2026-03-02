@@ -3,16 +3,45 @@
 [ext_resource type="Script" uid="uid://ccy4xsxwcr4u8" path="res://Levels/ScenesLogic/level.gd" id="1_h48gd"]
 [ext_resource type="PackedScene" uid="uid://bppsb38p6a8d2" path="res://Components/Ipad/ipad.tscn" id="2_7hykl"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7hykl"]
+sky_top_color = Color(0.3179603, 0.6135702, 0.9180989, 1)
+sky_horizon_color = Color(0.91160864, 0.8826131, 0.732201, 1)
+sky_curve = 0.0230839
+ground_bottom_color = Color(0.2782796, 0.2928472, 0.32258892, 1)
+ground_horizon_color = Color(0.76521504, 0.7712276, 0.7832465, 1)
+
+[sub_resource type="Sky" id="Sky_qocyw"]
+sky_material = SubResource("ProceduralSkyMaterial_7hykl")
+
+[sub_resource type="Environment" id="Environment_7hykl"]
+background_mode = 2
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_qocyw")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+glow_intensity = 0.83
+glow_bloom = 1.0
+glow_hdr_threshold = 0.9
+fog_enabled = true
+fog_light_energy = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_7hykl"]
+
 [node name="Game" type="Node3D" unique_id=413611698]
 script = ExtResource("1_h48gd")
 current_level = "Game"
 next_level = "EndScreen"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1189298633]
-transform = Transform3D(1, 0, 0, 0, 0.9648332, 0.26286283, 0, -0.26286283, 0.9648332, 0, 0.6592084, 1.8671789)
+transform = Transform3D(1, 0, 0, 0, 0.6828022, 0.73060346, 0, -0.73060346, 0.6828022, 0, 0.6592084, 1.8671789)
 
 [node name="Ipad" parent="." unique_id=1638631390 instance=ExtResource("2_7hykl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0784606)
+transform = Transform3D(1, 0, 0, 0, 0.8693311, -0.4942302, 0, 0.4942302, 0.8693311, 0.2906506, -1.423834, -0.8601775)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1619290139]
-transform = Transform3D(1, 0, 0, 0, 0.46695778, 0.8842796, 0, -0.8842796, 0.46695778, 0, 0, 0)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1700514322]
+environment = SubResource("Environment_7hykl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=788641227]
+transform = Transform3D(35.74419, 0, 0, 0, 1, 0, 0, 0, 15.071549, 0, -3.4072213, 0)
+mesh = SubResource("BoxMesh_7hykl")

@@ -2,8 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bst7cn8b0ldyg" path="res://Assets/Themes/_UI/ipadinterface.tres" id="1_jy1cj"]
 
-[node name="IpadScreen" type="Control" unique_id=1865218726]
-layout_mode = 3
+[node name="IpadScreen" type="MarginContainer" unique_id=440891367]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,12 +11,7 @@ grow_vertical = 2
 theme = ExtResource("1_jy1cj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=653743081]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=1567531582]
 layout_mode = 2

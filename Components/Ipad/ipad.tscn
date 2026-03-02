@@ -126,7 +126,7 @@ script = ExtResource("1_78u2d")
 mesh_size = Vector2(5.55, 4.3)
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1314344765]
-size = Vector2i(400, 300)
+size = Vector2i(800, 600)
 size_2d_override_stretch = true
 
 [node name="IpadScreen" parent="SubViewport" unique_id=1865218726 instance=ExtResource("1_clnm8")]

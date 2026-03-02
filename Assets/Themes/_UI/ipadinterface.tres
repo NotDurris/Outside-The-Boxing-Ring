@@ -7,16 +7,31 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuqey"]
 bg_color = Color(0.05591038, 0.08570326, 0.10272869, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqt26"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kjet"]
+bg_color = Color(0.74509805, 0.8627451, 0.49803922, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [resource]
-Button/colors/font_color = Color(0.46449035, 0.64646393, 0.67420053, 1)
-Button/colors/font_focus_color = Color(0.4627451, 0.64705884, 0.6745098, 1)
-Button/colors/font_hover_color = Color(0.4627451, 0.64705884, 0.6745098, 1)
-Button/colors/font_hover_pressed_color = Color(0.4627451, 0.64705884, 0.6745098, 1)
+Button/colors/font_color = Color(0.93333334, 1, 0.8, 1)
+Button/colors/font_focus_color = Color(0.93333334, 1, 0.8, 1)
+Button/colors/font_hover_color = Color(0.93333334, 1, 0.8, 1)
+Button/colors/font_hover_pressed_color = Color(0.93333334, 1, 0.8, 1)
 Button/fonts/font = ExtResource("1_w6lx2")
 Button/styles/disabled = ExtResource("2_0ytpw")
 Button/styles/focus = ExtResource("3_eqt26")
-Button/styles/hover = ExtResource("3_eqt26")
+Button/styles/hover = ExtResource("2_0ytpw")
 Button/styles/normal = ExtResource("2_0ytpw")
 Button/styles/pressed = ExtResource("3_eqt26")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_nuqey")
+ProgressBar/colors/font_color = Color(0.93333334, 1, 0.8, 1)
+ProgressBar/colors/font_outline_color = Color(0.06666667, 0.13725491, 0.09411765, 1)
+ProgressBar/constants/outline_size = 12
+ProgressBar/fonts/font = ExtResource("1_w6lx2")
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_eqt26")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_2kjet")
 VBoxContainer/constants/separation = 0

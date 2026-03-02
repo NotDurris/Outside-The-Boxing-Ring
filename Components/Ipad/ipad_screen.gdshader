@@ -2,6 +2,10 @@ shader_type spatial;
 
 uniform sampler2D albedo;
 
+group_uniforms ScreenUV;
+uniform vec2 uv_scale;
+uniform vec2 uv_offset;
+
 group_uniforms ScreenEffect;
 uniform float scale;
 uniform float screen_intensity : hint_range(0.0, 1.0, 0.1);
@@ -26,8 +30,9 @@ vec3 get_screen_pixel_colour(vec2 uv, vec3 colour){
 }
 
 void fragment() {
-	vec3 colour = texture(albedo, UV).rgb;
-	ALBEDO = get_screen_pixel_colour(UV, colour);
+	vec2 adjusted_uv = vec2(UV.x * uv_scale.x, UV.y * uv_scale.y) + uv_offset;
+	vec3 colour = texture(albedo, adjusted_uv).rgb;
+	ALBEDO = get_screen_pixel_colour(adjusted_uv, colour);
 	EMISSION = ALBEDO * (1.0 + bloom_intensity);
 }
 

@@ -3,6 +3,11 @@
 [ext_resource type="Theme" uid="uid://bst7cn8b0ldyg" path="res://Assets/Themes/_UI/ipadinterface.tres" id="1_jy1cj"]
 [ext_resource type="Texture2D" uid="uid://bcrchuutkxi8i" path="res://Assets/Sprites/icons/profile.png" id="2_4wtcj"]
 [ext_resource type="Texture2D" uid="uid://cwbx6kmlscjr0" path="res://Assets/Sprites/icons/clock.png" id="2_ujqeo"]
+[ext_resource type="Script" uid="uid://kl0a8tdhtw8u" path="res://Components/Ipad/screens/screen_manager.gd" id="4_2v6ia"]
+[ext_resource type="PackedScene" uid="uid://b4m2k3e6havwy" path="res://Components/Ipad/screens/career_screen.tscn" id="4_aokq0"]
+[ext_resource type="PackedScene" uid="uid://c5288rsfw5qqf" path="res://Components/Ipad/screens/fighter_screen.tscn" id="5_2v6ia"]
+[ext_resource type="PackedScene" uid="uid://b5lvd1vqmx40u" path="res://Components/Ipad/screens/jobs_screen.tscn" id="6_m8gs1"]
+[ext_resource type="PackedScene" uid="uid://bfmoh20ycd3dv" path="res://Components/Ipad/screens/shop_screen.tscn" id="7_b1tnq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy1cj"]
 bg_color = Color(0.06666667, 0.13725491, 0.09411765, 1)
@@ -58,7 +63,7 @@ stretch_mode = 4
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 1.0
+value = 7.48
 
 [node name="Stats" type="MarginContainer" parent="VBoxContainer/Header/MarginContainer/HBoxContainer" unique_id=771647037]
 layout_mode = 2
@@ -84,9 +89,24 @@ texture = ExtResource("2_4wtcj")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Body" type="Control" parent="VBoxContainer" unique_id=1931257305]
+[node name="Body" type="MarginContainer" parent="VBoxContainer" unique_id=566554116 node_paths=PackedStringArray("screens")]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("4_2v6ia")
+screens = [NodePath("Career"), NodePath("Fighter"), NodePath("Jobs"), NodePath("Shop")]
+active_screen = -1
+
+[node name="Career" parent="VBoxContainer/Body" unique_id=950127154 instance=ExtResource("4_aokq0")]
+layout_mode = 2
+
+[node name="Fighter" parent="VBoxContainer/Body" unique_id=2084284173 instance=ExtResource("5_2v6ia")]
+layout_mode = 2
+
+[node name="Jobs" parent="VBoxContainer/Body" unique_id=1440714859 instance=ExtResource("6_m8gs1")]
+layout_mode = 2
+
+[node name="Shop" parent="VBoxContainer/Body" unique_id=1040530057 instance=ExtResource("7_b1tnq")]
+layout_mode = 2
 
 [node name="Footer" type="PanelContainer" parent="VBoxContainer" unique_id=920850235]
 layout_mode = 2
@@ -118,3 +138,8 @@ text = "Jobs"
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Shop"
+
+[connection signal="pressed" from="VBoxContainer/Footer/HBoxContainer/Career" to="VBoxContainer/Body" method="set_active_screen" binds= [0]]
+[connection signal="pressed" from="VBoxContainer/Footer/HBoxContainer/Fighter" to="VBoxContainer/Body" method="set_active_screen" binds= [1]]
+[connection signal="pressed" from="VBoxContainer/Footer/HBoxContainer/Jobs" to="VBoxContainer/Body" method="set_active_screen" binds= [2]]
+[connection signal="pressed" from="VBoxContainer/Footer/HBoxContainer/Shop" to="VBoxContainer/Body" method="set_active_screen" binds= [3]]

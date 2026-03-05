@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b16piwmo3c5nf"]
+
+[ext_resource type="Script" uid="uid://q7r3cf5yrk07" path="res://Components/DiceManager/Dice/UI_Dice/ui_dice.gd" id="1_nb2ja"]
+[ext_resource type="FontFile" uid="uid://wvdspsgmxewv" path="res://Assets/Fonts/Nunito-SemiBold.ttf" id="2_mgcvt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ellfp"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="UIDice" type="Control" unique_id=426910914]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1120.0
+offset_bottom = -616.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nb2ja")
+
+[node name="background" type="Panel" parent="." unique_id=1083256951]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ellfp")
+
+[node name="value" type="Label" parent="." unique_id=502463039]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_mgcvt")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

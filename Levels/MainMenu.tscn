@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://ds3m6bxligeht" path="res://Levels/ScenesLogic/change_level.gd" id="4_2ld8x"]
 [ext_resource type="Script" uid="uid://dbgbq51vkocsj" path="res://Components/MainMenu/quit_logic.gd" id="5_17ajd"]
 [ext_resource type="PackedScene" uid="uid://lbja0ku3jm2o" path="res://Components/UI/UIPanel/ui_panel.tscn" id="5_gerv3"]
+[ext_resource type="FontFile" uid="uid://dgyi70xosiqs4" path="res://Assets/Fonts/Melon Pop.ttf" id="5_uty7f"]
 [ext_resource type="PackedScene" uid="uid://buao4cwlay7bi" path="res://Components/UI/UIContents/options_contents.tscn" id="6_ooo5j"]
 [ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/UI/Buttons/button_effects_handler.tscn" id="6_xun1b"]
 
@@ -78,14 +79,14 @@ layout_mode = 2
 clip_contents = false
 custom_minimum_size = Vector2(900, 0)
 layout_mode = 0
-offset_left = -52.000008
-offset_top = 346.99997
-offset_right = 972.0
-offset_bottom = 434.99997
-rotation = -0.5466673
+offset_left = -36.000023
+offset_top = 365.0
+offset_right = 988.0
+offset_bottom = 453.0
+rotation = -0.5563878
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("5_uty7f")
 bbcode_enabled = true
 text = "[wave]CORNERED"
 fit_content = true
@@ -99,7 +100,7 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-text = "Start"
+text = "START"
 script = ExtResource("4_2ld8x")
 target_level = "Game"
 level = NodePath("../../../..")
@@ -110,7 +111,7 @@ level = NodePath("../../../..")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-text = "Options"
+text = "OPTIONS"
 
 [node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Options" unique_id=1071809230 instance=ExtResource("6_xun1b")]
 
@@ -118,7 +119,7 @@ text = "Options"
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-text = "Credits"
+text = "CREDITS"
 
 [node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Credits" unique_id=1125732525 instance=ExtResource("6_xun1b")]
 
@@ -126,7 +127,7 @@ text = "Credits"
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-text = "Quit"
+text = "QUIT"
 script = ExtResource("5_17ajd")
 
 [node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Quit" unique_id=231446139 instance=ExtResource("6_xun1b")]

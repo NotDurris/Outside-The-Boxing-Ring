@@ -4,8 +4,8 @@
 
 [resource]
 content_margin_left = 16.0
-content_margin_top = 8.0
+content_margin_top = 16.0
 content_margin_right = 16.0
 content_margin_bottom = 16.0
 texture = ExtResource("1_bpq8v")
-modulate_color = Color(0.84, 0.7392, 0.33599997, 1)
+modulate_color = Color(0.95, 0.86244166, 0.19949998, 1)

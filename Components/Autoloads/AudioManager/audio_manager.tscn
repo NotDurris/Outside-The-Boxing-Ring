@@ -12,6 +12,9 @@ volume_db = -5.0
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=787861585]
 volume_db = -5.0
 
+[node name="ButtonHover" type="AudioStreamPlayer" parent="." unique_id=1440278165]
+volume_db = -5.0
+
 [node name="MenuOpen" type="AudioStreamPlayer" parent="." unique_id=97615354]
 volume_db = -5.0
 

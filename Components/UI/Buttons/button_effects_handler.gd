@@ -14,7 +14,7 @@ var current_pitch = 0 :
 
 func _ready() -> void:
 	button.pivot_offset = button.size * 0.5
-	button.connect("pressed", on_pressed)
+	button.connect("button_down", on_pressed)
 	button.connect("mouse_entered", on_entered)
 	button.connect("mouse_exited", on_exited)
 
@@ -26,7 +26,6 @@ func on_pressed():
 	tweener = create_tween()
 	var grow = create_tween()
 	grow.tween_property(get_parent(), "scale", Vector2.ONE * 0.92, 0.1)
-	grow.tween_property(get_parent(), "scale", Vector2.ONE * 0.95, 0.1)
 	tweener.set_loops()
 	tweener.set_trans(Tween.TRANS_BOUNCE)
 	tweener.set_ease(Tween.EASE_IN_OUT)
@@ -48,6 +47,7 @@ func on_entered():
 	tweener.set_ease(Tween.EASE_IN_OUT)
 	tweener.tween_property(get_parent(), "rotation", -0.05, 0.2)
 	tweener.tween_property(get_parent(), "rotation", 0.05, 0.2)
+	AudioManager.play_sound("ButtonHover", pitches[current_pitch])
 
 func on_exited():
 	if !is_inside_tree() or get_parent().disabled == true:

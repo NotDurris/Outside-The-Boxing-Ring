@@ -2,36 +2,48 @@
 
 [ext_resource type="Script" uid="uid://ccy4xsxwcr4u8" path="res://Levels/ScenesLogic/level.gd" id="1_720qt"]
 [ext_resource type="Theme" uid="uid://mdn2knq2jrhm" path="res://Assets/Themes/_UI/mainmenu.tres" id="2_65ows"]
+[ext_resource type="Shader" uid="uid://dncoi5qsdsdpg" path="res://Assets/Shaders/stripey.gdshader" id="2_gerv3"]
+[ext_resource type="Texture2D" uid="uid://db74gjerqpe32" path="res://Assets/Sprites/page_corner.png" id="3_17ajd"]
 [ext_resource type="Script" uid="uid://ds3m6bxligeht" path="res://Levels/ScenesLogic/change_level.gd" id="4_2ld8x"]
 [ext_resource type="Script" uid="uid://dbgbq51vkocsj" path="res://Components/MainMenu/quit_logic.gd" id="5_17ajd"]
 [ext_resource type="PackedScene" uid="uid://lbja0ku3jm2o" path="res://Components/UI/UIPanel/ui_panel.tscn" id="5_gerv3"]
 [ext_resource type="PackedScene" uid="uid://buao4cwlay7bi" path="res://Components/UI/UIContents/options_contents.tscn" id="6_ooo5j"]
+[ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/UI/Buttons/button_effects_handler.tscn" id="6_xun1b"]
 
-[sub_resource type="Gradient" id="Gradient_gerv3"]
-interpolation_mode = 2
-colors = PackedColorArray(0, 0, 0, 0, 0.027299998, 0.06288333, 0.07, 0.6117647)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_17ajd"]
-gradient = SubResource("Gradient_gerv3")
-width = 256
-height = 256
-use_hdr = true
-fill = 1
-fill_from = Vector2(0.5, 0.5)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_17ajd"]
+shader = ExtResource("2_gerv3")
+shader_parameter/time_scale = 0.01
+shader_parameter/scale = 162.62
+shader_parameter/dot_scale = 1.40000000596048
+shader_parameter/colour_one = Color(0.80174387, 0.28690112, 0.27274984, 1)
+shader_parameter/colour_two = Color(1, 1, 1, 1)
 
 [node name="MainMenu" type="Node" unique_id=6212812]
 script = ExtResource("1_720qt")
 current_level = "MainMenu"
 next_level = "Game"
 
-[node name="Background" type="TextureRect" parent="." unique_id=938020610]
-z_index = -10
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="DotsBackground" type="ColorRect" parent="." unique_id=596280678]
+z_index = -2
+material = SubResource("ShaderMaterial_17ajd")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -752.0
+offset_top = -728.0
+offset_right = 748.0
+offset_bottom = 772.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_17ajd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=107620441]
+offset_left = -210.0
+offset_top = -55.0
+offset_right = 814.0
+offset_bottom = 969.0
+texture = ExtResource("3_17ajd")
 
 [node name="MainMenu" type="Control" parent="." unique_id=895278676]
 z_index = 10
@@ -58,15 +70,26 @@ theme_override_constants/margin_bottom = 64
 [node name="Title" type="VBoxContainer" parent="MainMenu/Main" unique_id=1716330542]
 layout_mode = 2
 
-[node name="TitleLabel" type="RichTextLabel" parent="MainMenu/Main/Title" unique_id=253298998]
+[node name="Control" type="Control" parent="MainMenu/Main/Title" unique_id=1212433699]
+custom_minimum_size = Vector2(0, 33.35)
+layout_mode = 2
+
+[node name="TitleLabel" type="RichTextLabel" parent="MainMenu/Main/Title/Control" unique_id=253298998]
 clip_contents = false
 custom_minimum_size = Vector2(900, 0)
-layout_mode = 2
+layout_mode = 0
+offset_left = -52.000008
+offset_top = 346.99997
+offset_right = 972.0
+offset_bottom = 434.99997
+rotation = -0.5466673
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
 bbcode_enabled = true
-text = "[wave]BOXING"
+text = "[wave]CORNERED"
 fit_content = true
 scroll_active = false
-vertical_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="MainMenu/Main" unique_id=1106015179]
 layout_mode = 2
@@ -81,11 +104,15 @@ script = ExtResource("4_2ld8x")
 target_level = "Game"
 level = NodePath("../../../..")
 
+[node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Start" unique_id=149712870 instance=ExtResource("6_xun1b")]
+
 [node name="Options" type="Button" parent="MainMenu/Main/Buttons" unique_id=421155739]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "Options"
+
+[node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Options" unique_id=1071809230 instance=ExtResource("6_xun1b")]
 
 [node name="Credits" type="Button" parent="MainMenu/Main/Buttons" unique_id=1207000227]
 layout_mode = 2
@@ -93,12 +120,16 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "Credits"
 
+[node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Credits" unique_id=1125732525 instance=ExtResource("6_xun1b")]
+
 [node name="Quit" type="Button" parent="MainMenu/Main/Buttons" unique_id=1009462710]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 text = "Quit"
 script = ExtResource("5_17ajd")
+
+[node name="ButtonEffectsHandler" parent="MainMenu/Main/Buttons/Quit" unique_id=231446139 instance=ExtResource("6_xun1b")]
 
 [node name="Options_UIPanel" parent="MainMenu" unique_id=1651188732 instance=ExtResource("5_gerv3")]
 visible = false

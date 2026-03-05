@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://x64adqar5wp7"]
+
+[ext_resource type="Texture2D" uid="uid://c8xk5wxe7gt4h" path="res://Assets/Sprites/ButtonBackground.png" id="1_cmub6"]
+
+[resource]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_cmub6")

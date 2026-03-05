@@ -2,6 +2,7 @@ class_name dice
 
 var value : int
 var type : DiceType
+var used : bool = false
 
 var sides : int
 enum DiceType {Aggro, Endurance, Agility}

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4m2k3e6havwy"]
 
-[node name="Career" type="CenterContainer" unique_id=2061668230]
+[node name="Career" type="MarginContainer" unique_id=269859648]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

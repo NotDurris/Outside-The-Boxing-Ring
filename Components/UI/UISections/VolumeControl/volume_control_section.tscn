@@ -30,6 +30,8 @@ text = "master"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
 script = ExtResource("1_fm6dh")
 bus_name = "Master"
 
@@ -48,6 +50,8 @@ text = "sfx"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
 script = ExtResource("1_fm6dh")
 bus_name = "SFX"
 
@@ -67,5 +71,7 @@ text = "music"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
 script = ExtResource("1_fm6dh")
 bus_name = "Music"

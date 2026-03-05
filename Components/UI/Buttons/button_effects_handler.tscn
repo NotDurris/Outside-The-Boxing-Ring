@@ -2,6 +2,6 @@
 
 [ext_resource type="Script" uid="uid://4fb7vdgrqsoj" path="res://Components/UI/Buttons/button_effects_handler.gd" id="1_gbm8b"]
 
-[node name="ButtonEffectsHandler" type="Node"]
+[node name="ButtonEffectsHandler" type="Node" unique_id=1596210632]
 process_mode = 3
 script = ExtResource("1_gbm8b")

@@ -78,14 +78,16 @@ uppercase = true
 
 [node name="Close" type="Control" parent="MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar" unique_id=1991571259]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="CloseButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Close" unique_id=1618942533]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 0
-offset_left = -15.0
-offset_top = -16.0
-offset_right = 17.0
-offset_bottom = 16.0
+offset_left = -12.0
+offset_top = -22.0
+offset_right = 28.0
+offset_bottom = 18.0
+rotation = 0.20480567
 pivot_offset = Vector2(23.5, 25.5)
 theme_override_colors/font_color = Color(0.9997578, 0.21323657, 0.16017526, 1)
 theme_override_colors/font_focus_color = Color(1, 0.21176471, 0.16078432, 1)
@@ -104,10 +106,11 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_f6fbm")
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Close/CloseButton" unique_id=1334800814]
 layout_mode = 0
-offset_left = 1.0
-offset_top = -2.0
-offset_right = 41.0
-offset_bottom = 43.0
+offset_left = -1.3887088
+offset_top = 1.5614877
+offset_right = 38.61129
+offset_bottom = 46.56149
+rotation = -0.13698229
 theme_override_colors/font_color = Color(1, 0.35732567, 0.29020837, 1)
 theme_override_fonts/font = ExtResource("4_wlgud")
 theme_override_font_sizes/font_size = 20
@@ -122,3 +125,4 @@ size_flags_vertical = 3
 [node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer" unique_id=603292399]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2

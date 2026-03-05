@@ -12,6 +12,8 @@ var current_pitch = 0 :
 			value -= pitches.size()
 		current_pitch = value
 
+@onready var initial_rotation : float = button.rotation
+
 func _ready() -> void:
 	button.pivot_offset = button.size * 0.5
 	button.connect("button_down", on_pressed)
@@ -29,8 +31,8 @@ func on_pressed():
 	tweener.set_loops()
 	tweener.set_trans(Tween.TRANS_BOUNCE)
 	tweener.set_ease(Tween.EASE_IN_OUT)
-	tweener.tween_property(get_parent(), "rotation", -0.02, 0.2)
-	tweener.tween_property(get_parent(), "rotation", 0.02, 0.2)
+	tweener.tween_property(get_parent(), "rotation", initial_rotation-0.02, 0.2)
+	tweener.tween_property(get_parent(), "rotation", initial_rotation+0.02, 0.2)
 	current_pitch += 1
 	AudioManager.play_sound("ButtonClick", pitches[current_pitch])
 
@@ -45,8 +47,8 @@ func on_entered():
 	tweener.set_loops()
 	tweener.set_trans(Tween.TRANS_BOUNCE)
 	tweener.set_ease(Tween.EASE_IN_OUT)
-	tweener.tween_property(get_parent(), "rotation", -0.05, 0.2)
-	tweener.tween_property(get_parent(), "rotation", 0.05, 0.2)
+	tweener.tween_property(get_parent(), "rotation", initial_rotation-0.05, 0.2)
+	tweener.tween_property(get_parent(), "rotation", initial_rotation+0.05, 0.2)
 	AudioManager.play_sound("ButtonHover", pitches[current_pitch])
 
 func on_exited():
@@ -55,5 +57,5 @@ func on_exited():
 	if tweener != null:
 		tweener.kill()
 	tweener = create_tween()
-	tweener.tween_property(get_parent(), "rotation", 0, 0.1)
+	tweener.tween_property(get_parent(), "rotation", initial_rotation, 0.1)
 	tweener.tween_property(get_parent(), "scale", Vector2.ONE, 0.1)

@@ -1,12 +1,246 @@
 [gd_scene format=3 uid="uid://b4m2k3e6havwy"]
 
-[node name="Career" type="MarginContainer" unique_id=269859648]
+[ext_resource type="PackedScene" uid="uid://b16piwmo3c5nf" path="res://Components/DiceManager/Dice/UI_Dice/ui_dice.tscn" id="1_6fdxb"]
+[ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/DiceManager/dice_container.gd" id="2_yeji3"]
+
+[node name="Career" type="MarginContainer" unique_id=2111181882]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="." unique_id=600451341]
+[node name="BattleScreen" type="MarginContainer" parent="." unique_id=628812608]
 layout_mode = 2
-text = "career"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleScreen" unique_id=1477399371]
+layout_mode = 2
+
+[node name="Fighters" type="HBoxContainer" parent="BattleScreen/VBoxContainer" unique_id=657732433]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="YouFighter" type="PanelContainer" parent="BattleScreen/VBoxContainer/Fighters" unique_id=1534173779]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Vs" type="PanelContainer" parent="BattleScreen/VBoxContainer/Fighters" unique_id=1590330834]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.33
+
+[node name="Vs2" type="PanelContainer" parent="BattleScreen/VBoxContainer/Fighters" unique_id=1267949697]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.33
+
+[node name="Vs3" type="PanelContainer" parent="BattleScreen/VBoxContainer/Fighters" unique_id=1191356759]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.33
+
+[node name="OpponentFighter" type="PanelContainer" parent="BattleScreen/VBoxContainer/Fighters" unique_id=1556489001]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Round" type="PanelContainer" parent="BattleScreen/VBoxContainer" unique_id=976438562]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleScreen/VBoxContainer/Round" unique_id=67763252]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleScreen/VBoxContainer/Round/VBoxContainer" unique_id=955121533]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/HBoxContainer" unique_id=622645799]
+layout_mode = 2
+text = "ONE"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/HBoxContainer" unique_id=1542509071]
+layout_mode = 2
+text = "TWO"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/HBoxContainer" unique_id=111619149]
+layout_mode = 2
+text = "THREE"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/HBoxContainer" unique_id=1029815940]
+layout_mode = 2
+text = "FOUR"
+horizontal_alignment = 1
+
+[node name="Plan" type="HBoxContainer" parent="BattleScreen/VBoxContainer/Round/VBoxContainer" unique_id=1264969025]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 8
+
+[node name="UIDice" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/Plan" unique_id=426910914 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice2" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/Plan" unique_id=2140011637 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice3" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/Plan" unique_id=475929340 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice4" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/Plan" unique_id=14000628 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice5" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/Plan" unique_id=283392313 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice6" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/Plan" unique_id=668086990 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice7" parent="BattleScreen/VBoxContainer/Round/VBoxContainer/Plan" unique_id=1841694157 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="Inventory" type="HBoxContainer" parent="BattleScreen/VBoxContainer" unique_id=1971438462]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Dice" type="PanelContainer" parent="BattleScreen/VBoxContainer/Inventory" unique_id=974367140]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Scroll" type="ScrollContainer" parent="BattleScreen/VBoxContainer/Inventory/Dice" unique_id=1098105162]
+layout_mode = 2
+vertical_scroll_mode = 2
+
+[node name="DiceContainer" type="Container" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll" unique_id=1765981598]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_yeji3")
+
+[node name="UIDice" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1536996071 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice2" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=60217899 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice3" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=517393014 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice4" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1228676927 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice5" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=153965237 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice6" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2128460036 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice7" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=76928535 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice8" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2029599470 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice9" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1929993326 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice10" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1127356350 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice11" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=75985476 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice12" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1478345870 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice13" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1643311621 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice14" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=942939360 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice15" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=759231619 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice16" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2091077454 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice17" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=641429867 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice18" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=25694755 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice19" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=518420276 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice20" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2120824385 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice21" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1796776855 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice22" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1567745218 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice23" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=808593129 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice24" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=225131074 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice25" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=877688160 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice26" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1747933339 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice27" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=693769119 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice28" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2082793364 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice29" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1783717376 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice30" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=467692152 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice31" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1366841548 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice32" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1643988656 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice33" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2071881349 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice34" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=656357209 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice35" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1164372936 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice36" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=155183580 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice37" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=559602939 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice38" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1139121403 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice39" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1070239539 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="UIDice40" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=423550782 instance=ExtResource("1_6fdxb")]
+layout_mode = 2
+
+[node name="Items" type="PanelContainer" parent="BattleScreen/VBoxContainer/Inventory" unique_id=2069624937]
+layout_mode = 2
+size_flags_horizontal = 3

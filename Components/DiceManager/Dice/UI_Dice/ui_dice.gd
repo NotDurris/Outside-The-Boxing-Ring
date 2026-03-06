@@ -7,10 +7,17 @@ const AGGRO_BACKGROUND = preload("uid://k5a7h25xx5f3")
 const ENDURANCE_BACKGROUND = preload("uid://db0ujnhteaba")
 const AGILITY_BACKGROUND = preload("uid://dsujrwsu6y5ay")
 const DEFAULT_BACKGROUND = preload("uid://b1hsaw56djxkx")
+const EMPTY_BACKGROUND = preload("uid://chccsww0104xp")
 
 var target_dice : dice :
 	set(value):
 		target_dice = value
+		
+		if target_dice == null:
+			value_label.text = ""
+			background_panel.add_theme_stylebox_override("panel", EMPTY_BACKGROUND)
+			return
+		
 		match(target_dice.type):
 			dice.DiceType.Aggro:
 				background_panel.add_theme_stylebox_override("panel", AGGRO_BACKGROUND)
@@ -22,11 +29,10 @@ var target_dice : dice :
 				background_panel.add_theme_stylebox_override("panel", DEFAULT_BACKGROUND)
 
 func _ready() -> void:
-	target_dice = dice.new(6, dice.DiceType.Aggro)
+	target_dice = null
 	pivot_offset = size * 0.5
 	background_panel.pivot_offset = background_panel.size * 0.5
 	value_label.pivot_offset = value_label.size * 0.5
-	roll_dice_animation()
 
 func randomise_number():
 	value_label.text = str(randi_range(1, target_dice.sides))
@@ -41,7 +47,6 @@ func roll_dice_animation():
 	randomise_tweener.tween_interval(0.05)
 	randomise_tweener.pause()
 	
-	tweener.tween_interval(1)
 	tweener.tween_property(self, "rotation", -PI*0.1, 0.1)
 	tweener.tween_callback(randomise_tweener.play)
 	tweener.tween_property(self, "rotation", 2*PI, 0.3)

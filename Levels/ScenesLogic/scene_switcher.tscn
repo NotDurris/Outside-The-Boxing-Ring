@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dye4xxdqa2tw0" path="res://Levels/ScenesLogic/scene_switcher.gd" id="1_cq6vg"]
 [ext_resource type="PackedScene" uid="uid://dr6p4s5grffi7" path="res://Levels/MainMenu.tscn" id="2_kmwfx"]
-[ext_resource type="PackedScene" uid="uid://c6innqpihkw82" path="res://Components/UI/PauseMenu/pause.tscn" id="2_m1eww"]
 
 [sub_resource type="Shader" id="Shader_8btal"]
 code = "shader_type canvas_item;
@@ -150,8 +149,6 @@ _data = {
 process_mode = 3
 script = ExtResource("1_cq6vg")
 current_level = NodePath("MainMenu")
-
-[node name="Pause" parent="." unique_id=597564349 instance=ExtResource("2_m1eww")]
 
 [node name="MainMenu" parent="." unique_id=389131688 instance=ExtResource("2_kmwfx")]
 

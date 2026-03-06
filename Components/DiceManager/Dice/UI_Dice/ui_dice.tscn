@@ -3,6 +3,16 @@
 [ext_resource type="Script" uid="uid://q7r3cf5yrk07" path="res://Components/DiceManager/Dice/UI_Dice/ui_dice.gd" id="1_nb2ja"]
 [ext_resource type="FontFile" uid="uid://wvdspsgmxewv" path="res://Assets/Fonts/Nunito-SemiBold.ttf" id="2_mgcvt"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cqexl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o0fcd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_52te0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yd138"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3sdnt"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ellfp"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 4
@@ -15,16 +25,22 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="UIDice" type="Control" unique_id=426910914]
+[node name="UIDice" type="Button" unique_id=1573092950]
 custom_minimum_size = Vector2(64, 64)
-layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1120.0
-offset_bottom = -616.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -1104.0
+offset_bottom = -600.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cqexl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_o0fcd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_52te0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yd138")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3sdnt")
 script = ExtResource("1_nb2ja")
 
 [node name="background" type="Panel" parent="." unique_id=1083256951]
@@ -34,6 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ellfp")
 
 [node name="value" type="Label" parent="." unique_id=502463039]

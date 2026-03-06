@@ -1,4 +1,4 @@
-extends Control
+extends Button
 
 @onready var background_panel : Control = $background
 @onready var value_label : Control = $value
@@ -14,9 +14,17 @@ var target_dice : dice :
 		target_dice = value
 		
 		if target_dice == null:
+			disabled = true
 			value_label.text = ""
 			background_panel.add_theme_stylebox_override("panel", EMPTY_BACKGROUND)
 			return
+		
+		disabled = false
+		
+		if target_dice.used:
+			modulate = Color(0.486, 0.486, 0.486, 1.0)
+		else:
+			modulate = Color.WHITE
 		
 		match(target_dice.type):
 			dice.DiceType.Aggro:
@@ -29,10 +37,15 @@ var target_dice : dice :
 				background_panel.add_theme_stylebox_override("panel", DEFAULT_BACKGROUND)
 
 func _ready() -> void:
-	target_dice = null
+	target_dice = dice.new(6, randi_range(0,2))
 	pivot_offset = size * 0.5
 	background_panel.pivot_offset = background_panel.size * 0.5
 	value_label.pivot_offset = value_label.size * 0.5
+	
+	pressed.connect(func():
+		roll_dice_animation()
+		target_dice.value = randi_range(1, target_dice.sides)
+	)
 
 func randomise_number():
 	value_label.text = str(randi_range(1, target_dice.sides))

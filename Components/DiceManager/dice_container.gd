@@ -17,13 +17,13 @@ func _notification(what):
 		# Must re-sort the children
 		var current_count = Vector2i.ZERO
 		
-		var available_space = get_parent().size.x - (2 * margin)
-		
-		var x = (available_space - DICE_SIZE) / (DICE_SIZE + spacing) - 1
+		var available_space = get_parent().size.x
+		var maximum_row_count = floori(available_space / DICE_SIZE)
+		var spacing_size = (available_space - (maximum_row_count * DICE_SIZE)) / (maximum_row_count + 1)
 		
 		for c : Control in get_children():
-			c.position = current_count * (DICE_SIZE + spacing) + Vector2.ONE * margin
-			if current_count.x >= x:
+			c.position = current_count * (DICE_SIZE + spacing_size) + Vector2.ONE * spacing_size
+			if current_count.x >= maximum_row_count:
 				current_count.x = 0
 				current_count.y += 1
 			else:

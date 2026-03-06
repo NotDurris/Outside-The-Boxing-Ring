@@ -220,9 +220,6 @@ layout_mode = 2
 [node name="UIDice33" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2071881349 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
-[node name="UIDice34" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=656357209 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
 [node name="UIDice35" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1164372936 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 

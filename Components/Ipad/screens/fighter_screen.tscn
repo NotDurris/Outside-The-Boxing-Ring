@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bpwph8oefl43s" path="res://Assets/Sprites/man_silhouette.png" id="1_07nlr"]
 [ext_resource type="StyleBox" uid="uid://cw7wmfdoumei7" path="res://Assets/Themes/Panels/ipad_screen_background.tres" id="1_flo6y"]
+[ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/DiceManager/dice_container.gd" id="3_10sic"]
+[ext_resource type="PackedScene" uid="uid://b16piwmo3c5nf" path="res://Components/DiceManager/Dice/UI_Dice/ui_dice.tscn" id="4_5u8nr"]
 
 [node name="Fighter" type="MarginContainer" unique_id=658722681]
 anchors_preset = 15
@@ -106,3 +108,20 @@ layout_mode = 2
 layout_mode = 2
 text = "resources"
 horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer" unique_id=970617673]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Container" type="Container" parent="HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/ScrollContainer" unique_id=15205746]
+layout_mode = 2
+script = ExtResource("3_10sic")
+
+[node name="UIDice" parent="HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/ScrollContainer/Container" unique_id=426910914 instance=ExtResource("4_5u8nr")]
+layout_mode = 2
+
+[node name="UIDice2" parent="HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/ScrollContainer/Container" unique_id=2013326604 instance=ExtResource("4_5u8nr")]
+layout_mode = 2
+
+[node name="UIDice3" parent="HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/ScrollContainer/Container" unique_id=2096560435 instance=ExtResource("4_5u8nr")]
+layout_mode = 2

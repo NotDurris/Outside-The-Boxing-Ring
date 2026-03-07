@@ -1,14 +1,10 @@
 [gd_scene format=3 uid="uid://cdry02xops1qh"]
 
 [ext_resource type="Theme" uid="uid://bst7cn8b0ldyg" path="res://Assets/Themes/_UI/ipadinterface.tres" id="1_jy1cj"]
-[ext_resource type="Texture2D" uid="uid://cwbx6kmlscjr0" path="res://Assets/Sprites/icons/clock.png" id="2_ujqeo"]
 [ext_resource type="Texture2D" uid="uid://b7mgcwos037qv" path="res://Assets/Sprites/icons/settings.png" id="3_2v6ia"]
-[ext_resource type="Script" uid="uid://kl0a8tdhtw8u" path="res://Components/Ipad/screens/screen_manager.gd" id="4_2v6ia"]
 [ext_resource type="PackedScene" uid="uid://b4m2k3e6havwy" path="res://Components/Ipad/screens/career_screen.tscn" id="4_aokq0"]
 [ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/UI/Buttons/button_effects_handler.tscn" id="4_m8gs1"]
 [ext_resource type="PackedScene" uid="uid://c5288rsfw5qqf" path="res://Components/Ipad/screens/fighter_screen.tscn" id="5_2v6ia"]
-[ext_resource type="PackedScene" uid="uid://b5lvd1vqmx40u" path="res://Components/Ipad/screens/jobs_screen.tscn" id="6_m8gs1"]
-[ext_resource type="PackedScene" uid="uid://bfmoh20ycd3dv" path="res://Components/Ipad/screens/shop_screen.tscn" id="7_b1tnq"]
 [ext_resource type="PackedScene" uid="uid://ddw3upd02leoe" path="res://Components/UI/PauseMenu/pause.tscn" id="10_b1tnq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy1cj"]
@@ -57,36 +53,7 @@ theme_override_constants/margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main/Header/MarginContainer" unique_id=740617357]
 layout_mode = 2
-
-[node name="Clock" type="MarginContainer" parent="Main/Header/MarginContainer/HBoxContainer" unique_id=1507473735]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="TextureRect" type="TextureRect" parent="Main/Header/MarginContainer/HBoxContainer/Clock" unique_id=315860145]
-self_modulate = Color(0.93333334, 1, 0.8, 1)
-layout_mode = 2
-texture = ExtResource("2_ujqeo")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="Progress" type="ProgressBar" parent="Main/Header/MarginContainer/HBoxContainer" unique_id=1127220208]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-value = 7.48
-
-[node name="Stats" type="MarginContainer" parent="Main/Header/MarginContainer/HBoxContainer" unique_id=771647037]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_right = 8
-
-[node name="cost" type="Label" parent="Main/Header/MarginContainer/HBoxContainer/Stats" unique_id=1747586178]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "$100"
+alignment = 2
 
 [node name="Pause" type="MarginContainer" parent="Main/Header/MarginContainer/HBoxContainer" unique_id=1134816350]
 layout_mode = 2
@@ -113,61 +80,19 @@ expand_icon = true
 
 [node name="ButtonEffectsHandler" parent="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" unique_id=1596210632 instance=ExtResource("4_m8gs1")]
 
-[node name="Body" type="MarginContainer" parent="Main" unique_id=566554116 node_paths=PackedStringArray("screens")]
+[node name="Body" type="MarginContainer" parent="Main" unique_id=566554116]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("4_2v6ia")
-screens = [NodePath("Career"), NodePath("Fighter"), NodePath("Jobs"), NodePath("Shop")]
-active_screen = -1
 
 [node name="Career" parent="Main/Body" unique_id=950127154 instance=ExtResource("4_aokq0")]
 layout_mode = 2
 
 [node name="Fighter" parent="Main/Body" unique_id=2084284173 instance=ExtResource("5_2v6ia")]
+visible = false
 layout_mode = 2
-
-[node name="Jobs" parent="Main/Body" unique_id=1440714859 instance=ExtResource("6_m8gs1")]
-layout_mode = 2
-
-[node name="Shop" parent="Main/Body" unique_id=1040530057 instance=ExtResource("7_b1tnq")]
-layout_mode = 2
-
-[node name="Footer" type="PanelContainer" parent="Main" unique_id=920850235]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
-theme_override_styles/panel = SubResource("StyleBoxFlat_jy1cj")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Main/Footer" unique_id=216337289]
-layout_mode = 2
-theme_override_constants/separation = 2
-alignment = 1
-
-[node name="Career" type="Button" parent="Main/Footer/HBoxContainer" unique_id=1378952252]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Career"
-
-[node name="Fighter" type="Button" parent="Main/Footer/HBoxContainer" unique_id=1725343477]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Fighter"
-
-[node name="Jobs" type="Button" parent="Main/Footer/HBoxContainer" unique_id=1428542595]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Jobs"
-
-[node name="Shop" type="Button" parent="Main/Footer/HBoxContainer" unique_id=1892611040]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Shop"
 
 [node name="Pause" parent="." unique_id=90087904 instance=ExtResource("10_b1tnq")]
+visible = false
 layout_mode = 2
 
 [connection signal="pressed" from="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" to="Pause" method="show"]
-[connection signal="pressed" from="Main/Footer/HBoxContainer/Career" to="Main/Body" method="set_active_screen" binds= [0]]
-[connection signal="pressed" from="Main/Footer/HBoxContainer/Fighter" to="Main/Body" method="set_active_screen" binds= [1]]
-[connection signal="pressed" from="Main/Footer/HBoxContainer/Jobs" to="Main/Body" method="set_active_screen" binds= [2]]
-[connection signal="pressed" from="Main/Footer/HBoxContainer/Shop" to="Main/Body" method="set_active_screen" binds= [3]]

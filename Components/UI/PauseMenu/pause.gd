@@ -1,5 +1,5 @@
 class_name PauseLogic
-extends Node
+extends Control
 
 @export_group("Dependencies")
 @export var zoom_slider : Slider
@@ -7,6 +7,7 @@ extends Node
 @export var sway_toggle : CheckButton
 
 func _ready() -> void:
+	hide()
 	zoom_slider.value_changed.connect(func(value) : GlobalSignals.zoom_changed.emit(value))
 	screen_toggle.toggled.connect(func(value) : GlobalSignals.screen_effect_changed.emit(value))
 	sway_toggle.toggled.connect(func(value) : GlobalSignals.sway_effect_changed.emit(value))

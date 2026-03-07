@@ -5,9 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://b7mgcwos037qv" path="res://Assets/Sprites/icons/settings.png" id="3_2v6ia"]
 [ext_resource type="Script" uid="uid://kl0a8tdhtw8u" path="res://Components/Ipad/screens/screen_manager.gd" id="4_2v6ia"]
 [ext_resource type="PackedScene" uid="uid://b4m2k3e6havwy" path="res://Components/Ipad/screens/career_screen.tscn" id="4_aokq0"]
+[ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/UI/Buttons/button_effects_handler.tscn" id="4_m8gs1"]
 [ext_resource type="PackedScene" uid="uid://c5288rsfw5qqf" path="res://Components/Ipad/screens/fighter_screen.tscn" id="5_2v6ia"]
 [ext_resource type="PackedScene" uid="uid://b5lvd1vqmx40u" path="res://Components/Ipad/screens/jobs_screen.tscn" id="6_m8gs1"]
 [ext_resource type="PackedScene" uid="uid://bfmoh20ycd3dv" path="res://Components/Ipad/screens/shop_screen.tscn" id="7_b1tnq"]
+[ext_resource type="PackedScene" uid="uid://ddw3upd02leoe" path="res://Components/UI/PauseMenu/pause.tscn" id="10_b1tnq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy1cj"]
 bg_color = Color(0.06666667, 0.13725491, 0.09411765, 1)
@@ -21,9 +23,6 @@ bg_color = Color(0.06666667, 0.13725491, 0.09411765, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gnf6a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pd8w2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0y6he"]
-bg_color = Color(0, 0, 0, 0.62352943)
 
 [node name="IpadScreen" type="MarginContainer" unique_id=440891367]
 anchors_preset = 15
@@ -112,6 +111,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_pd8w2")
 icon = ExtResource("3_2v6ia")
 expand_icon = true
 
+[node name="ButtonEffectsHandler" parent="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" unique_id=1596210632 instance=ExtResource("4_m8gs1")]
+
 [node name="Body" type="MarginContainer" parent="Main" unique_id=566554116 node_paths=PackedStringArray("screens")]
 layout_mode = 2
 size_flags_vertical = 3
@@ -162,16 +163,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Shop"
 
-[node name="Pause" type="PanelContainer" parent="." unique_id=1997634571]
-visible = false
+[node name="Pause" parent="." unique_id=90087904 instance=ExtResource("10_b1tnq")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0y6he")
 
-[node name="Label" type="Label" parent="Pause" unique_id=736654572]
-layout_mode = 2
-text = "PAUSED"
-horizontal_alignment = 1
-
+[connection signal="pressed" from="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" to="Pause" method="show"]
 [connection signal="pressed" from="Main/Footer/HBoxContainer/Career" to="Main/Body" method="set_active_screen" binds= [0]]
 [connection signal="pressed" from="Main/Footer/HBoxContainer/Fighter" to="Main/Body" method="set_active_screen" binds= [1]]
 [connection signal="pressed" from="Main/Footer/HBoxContainer/Jobs" to="Main/Body" method="set_active_screen" binds= [2]]

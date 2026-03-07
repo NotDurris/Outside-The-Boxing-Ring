@@ -1,12 +1,43 @@
 [gd_scene format=3 uid="uid://b5lvd1vqmx40u"]
 
-[node name="Jobs" type="CenterContainer" unique_id=865899208]
+[node name="Jobs" type="MarginContainer" unique_id=762749079]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="." unique_id=1148776469]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1841699453]
 layout_mode = 2
-text = "jobs"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=842223307]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=466590552]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1992220154]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1162246563]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=116363483]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=30688152]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer5" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=747276429]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer6" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=697263066]
+layout_mode = 2
+size_flags_vertical = 3

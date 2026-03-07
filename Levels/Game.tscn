@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccy4xsxwcr4u8" path="res://Levels/ScenesLogic/level.gd" id="1_h48gd"]
 [ext_resource type="PackedScene" uid="uid://bppsb38p6a8d2" path="res://Components/Ipad/ipad.tscn" id="2_7hykl"]
+[ext_resource type="Script" uid="uid://egcc1revl18q" path="res://Components/Camera/dolly.gd" id="2_mxblp"]
 [ext_resource type="Script" uid="uid://blboofh4u5lkt" path="res://Components/Camera/camera_logic.gd" id="2_qocyw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7hykl"]
@@ -15,10 +16,9 @@ ground_horizon_color = Color(0.76521504, 0.7712276, 0.7832465, 1)
 sky_material = SubResource("ProceduralSkyMaterial_7hykl")
 
 [sub_resource type="Environment" id="Environment_7hykl"]
-background_mode = 2
-background_energy_multiplier = 0.3
+background_mode = 1
+background_color = Color(0.5362641, 0.81638974, 0.9383235, 1)
 sky = SubResource("Sky_qocyw")
-ambient_light_color = Color(0.67481464, 0.67481464, 0.6748146, 1)
 tonemap_mode = 2
 ssao_enabled = true
 glow_enabled = true
@@ -28,19 +28,37 @@ fog_light_energy = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_7hykl"]
 
+[sub_resource type="Gradient" id="Gradient_qocyw"]
+colors = PackedColorArray(0.72464263, 0.7246426, 0.7246426, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mxblp"]
+noise_type = 5
+frequency = 0.0631
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jr1ro"]
+noise = SubResource("FastNoiseLite_mxblp")
+color_ramp = SubResource("Gradient_qocyw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dygi0"]
+shading_mode = 0
+albedo_texture = SubResource("NoiseTexture2D_jr1ro")
+
 [node name="Game" type="Node3D" unique_id=413611698]
 script = ExtResource("1_h48gd")
 current_level = "Game"
 next_level = "EndScreen"
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1189298633]
-transform = Transform3D(1, 0, 0, 0, 0.70491904, 0.70928776, 0, -0.70928776, 0.70491904, 0, 1.7109592, 1.9348106)
+[node name="Dolly" type="Node3D" parent="." unique_id=878491427]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 1.5, 2)
+script = ExtResource("2_mxblp")
+
+[node name="Camera3D" type="Camera3D" parent="Dolly" unique_id=1189298633]
 script = ExtResource("2_qocyw")
 max_offset = Vector2(0.04, 0.04)
 rotation_speed = 0.01
 
 [node name="Ipad" parent="." unique_id=1638631390 instance=ExtResource("2_7hykl")]
-transform = Transform3D(1, 0, 0, 0, 0.8693311, -0.4942302, 0, 0.4942302, 0.8693311, 0, -1.424, -0.86)
+transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, -1.424, -0.86)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1700514322]
 environment = SubResource("Environment_7hykl")
@@ -48,6 +66,7 @@ environment = SubResource("Environment_7hykl")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=788641227]
 transform = Transform3D(35.74419, 0, 0, 0, 1, 0, 0, 0, 15.071549, 0, -3.4072213, 0)
 mesh = SubResource("BoxMesh_7hykl")
+surface_material_override/0 = SubResource("StandardMaterial3D_dygi0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=472748594]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 9.6982355, 0)

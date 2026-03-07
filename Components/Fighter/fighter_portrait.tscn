@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cr3xr2di6i0fp"]
+
+[ext_resource type="StyleBox" uid="uid://cw7wmfdoumei7" path="res://Assets/Themes/Panels/ipad_screen_background.tres" id="1_8iaoj"]
+[ext_resource type="Texture2D" uid="uid://bpwph8oefl43s" path="res://Assets/Sprites/man_silhouette.png" id="2_mvles"]
+[ext_resource type="PackedScene" uid="uid://cnaq5a2xcgp8y" path="res://Components/Fighter/stat_block.tscn" id="3_x736n"]
+[ext_resource type="StyleBox" uid="uid://db0ujnhteaba" path="res://Components/DiceManager/Dice/UI_Dice/endurance_background.tres" id="4_5jl2g"]
+[ext_resource type="StyleBox" uid="uid://k5a7h25xx5f3" path="res://Components/DiceManager/Dice/UI_Dice/aggro_background.tres" id="5_1waff"]
+[ext_resource type="StyleBox" uid="uid://dsujrwsu6y5ay" path="res://Components/DiceManager/Dice/UI_Dice/agility_background.tres" id="6_d33ph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iaoj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_bottom = 4
+border_color = Color(1, 0.7294118, 0.3137255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvles"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(1, 0.4627451, 0.38039216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x736n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0.13333334, 1, 0.6313726, 1)
+
+[node name="FighterPortrait" type="PanelContainer" unique_id=399528683]
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_styles/panel = ExtResource("1_8iaoj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=535018464]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=501665105]
+self_modulate = Color(0.06666667, 0.13725491, 0.09411765, 1)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_mvles")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=818195983]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=330248637]
+layout_mode = 2
+
+[node name="StatBlock" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=554590223 instance=ExtResource("3_x736n")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_5jl2g")
+
+[node name="Spacer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1942129803]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Spacer" unique_id=1644673317]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/Spacer" unique_id=1730246417]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8iaoj")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=674861063]
+layout_mode = 2
+alignment = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1692581444]
+custom_minimum_size = Vector2(32, 4)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvles")
+
+[node name="StatBlock2" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1889614228 instance=ExtResource("3_x736n")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_1waff")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1415575181]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1745689857]
+layout_mode = 2
+
+[node name="StatBlock3" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1600761563 instance=ExtResource("3_x736n")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_d33ph")
+
+[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=332020842]
+custom_minimum_size = Vector2(32, 4)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_x736n")

@@ -4,6 +4,58 @@
 [ext_resource type="StyleBox" uid="uid://30531b3oxvua" path="res://Assets/Themes/Buttons/ipad/normal.tres" id="2_0ytpw"]
 [ext_resource type="StyleBox" uid="uid://bro1x5jn84gwa" path="res://Assets/Themes/Buttons/ipad/highlight.tres" id="3_eqt26"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqt26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2kjet"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_54r0w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cscbg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nuqey"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8t5ug"]
+
+[sub_resource type="Gradient" id="Gradient_eqt26"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.45833334, 0.5364583, 0.671875)
+colors = PackedColorArray(0.93333334, 1, 0.8, 1, 0.9333926, 1, 0.8001778, 0.9991109, 0.9326433, 1, 0.7979302, 1.0103493, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2kjet"]
+gradient = SubResource("Gradient_eqt26")
+width = 12
+height = 12
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_54r0w"]
+gradient = SubResource("Gradient_eqt26")
+width = 12
+height = 12
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cscbg"]
+gradient = SubResource("Gradient_eqt26")
+width = 12
+height = 12
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54r0w"]
+bg_color = Color(0.93333334, 1, 0.8, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cscbg"]
+bg_color = Color(0.95666665, 1, 0.87, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuqey"]
 bg_color = Color(0.05591038, 0.08570326, 0.10272869, 1)
 
@@ -32,6 +84,17 @@ Button/styles/focus = ExtResource("3_eqt26")
 Button/styles/hover = ExtResource("2_0ytpw")
 Button/styles/normal = ExtResource("2_0ytpw")
 Button/styles/pressed = ExtResource("3_eqt26")
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_eqt26")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_2kjet")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_54r0w")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_cscbg")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_nuqey")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_8t5ug")
+HSlider/icons/grabber = SubResource("GradientTexture2D_2kjet")
+HSlider/icons/grabber_disabled = SubResource("GradientTexture2D_54r0w")
+HSlider/icons/grabber_highlight = SubResource("GradientTexture2D_cscbg")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_54r0w")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_cscbg")
 Label/colors/font_color = Color(0.93333334, 1, 0.8, 1)
 Label/fonts/font = ExtResource("1_w6lx2")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_nuqey")

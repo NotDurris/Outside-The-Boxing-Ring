@@ -151,91 +151,31 @@ layout_mode = 2
 [node name="UIDice10" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1127356350 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
-[node name="UIDice11" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=75985476 instance=ExtResource("1_6fdxb")]
+[node name="UIDice11" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1573092950 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
-[node name="UIDice12" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1478345870 instance=ExtResource("1_6fdxb")]
+[node name="UIDice12" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=162259908 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
-[node name="UIDice13" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1643311621 instance=ExtResource("1_6fdxb")]
+[node name="UIDice13" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1224504128 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
-[node name="UIDice14" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=942939360 instance=ExtResource("1_6fdxb")]
+[node name="UIDice14" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=811838670 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
-[node name="UIDice15" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=759231619 instance=ExtResource("1_6fdxb")]
+[node name="UIDice15" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=759907267 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
-[node name="UIDice16" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2091077454 instance=ExtResource("1_6fdxb")]
+[node name="UIDice16" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2122737338 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
-[node name="UIDice17" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=641429867 instance=ExtResource("1_6fdxb")]
+[node name="UIDice17" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2075857825 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
-[node name="UIDice18" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=25694755 instance=ExtResource("1_6fdxb")]
+[node name="UIDice18" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=398434060 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
-[node name="UIDice19" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=518420276 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice20" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2120824385 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice21" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1796776855 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice22" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1567745218 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice23" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=808593129 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice24" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=225131074 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice25" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=877688160 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice26" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1747933339 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice27" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=693769119 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice28" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2082793364 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice29" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1783717376 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice30" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=467692152 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice31" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1366841548 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice32" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1643988656 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice33" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=2071881349 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice35" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1164372936 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice36" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=155183580 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice37" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=559602939 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice38" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1139121403 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice39" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=1070239539 instance=ExtResource("1_6fdxb")]
-layout_mode = 2
-
-[node name="UIDice40" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=423550782 instance=ExtResource("1_6fdxb")]
+[node name="UIDice19" parent="BattleScreen/VBoxContainer/Inventory/Dice/Scroll/DiceContainer" unique_id=31751761 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
 
 [node name="Items" type="PanelContainer" parent="BattleScreen/VBoxContainer/Inventory" unique_id=2069624937]

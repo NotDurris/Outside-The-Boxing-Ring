@@ -20,7 +20,7 @@ void vertex() {
 }
 
 vec3 get_screen_pixel_colour(vec2 uv, vec3 colour){
-	vec3 base_colour = colour * (1.0-screen_intensity);
+	vec3 base_colour = colour * (0.9-screen_intensity);
 	int id = int(mod(floor(uv.x * scale) + uv.y * scale, 3));
 	switch (id){
 		case 0:

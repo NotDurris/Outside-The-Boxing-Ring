@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccy4xsxwcr4u8" path="res://Levels/ScenesLogic/level.gd" id="1_720qt"]
 [ext_resource type="Theme" uid="uid://mdn2knq2jrhm" path="res://Assets/Themes/_UI/mainmenu.tres" id="2_65ows"]
-[ext_resource type="Shader" uid="uid://dncoi5qsdsdpg" path="res://Assets/Shaders/stripey.gdshader" id="2_gerv3"]
+[ext_resource type="Shader" uid="uid://dncoi5qsdsdpg" path="res://Assets/Shaders/dots.gdshader" id="2_gerv3"]
 [ext_resource type="Texture2D" uid="uid://db74gjerqpe32" path="res://Assets/Sprites/page_corner.png" id="3_17ajd"]
 [ext_resource type="Script" uid="uid://bhdwkf48qj6lf" path="res://Components/MainMenu/follow_mouse.gd" id="3_pdswe"]
 [ext_resource type="Script" uid="uid://ds3m6bxligeht" path="res://Levels/ScenesLogic/change_level.gd" id="4_2ld8x"]

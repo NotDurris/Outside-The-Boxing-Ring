@@ -2,6 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://cw7wmfdoumei7" path="res://Assets/Themes/Panels/ipad_screen_background.tres" id="1_flo6y"]
 [ext_resource type="PackedScene" uid="uid://cr3xr2di6i0fp" path="res://Components/Fighter/fighter_portrait.tscn" id="1_s41r1"]
+[ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="2_fml5f"]
 [ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/DiceManager/dice_container.gd" id="3_10sic"]
 [ext_resource type="PackedScene" uid="uid://b16piwmo3c5nf" path="res://Components/DiceManager/Dice/UI_Dice/ui_dice.tscn" id="4_5u8nr"]
 [ext_resource type="Texture2D" uid="uid://csfoeefvxqsd2" path="res://Assets/Sprites/icons/heart.png" id="7_m1xir"]
@@ -41,7 +42,7 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1821633567]
 layout_mode = 2
-color = Color(0.1882353, 0.3647059, 0.25882354, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=301473411]
 layout_mode = 2
@@ -55,6 +56,7 @@ theme_override_constants/separation = 4
 layout_mode = 2
 
 [node name="Stats" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1554607513]
+material = ExtResource("2_fml5f")
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("1_flo6y")
@@ -179,6 +181,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Traits" type="PanelContainer" parent="HBoxContainer/VBoxContainer2/Buffs" unique_id=1555738036]
+material = ExtResource("2_fml5f")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -200,6 +203,7 @@ text = "traits"
 horizontal_alignment = 1
 
 [node name="Skills" type="PanelContainer" parent="HBoxContainer/VBoxContainer2/Buffs" unique_id=817391474]
+material = ExtResource("2_fml5f")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -221,6 +225,7 @@ text = "skills"
 horizontal_alignment = 1
 
 [node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=2047538241]
+material = ExtResource("2_fml5f")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0

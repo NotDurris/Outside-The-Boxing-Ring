@@ -6,10 +6,10 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_344my"]
 texture = ExtResource("1_g53fu")
-expand_margin_left = 16.0
-expand_margin_top = 16.0
-expand_margin_right = 16.0
-expand_margin_bottom = 16.0
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 12.0
+expand_margin_bottom = 12.0
 
 [node name="Event" type="Button" unique_id=1582012923]
 custom_minimum_size = Vector2(48, 48)

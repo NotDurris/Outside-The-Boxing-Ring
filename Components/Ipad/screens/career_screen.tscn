@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://b4m2k3e6havwy"]
 
-[ext_resource type="Script" uid="uid://g2uxacutxspb" path="res://Components/Career/bracket_container.gd" id="1_6fdxb"]
-[ext_resource type="PackedScene" uid="uid://bta5mcq7j6vk" path="res://Components/Career/Events/event.tscn" id="2_yeji3"]
+[ext_resource type="PackedScene" uid="uid://d2fopyho8jnkt" path="res://Components/Career/rank.tscn" id="1_6fdxb"]
 
 [node name="Career" type="MarginContainer" unique_id=2111181882]
 anchors_preset = 15
@@ -18,42 +17,52 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Container" type="Container" parent="ScrollContainer/VBoxContainer" unique_id=414010570]
-custom_minimum_size = Vector2(0, 400)
+[node name="Rank" parent="ScrollContainer/VBoxContainer" unique_id=1286277167 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("1_6fdxb")
-positions = Array[Vector2]([Vector2(0, 2), Vector2(9, 0), Vector2(2, 1), Vector2(6, 0), Vector2(7, 1), Vector2(9, 2), Vector2(2, 2), Vector2(0, 0), Vector2(5, 0), Vector2(9, 1), Vector2(2, 0)])
+rank = 1
+colour = Color(0.93333334, 0.50980395, 0.93333334, 1)
 
-[node name="Event" parent="ScrollContainer/VBoxContainer/Container" unique_id=1582012923 instance=ExtResource("2_yeji3")]
+[node name="Rank2" parent="ScrollContainer/VBoxContainer" unique_id=2113276589 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
+rank = 2
+colour = Color(0.48461813, 0.94885594, 0.90825677, 1)
 
-[node name="Event2" parent="ScrollContainer/VBoxContainer/Container" unique_id=635118279 instance=ExtResource("2_yeji3")]
+[node name="Rank3" parent="ScrollContainer/VBoxContainer" unique_id=1963306421 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
+rank = 3
+colour = Color(0.4988413, 0.888242, 0.34489998, 1)
 
-[node name="Event3" parent="ScrollContainer/VBoxContainer/Container" unique_id=402292065 instance=ExtResource("2_yeji3")]
+[node name="Rank4" parent="ScrollContainer/VBoxContainer" unique_id=932547706 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
+rank = 4
+colour = Color(0.90885425, 0.77709866, 0.18554085, 1)
 
-[node name="Event4" parent="ScrollContainer/VBoxContainer/Container" unique_id=46253538 instance=ExtResource("2_yeji3")]
+[node name="Rank5" parent="ScrollContainer/VBoxContainer" unique_id=174929598 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
+rank = 5
+colour = Color(0.82178897, 0.8217886, 0.8217889, 1)
 
-[node name="Event5" parent="ScrollContainer/VBoxContainer/Container" unique_id=1618653294 instance=ExtResource("2_yeji3")]
+[node name="Rank6" parent="ScrollContainer/VBoxContainer" unique_id=1732568522 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
+rank = 6
+colour = Color(0.81765497, 0.65102077, 0.5032951, 1)
 
-[node name="Event6" parent="ScrollContainer/VBoxContainer/Container" unique_id=1135480469 instance=ExtResource("2_yeji3")]
+[node name="Rank7" parent="ScrollContainer/VBoxContainer" unique_id=1779484190 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
+rank = 7
+colour = Color(0.7532675, 0.47217953, 0.26946515, 1)
 
-[node name="Event7" parent="ScrollContainer/VBoxContainer/Container" unique_id=1478563136 instance=ExtResource("2_yeji3")]
+[node name="Rank8" parent="ScrollContainer/VBoxContainer" unique_id=1513702073 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
+rank = 8
+colour = Color(0.46076077, 0.33473733, 0.19785541, 1)
 
-[node name="Event8" parent="ScrollContainer/VBoxContainer/Container" unique_id=277311179 instance=ExtResource("2_yeji3")]
+[node name="Rank9" parent="ScrollContainer/VBoxContainer" unique_id=666419422 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
+rank = 9
+colour = Color(0.3663708, 0.41870323, 0.4407163, 1)
 
-[node name="Event9" parent="ScrollContainer/VBoxContainer/Container" unique_id=197211341 instance=ExtResource("2_yeji3")]
+[node name="Rank10" parent="ScrollContainer/VBoxContainer" unique_id=280717251 instance=ExtResource("1_6fdxb")]
 layout_mode = 2
-
-[node name="Event10" parent="ScrollContainer/VBoxContainer/Container" unique_id=1974904730 instance=ExtResource("2_yeji3")]
-layout_mode = 2
-
-[node name="Event11" parent="ScrollContainer/VBoxContainer/Container" unique_id=1287141991 instance=ExtResource("2_yeji3")]
-layout_mode = 2
+rank = 10
+colour = Color(0.31431654, 0.31431592, 0.31431618, 1)

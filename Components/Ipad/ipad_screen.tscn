@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cdry02xops1qh"]
 
 [ext_resource type="Theme" uid="uid://bst7cn8b0ldyg" path="res://Assets/Themes/_UI/ipadinterface.tres" id="1_jy1cj"]
+[ext_resource type="Texture2D" uid="uid://c6ld56uuetj7b" path="res://Assets/Sprites/icons/profile.png" id="2_aokq0"]
 [ext_resource type="Texture2D" uid="uid://b7mgcwos037qv" path="res://Assets/Sprites/icons/settings.png" id="3_2v6ia"]
 [ext_resource type="PackedScene" uid="uid://b4m2k3e6havwy" path="res://Components/Ipad/screens/career_screen.tscn" id="4_aokq0"]
 [ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/UI/Buttons/button_effects_handler.tscn" id="4_m8gs1"]
@@ -56,6 +57,31 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 alignment = 2
 
+[node name="Profile" type="MarginContainer" parent="Main/Header/MarginContainer/HBoxContainer" unique_id=284308720]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="profile_btn" type="Button" parent="Main/Header/MarginContainer/HBoxContainer/Profile" unique_id=1180730980]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m8gs1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b1tnq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ukew1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gnf6a")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pd8w2")
+icon = ExtResource("2_aokq0")
+expand_icon = true
+
+[node name="ButtonEffectsHandler" parent="Main/Header/MarginContainer/HBoxContainer/Profile/profile_btn" unique_id=1596210632 instance=ExtResource("4_m8gs1")]
+
 [node name="Pause" type="MarginContainer" parent="Main/Header/MarginContainer/HBoxContainer" unique_id=1134816350]
 layout_mode = 2
 theme_override_constants/margin_left = 8
@@ -79,7 +105,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_pd8w2")
 icon = ExtResource("3_2v6ia")
 expand_icon = true
 
-[node name="ButtonEffectsHandler" parent="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" unique_id=1596210632 instance=ExtResource("4_m8gs1")]
+[node name="ButtonEffectsHandler" parent="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" unique_id=1220882839 instance=ExtResource("4_m8gs1")]
 
 [node name="Body" type="MarginContainer" parent="Main" unique_id=566554116]
 layout_mode = 2
@@ -96,4 +122,5 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[connection signal="pressed" from="Main/Header/MarginContainer/HBoxContainer/Profile/profile_btn" to="Main/Body/Fighter" method="show"]
 [connection signal="pressed" from="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" to="Pause" method="show"]

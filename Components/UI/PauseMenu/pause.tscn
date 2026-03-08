@@ -104,6 +104,7 @@ button_pressed = true
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1452553928]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
 text = " close "
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="hide"]

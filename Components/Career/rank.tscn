@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://d2fopyho8jnkt"]
+
+[ext_resource type="Script" uid="uid://cdbfuptau5oe7" path="res://Components/Career/rank.gd" id="1_q171w"]
+[ext_resource type="PackedScene" uid="uid://bta5mcq7j6vk" path="res://Components/Career/Events/event.tscn" id="1_vrr4x"]
+[ext_resource type="FontFile" uid="uid://wvdspsgmxewv" path="res://Assets/Fonts/Nunito-SemiBold.ttf" id="2_q171w"]
+[ext_resource type="Script" uid="uid://g2uxacutxspb" path="res://Components/Career/bracket_container.gd" id="3_lp22g"]
+[ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="3_wy74n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al1ku"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Rank" type="VBoxContainer" unique_id=1286277167]
+script = ExtResource("1_q171w")
+
+[node name="Boss" type="MarginContainer" parent="." unique_id=1686918556]
+layout_mode = 2
+
+[node name="Background" type="ColorRect" parent="Boss" unique_id=1566308968]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Boss" unique_id=194441311]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="Event" parent="Boss/CenterContainer" unique_id=1582012923 instance=ExtResource("1_vrr4x")]
+layout_mode = 2
+
+[node name="Level" type="PanelContainer" parent="." unique_id=1639426733]
+material = ExtResource("3_wy74n")
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_al1ku")
+
+[node name="RankLabel" type="Label" parent="Level" unique_id=1219150623]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62967503, 0.6296747, 0.62967485, 0.2627451)
+theme_override_fonts/font = ExtResource("2_q171w")
+theme_override_font_sizes/font_size = 212
+text = "10"
+
+[node name="Container" type="Container" parent="Level" unique_id=1213672820]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("3_lp22g")
+
+[node name="Event" parent="Level/Container" unique_id=1911831022 instance=ExtResource("1_vrr4x")]
+layout_mode = 2
+type = 4
+
+[node name="Event2" parent="Level/Container" unique_id=719024461 instance=ExtResource("1_vrr4x")]
+layout_mode = 2
+type = 4
+
+[node name="Event3" parent="Level/Container" unique_id=36104377 instance=ExtResource("1_vrr4x")]
+layout_mode = 2
+type = 4
+
+[node name="Event4" parent="Level/Container" unique_id=2114238566 instance=ExtResource("1_vrr4x")]
+layout_mode = 2
+type = 4
+
+[node name="Event5" parent="Level/Container" unique_id=873266557 instance=ExtResource("1_vrr4x")]
+layout_mode = 2
+type = 4
+
+[node name="Event6" parent="Level/Container" unique_id=478254062 instance=ExtResource("1_vrr4x")]
+layout_mode = 2
+type = 4
+
+[node name="Event7" parent="Level/Container" unique_id=826203271 instance=ExtResource("1_vrr4x")]
+layout_mode = 2
+type = 4
+
+[node name="Event8" parent="Level/Container" unique_id=216179016 instance=ExtResource("1_vrr4x")]
+layout_mode = 2
+type = 4
+
+[node name="Event9" parent="Level/Container" unique_id=270142238 instance=ExtResource("1_vrr4x")]
+layout_mode = 2
+type = 4
+
+[node name="Background2" type="ColorRect" parent="." unique_id=165693718]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+color = Color(0.45452422, 0.45452428, 0.45452422, 1)

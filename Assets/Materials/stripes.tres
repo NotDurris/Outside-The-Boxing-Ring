@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b5rsytjcl71hg"]
+
+[ext_resource type="Shader" uid="uid://brgdmlil512fh" path="res://Assets/Shaders/striped.gdshader" id="1_h66ar"]
+
+[resource]
+shader = ExtResource("1_h66ar")
+shader_parameter/scale = 0.1
+shader_parameter/colour_one = Color(0.14406255, 0.14406255, 0.14406255, 1)
+shader_parameter/colour_two = Color(0.11858138, 0.11858138, 0.11858138, 1)
+shader_parameter/target_point = Vector2(0.5, 0.5)

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cr3xr2di6i0fp"]
 
 [ext_resource type="StyleBox" uid="uid://cw7wmfdoumei7" path="res://Assets/Themes/Panels/ipad_screen_background.tres" id="1_8iaoj"]
+[ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="1_mvles"]
 [ext_resource type="Texture2D" uid="uid://bpwph8oefl43s" path="res://Assets/Sprites/man_silhouette.png" id="2_mvles"]
 [ext_resource type="PackedScene" uid="uid://cnaq5a2xcgp8y" path="res://Components/Fighter/stat_block.tscn" id="3_x736n"]
 [ext_resource type="StyleBox" uid="uid://db0ujnhteaba" path="res://Components/DiceManager/Dice/UI_Dice/endurance_background.tres" id="4_5jl2g"]
@@ -26,6 +27,7 @@ border_width_bottom = 2
 border_color = Color(0.13333334, 1, 0.6313726, 1)
 
 [node name="FighterPortrait" type="PanelContainer" unique_id=399528683]
+material = ExtResource("1_mvles")
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 theme_override_styles/panel = ExtResource("1_8iaoj")
@@ -38,7 +40,7 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=501665105]
-self_modulate = Color(0.06666667, 0.13725491, 0.09411765, 1)
+self_modulate = Color(0.82, 0.82, 0.82, 0.58431375)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_mvles")

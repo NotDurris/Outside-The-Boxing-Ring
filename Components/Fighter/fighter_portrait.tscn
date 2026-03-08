@@ -40,7 +40,7 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=501665105]
-self_modulate = Color(0.82, 0.82, 0.82, 0.58431375)
+self_modulate = Color(0.82, 0.82, 0.82, 0.39215687)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_mvles")

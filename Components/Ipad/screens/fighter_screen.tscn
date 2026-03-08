@@ -3,7 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://cw7wmfdoumei7" path="res://Assets/Themes/Panels/ipad_screen_background.tres" id="1_flo6y"]
 [ext_resource type="PackedScene" uid="uid://cr3xr2di6i0fp" path="res://Components/Fighter/fighter_portrait.tscn" id="1_s41r1"]
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="2_fml5f"]
-[ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/DiceManager/dice_container.gd" id="3_10sic"]
+[ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/DiceManager/strategy_ui.gd" id="3_10sic"]
 [ext_resource type="PackedScene" uid="uid://b16piwmo3c5nf" path="res://Components/DiceManager/Dice/UI_Dice/ui_dice.tscn" id="4_5u8nr"]
 [ext_resource type="Texture2D" uid="uid://csfoeefvxqsd2" path="res://Assets/Sprites/icons/heart.png" id="7_m1xir"]
 [ext_resource type="Texture2D" uid="uid://bmlkn4d8ln8ck" path="res://Assets/Sprites/icons/bolt.png" id="8_fxiyc"]
@@ -298,15 +298,8 @@ layout_mode = 2
 text = "strategy"
 horizontal_alignment = 1
 
-[node name="Container" type="Container" parent="VBoxContainer/Strategy/MarginContainer/VBoxContainer" unique_id=15205746]
+[node name="StrategyContainer" type="HBoxContainer" parent="VBoxContainer/Strategy/MarginContainer/VBoxContainer" unique_id=673656075]
 layout_mode = 2
+alignment = 1
 script = ExtResource("3_10sic")
-
-[node name="UIDice" parent="VBoxContainer/Strategy/MarginContainer/VBoxContainer/Container" unique_id=426910914 instance=ExtResource("4_5u8nr")]
-layout_mode = 2
-
-[node name="UIDice2" parent="VBoxContainer/Strategy/MarginContainer/VBoxContainer/Container" unique_id=2013326604 instance=ExtResource("4_5u8nr")]
-layout_mode = 2
-
-[node name="UIDice3" parent="VBoxContainer/Strategy/MarginContainer/VBoxContainer/Container" unique_id=2096560435 instance=ExtResource("4_5u8nr")]
-layout_mode = 2
+ui_dice = ExtResource("4_5u8nr")

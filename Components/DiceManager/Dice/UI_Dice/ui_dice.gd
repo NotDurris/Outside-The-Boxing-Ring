@@ -1,3 +1,4 @@
+class_name UIDice
 extends Button
 
 @onready var background_panel : Control = $background
@@ -9,63 +10,19 @@ const AGILITY_BACKGROUND = preload("uid://dsujrwsu6y5ay")
 const DEFAULT_BACKGROUND = preload("uid://b1hsaw56djxkx")
 const EMPTY_BACKGROUND = preload("uid://chccsww0104xp")
 
-var target_dice : dice :
-	set(value):
-		target_dice = value
-		
-		if target_dice == null:
-			disabled = true
-			value_label.text = ""
-			background_panel.add_theme_stylebox_override("panel", EMPTY_BACKGROUND)
-			return
-		
-		disabled = false
-		
-		if target_dice.used:
-			modulate = Color(0.486, 0.486, 0.486, 1.0)
-		else:
-			modulate = Color.WHITE
-		
-		match(target_dice.type):
-			dice.DiceType.Aggro:
-				background_panel.add_theme_stylebox_override("panel", AGGRO_BACKGROUND)
-			dice.DiceType.Endurance:
-				background_panel.add_theme_stylebox_override("panel", ENDURANCE_BACKGROUND)
-			dice.DiceType.Agility:
-				background_panel.add_theme_stylebox_override("panel", AGILITY_BACKGROUND)
-			_:
-				background_panel.add_theme_stylebox_override("panel", DEFAULT_BACKGROUND)
+func set_dice_visual(type : dice.DiceType, label : String):
+	value_label.text = label
+	match(type):
+		dice.DiceType.Aggro:
+			background_panel.add_theme_stylebox_override("panel", AGGRO_BACKGROUND)
+		dice.DiceType.Endurance:
+			background_panel.add_theme_stylebox_override("panel", ENDURANCE_BACKGROUND)
+		dice.DiceType.Agility:
+			background_panel.add_theme_stylebox_override("panel", AGILITY_BACKGROUND)
+		_:
+			background_panel.add_theme_stylebox_override("panel", DEFAULT_BACKGROUND)
 
 func _ready() -> void:
-	target_dice = dice.new(6, randi_range(0,2))
 	pivot_offset = size * 0.5
 	background_panel.pivot_offset = background_panel.size * 0.5
 	value_label.pivot_offset = value_label.size * 0.5
-	
-	pressed.connect(func():
-		roll_dice_animation()
-		target_dice.value = randi_range(1, target_dice.sides)
-	)
-
-func randomise_number():
-	value_label.text = str(randi_range(1, target_dice.sides))
-
-func roll_dice_animation():
-	var tweener : Tween = create_tween()
-	tweener.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-	
-	var randomise_tweener : Tween = create_tween()
-	randomise_tweener.set_loops()
-	randomise_tweener.tween_callback(randomise_number)
-	randomise_tweener.tween_interval(0.05)
-	randomise_tweener.pause()
-	
-	tweener.tween_property(self, "rotation", -PI*0.1, 0.1)
-	tweener.tween_callback(randomise_tweener.play)
-	tweener.tween_property(self, "rotation", 2*PI, 0.3)
-	
-	tweener.tween_callback(func(): 
-		rotation = 0
-		randomise_tweener.kill()
-		value_label.text = str(target_dice.value)
-	)

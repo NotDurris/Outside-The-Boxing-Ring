@@ -137,6 +137,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Battle" type="CenterContainer" parent="." unique_id=1544150435]
+visible = false
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Battle" unique_id=1095648831]

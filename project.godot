@@ -32,6 +32,7 @@ DiceManager="*uid://dw5nxsxw0e7to"
 [display]
 
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://di8oth7njcov8"
 
 [editor_plugins]
 

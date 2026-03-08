@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://cdry02xops1qh"]
 
 [ext_resource type="Theme" uid="uid://bst7cn8b0ldyg" path="res://Assets/Themes/_UI/ipadinterface.tres" id="1_jy1cj"]
+[ext_resource type="PackedScene" uid="uid://g8fptfm0a2ey" path="res://Components/Reputation/dot.tscn" id="2_2v6ia"]
 [ext_resource type="Texture2D" uid="uid://c6ld56uuetj7b" path="res://Assets/Sprites/icons/profile.png" id="2_aokq0"]
+[ext_resource type="Script" uid="uid://rfp551787gb6" path="res://Components/Reputation/reputation.gd" id="2_m8gs1"]
 [ext_resource type="Texture2D" uid="uid://b7mgcwos037qv" path="res://Assets/Sprites/icons/settings.png" id="3_2v6ia"]
 [ext_resource type="PackedScene" uid="uid://b4m2k3e6havwy" path="res://Components/Ipad/screens/career_screen.tscn" id="4_aokq0"]
 [ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/UI/Buttons/button_effects_handler.tscn" id="4_m8gs1"]
 [ext_resource type="PackedScene" uid="uid://c5288rsfw5qqf" path="res://Components/Ipad/screens/fighter_screen.tscn" id="5_2v6ia"]
+[ext_resource type="PackedScene" uid="uid://djntghqtmsbk3" path="res://Components/Ipad/screens/battle_screen.tscn" id="9_b1tnq"]
 [ext_resource type="PackedScene" uid="uid://ddw3upd02leoe" path="res://Components/UI/PauseMenu/pause.tscn" id="10_b1tnq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy1cj"]
@@ -55,7 +58,15 @@ theme_override_constants/margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main/Header/MarginContainer" unique_id=740617357]
 layout_mode = 2
-alignment = 2
+
+[node name="Reputation" type="HBoxContainer" parent="Main/Header/MarginContainer/HBoxContainer" unique_id=509244940]
+layout_mode = 2
+script = ExtResource("2_m8gs1")
+dot = ExtResource("2_2v6ia")
+
+[node name="Control" type="Control" parent="Main/Header/MarginContainer/HBoxContainer" unique_id=1922249984]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Profile" type="MarginContainer" parent="Main/Header/MarginContainer/HBoxContainer" unique_id=284308720]
 layout_mode = 2
@@ -114,13 +125,30 @@ size_flags_vertical = 3
 [node name="Career" parent="Main/Body" unique_id=950127154 instance=ExtResource("4_aokq0")]
 layout_mode = 2
 
-[node name="Fighter" parent="Main/Body" unique_id=2084284173 instance=ExtResource("5_2v6ia")]
+[node name="Profile" type="CenterContainer" parent="." unique_id=2100170257]
 visible = false
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Profile" unique_id=1392882560]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="Fighter" parent="Profile/PanelContainer" unique_id=2084284173 instance=ExtResource("5_2v6ia")]
+layout_mode = 2
+
+[node name="Battle" type="CenterContainer" parent="." unique_id=1544150435]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Battle" unique_id=1095648831]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="BattleScreen" parent="Battle/PanelContainer" unique_id=1888939456 instance=ExtResource("9_b1tnq")]
 layout_mode = 2
 
 [node name="Pause" parent="." unique_id=90087904 instance=ExtResource("10_b1tnq")]
 visible = false
 layout_mode = 2
 
-[connection signal="pressed" from="Main/Header/MarginContainer/HBoxContainer/Profile/profile_btn" to="Main/Body/Fighter" method="show"]
+[connection signal="pressed" from="Main/Header/MarginContainer/HBoxContainer/Profile/profile_btn" to="Profile" method="show"]
 [connection signal="pressed" from="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" to="Pause" method="show"]

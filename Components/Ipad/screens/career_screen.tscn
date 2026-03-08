@@ -66,3 +66,4 @@ colour = Color(0.3663708, 0.41870323, 0.4407163, 1)
 layout_mode = 2
 rank = 10
 colour = Color(0.31431654, 0.31431592, 0.31431618, 1)
+locked = false

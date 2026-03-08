@@ -9,78 +9,96 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al1ku"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="Rank" type="VBoxContainer" unique_id=1286277167]
-script = ExtResource("1_q171w")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lp22g"]
+bg_color = Color(0.3235072, 0.05348462, 0.039241903, 0.39215687)
 
-[node name="Boss" type="MarginContainer" parent="." unique_id=1686918556]
+[node name="Rank" type="MarginContainer" unique_id=8077601 node_paths=PackedStringArray("rank_label", "background", "lock_screen")]
+offset_right = 254.0
+offset_bottom = 524.0
+script = ExtResource("1_q171w")
+rank_label = NodePath("RankContents/Level/RankLabel")
+background = NodePath("RankContents/Boss/Background")
+lock_screen = NodePath("Lock")
+
+[node name="RankContents" type="VBoxContainer" parent="." unique_id=1902741011]
 layout_mode = 2
 
-[node name="Background" type="ColorRect" parent="Boss" unique_id=1566308968]
+[node name="Boss" type="MarginContainer" parent="RankContents" unique_id=1686918556]
+layout_mode = 2
+
+[node name="Background" type="ColorRect" parent="RankContents/Boss" unique_id=1566308968]
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="Boss" unique_id=194441311]
+[node name="CenterContainer" type="CenterContainer" parent="RankContents/Boss" unique_id=194441311]
 custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 
-[node name="Event" parent="Boss/CenterContainer" unique_id=1582012923 instance=ExtResource("1_vrr4x")]
+[node name="Event" parent="RankContents/Boss/CenterContainer" unique_id=1582012923 instance=ExtResource("1_vrr4x")]
 layout_mode = 2
 
-[node name="Level" type="PanelContainer" parent="." unique_id=1639426733]
+[node name="Level" type="PanelContainer" parent="RankContents" unique_id=1639426733]
 material = ExtResource("3_wy74n")
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_al1ku")
 
-[node name="RankLabel" type="Label" parent="Level" unique_id=1219150623]
+[node name="RankLabel" type="Label" parent="RankContents/Level" unique_id=1219150623]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.62967503, 0.6296747, 0.62967485, 0.2627451)
 theme_override_fonts/font = ExtResource("2_q171w")
 theme_override_font_sizes/font_size = 212
 text = "10"
 
-[node name="Container" type="Container" parent="Level" unique_id=1213672820]
+[node name="Container" type="Container" parent="RankContents/Level" unique_id=1213672820]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_lp22g")
 
-[node name="Event" parent="Level/Container" unique_id=1911831022 instance=ExtResource("1_vrr4x")]
+[node name="Event" parent="RankContents/Level/Container" unique_id=1911831022 instance=ExtResource("1_vrr4x")]
 layout_mode = 2
 type = 4
 
-[node name="Event2" parent="Level/Container" unique_id=719024461 instance=ExtResource("1_vrr4x")]
+[node name="Event2" parent="RankContents/Level/Container" unique_id=719024461 instance=ExtResource("1_vrr4x")]
 layout_mode = 2
 type = 4
 
-[node name="Event3" parent="Level/Container" unique_id=36104377 instance=ExtResource("1_vrr4x")]
+[node name="Event3" parent="RankContents/Level/Container" unique_id=36104377 instance=ExtResource("1_vrr4x")]
 layout_mode = 2
 type = 4
 
-[node name="Event4" parent="Level/Container" unique_id=2114238566 instance=ExtResource("1_vrr4x")]
+[node name="Event4" parent="RankContents/Level/Container" unique_id=2114238566 instance=ExtResource("1_vrr4x")]
 layout_mode = 2
 type = 4
 
-[node name="Event5" parent="Level/Container" unique_id=873266557 instance=ExtResource("1_vrr4x")]
+[node name="Event5" parent="RankContents/Level/Container" unique_id=873266557 instance=ExtResource("1_vrr4x")]
 layout_mode = 2
 type = 4
 
-[node name="Event6" parent="Level/Container" unique_id=478254062 instance=ExtResource("1_vrr4x")]
+[node name="Event6" parent="RankContents/Level/Container" unique_id=478254062 instance=ExtResource("1_vrr4x")]
 layout_mode = 2
 type = 4
 
-[node name="Event7" parent="Level/Container" unique_id=826203271 instance=ExtResource("1_vrr4x")]
+[node name="Event7" parent="RankContents/Level/Container" unique_id=826203271 instance=ExtResource("1_vrr4x")]
 layout_mode = 2
 type = 4
 
-[node name="Event8" parent="Level/Container" unique_id=216179016 instance=ExtResource("1_vrr4x")]
+[node name="Event8" parent="RankContents/Level/Container" unique_id=216179016 instance=ExtResource("1_vrr4x")]
 layout_mode = 2
 type = 4
 
-[node name="Event9" parent="Level/Container" unique_id=270142238 instance=ExtResource("1_vrr4x")]
+[node name="Event9" parent="RankContents/Level/Container" unique_id=270142238 instance=ExtResource("1_vrr4x")]
 layout_mode = 2
 type = 4
 
-[node name="Background2" type="ColorRect" parent="." unique_id=165693718]
+[node name="Divider" type="ColorRect" parent="RankContents" unique_id=165693718]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 color = Color(0.45452422, 0.45452428, 0.45452422, 1)
+
+[node name="Lock" type="PanelContainer" parent="." unique_id=2062652254]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lp22g")
+
+[node name="TextureRect" type="TextureRect" parent="Lock" unique_id=1382992471]
+layout_mode = 2

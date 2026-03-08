@@ -1,11 +1,15 @@
-extends VBoxContainer
+extends Control
 
 @export var rank : int
 @export var colour : Color
+@export var locked : bool = true
 
-@onready var rank_label: Label = $Level/RankLabel 
-@onready var background: ColorRect = $Boss/Background
+@export_group("Dependencies")
+@export var rank_label: Label
+@export var background: ColorRect
+@export var lock_screen: Control
 
 func _ready() -> void:
 	rank_label.text = str(rank)
 	background.color = colour
+	lock_screen.visible = locked

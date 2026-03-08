@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bta5mcq7j6vk"]
+
+[ext_resource type="Texture2D" uid="uid://pqdturqaygfi" path="res://Assets/Sprites/icons/outline_thin.png" id="1_g53fu"]
+[ext_resource type="Script" uid="uid://dh30tffafl056" path="res://Components/Career/Events/event_logic.gd" id="2_ocuyh"]
+[ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/UI/Buttons/button_effects_handler.tscn" id="3_u18kl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_344my"]
+texture = ExtResource("1_g53fu")
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+
+[node name="Event" type="Button" unique_id=1582012923]
+custom_minimum_size = Vector2(48, 48)
+theme_override_styles/normal = SubResource("StyleBoxTexture_344my")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_344my")
+theme_override_styles/hover = SubResource("StyleBoxTexture_344my")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_344my")
+theme_override_styles/focus = SubResource("StyleBoxTexture_344my")
+expand_icon = true
+script = ExtResource("2_ocuyh")
+type = 3
+
+[node name="ButtonEffectsHandler" parent="." unique_id=1596210632 instance=ExtResource("3_u18kl")]

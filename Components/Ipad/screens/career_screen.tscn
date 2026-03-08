@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b4m2k3e6havwy"]
 
-[ext_resource type="PackedScene" uid="uid://djntghqtmsbk3" path="res://Components/Ipad/screens/battle_screen.tscn" id="1_6fdxb"]
+[ext_resource type="Script" uid="uid://g2uxacutxspb" path="res://Components/Career/bracket_container.gd" id="1_6fdxb"]
+[ext_resource type="PackedScene" uid="uid://bta5mcq7j6vk" path="res://Components/Career/Events/event.tscn" id="2_yeji3"]
 
 [node name="Career" type="MarginContainer" unique_id=2111181882]
 anchors_preset = 15
@@ -9,6 +10,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BattleScreen" parent="." unique_id=1888939456 instance=ExtResource("1_6fdxb")]
-visible = false
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=647375614]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=753498858]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Container" type="Container" parent="ScrollContainer/VBoxContainer" unique_id=414010570]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_6fdxb")
+positions = Array[Vector2]([Vector2(0, 2), Vector2(9, 0), Vector2(2, 1), Vector2(6, 0), Vector2(7, 1), Vector2(9, 2), Vector2(2, 2), Vector2(0, 0), Vector2(5, 0), Vector2(9, 1), Vector2(2, 0)])
+
+[node name="Event" parent="ScrollContainer/VBoxContainer/Container" unique_id=1582012923 instance=ExtResource("2_yeji3")]
+layout_mode = 2
+
+[node name="Event2" parent="ScrollContainer/VBoxContainer/Container" unique_id=635118279 instance=ExtResource("2_yeji3")]
+layout_mode = 2
+
+[node name="Event3" parent="ScrollContainer/VBoxContainer/Container" unique_id=402292065 instance=ExtResource("2_yeji3")]
+layout_mode = 2
+
+[node name="Event4" parent="ScrollContainer/VBoxContainer/Container" unique_id=46253538 instance=ExtResource("2_yeji3")]
+layout_mode = 2
+
+[node name="Event5" parent="ScrollContainer/VBoxContainer/Container" unique_id=1618653294 instance=ExtResource("2_yeji3")]
+layout_mode = 2
+
+[node name="Event6" parent="ScrollContainer/VBoxContainer/Container" unique_id=1135480469 instance=ExtResource("2_yeji3")]
+layout_mode = 2
+
+[node name="Event7" parent="ScrollContainer/VBoxContainer/Container" unique_id=1478563136 instance=ExtResource("2_yeji3")]
+layout_mode = 2
+
+[node name="Event8" parent="ScrollContainer/VBoxContainer/Container" unique_id=277311179 instance=ExtResource("2_yeji3")]
+layout_mode = 2
+
+[node name="Event9" parent="ScrollContainer/VBoxContainer/Container" unique_id=197211341 instance=ExtResource("2_yeji3")]
+layout_mode = 2
+
+[node name="Event10" parent="ScrollContainer/VBoxContainer/Container" unique_id=1974904730 instance=ExtResource("2_yeji3")]
+layout_mode = 2
+
+[node name="Event11" parent="ScrollContainer/VBoxContainer/Container" unique_id=1287141991 instance=ExtResource("2_yeji3")]
 layout_mode = 2

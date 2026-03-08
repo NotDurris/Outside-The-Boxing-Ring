@@ -57,7 +57,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuqey"]
-bg_color = Color(0.05591038, 0.08570326, 0.10272869, 1)
+bg_color = Color(0.033089973, 0.025614627, 0.046472147, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqt26"]
 bg_color = Color(0.015686275, 0.047058824, 0.023529412, 1)
@@ -74,10 +74,10 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [resource]
-Button/colors/font_color = Color(0.93333334, 1, 0.8, 1)
-Button/colors/font_focus_color = Color(0.93333334, 1, 0.8, 1)
-Button/colors/font_hover_color = Color(0.93333334, 1, 0.8, 1)
-Button/colors/font_hover_pressed_color = Color(0.93333334, 1, 0.8, 1)
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/fonts/font = ExtResource("1_w6lx2")
 Button/styles/disabled = ExtResource("2_0ytpw")
 Button/styles/focus = ExtResource("3_eqt26")

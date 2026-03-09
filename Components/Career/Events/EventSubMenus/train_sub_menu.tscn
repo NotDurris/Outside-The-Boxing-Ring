@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2xfieuj21bw5"]
 
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="1_d8rg6"]
+[ext_resource type="Script" uid="uid://dj154eokkttpn" path="res://Components/Career/Events/EventSubMenus/hover_effect.gd" id="2_16ylh"]
 
 [node name="Rest" type="MarginContainer" unique_id=1787524947]
 anchors_preset = 15
@@ -24,6 +25,7 @@ size_flags_vertical = 3
 material = ExtResource("1_d8rg6")
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_16ylh")
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Reputation" unique_id=1182606404]
 layout_mode = 2
@@ -35,6 +37,7 @@ uppercase = true
 material = ExtResource("1_d8rg6")
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_16ylh")
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Strategy" unique_id=969169498]
 layout_mode = 2
@@ -46,6 +49,7 @@ uppercase = true
 material = ExtResource("1_d8rg6")
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_16ylh")
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/Skills" unique_id=805308593]
 layout_mode = 2
@@ -61,6 +65,7 @@ size_flags_vertical = 3
 material = ExtResource("1_d8rg6")
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_16ylh")
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Reputation" unique_id=905448658]
 layout_mode = 2
@@ -72,6 +77,7 @@ uppercase = true
 material = ExtResource("1_d8rg6")
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_16ylh")
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2/Strategy" unique_id=1924588376]
 layout_mode = 2
@@ -83,6 +89,7 @@ uppercase = true
 material = ExtResource("1_d8rg6")
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_16ylh")
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2/Skills" unique_id=505348707]
 layout_mode = 2

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cw33gbms8nr1b"]
 
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="1_h7rdh"]
+[ext_resource type="Script" uid="uid://dj154eokkttpn" path="res://Components/Career/Events/EventSubMenus/hover_effect.gd" id="2_vhg80"]
 
 [node name="Rest" type="MarginContainer" unique_id=1787524947]
 anchors_preset = 15
@@ -20,6 +21,7 @@ layout_mode = 2
 material = ExtResource("1_h7rdh")
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_vhg80")
 
 [node name="Label" type="Label" parent="HBoxContainer/Reputation" unique_id=1182606404]
 layout_mode = 2
@@ -31,6 +33,7 @@ uppercase = true
 material = ExtResource("1_h7rdh")
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_vhg80")
 
 [node name="Label2" type="Label" parent="HBoxContainer/Strategy" unique_id=969169498]
 layout_mode = 2
@@ -42,6 +45,7 @@ uppercase = true
 material = ExtResource("1_h7rdh")
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("2_vhg80")
 
 [node name="Label3" type="Label" parent="HBoxContainer/Skills" unique_id=805308593]
 layout_mode = 2

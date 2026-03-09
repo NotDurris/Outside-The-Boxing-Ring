@@ -134,6 +134,9 @@ size_flags_vertical = 3
 [node name="Career" parent="Main/Body" unique_id=950127154 instance=ExtResource("4_aokq0")]
 layout_mode = 2
 
+[node name="BattleScreen" parent="Main/Body" unique_id=1888939456 instance=ExtResource("9_b1tnq")]
+layout_mode = 2
+
 [node name="SubMenu" parent="." unique_id=476231961 instance=ExtResource("8_ukew1")]
 visible = false
 layout_mode = 2
@@ -146,7 +149,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(400, 300)
 layout_mode = 2
 
-[node name="BattleScreen" parent="Battle/PanelContainer" unique_id=1888939456 instance=ExtResource("9_b1tnq")]
+[node name="BattleScreen" parent="Battle/PanelContainer" unique_id=1299633290 instance=ExtResource("9_b1tnq")]
 layout_mode = 2
 
 [node name="Pause" parent="." unique_id=90087904 instance=ExtResource("10_b1tnq")]

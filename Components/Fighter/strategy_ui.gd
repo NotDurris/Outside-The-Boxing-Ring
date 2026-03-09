@@ -1,7 +1,7 @@
 class_name StrategyUI
 extends Container
 
-@export var ui_dice : PackedScene
+const UI_DICE = preload("uid://b16piwmo3c5nf")
 
 var ui_dice_instances : Array[UIDice]
 
@@ -27,7 +27,7 @@ func resize_strategy(target_size : int):
 	if difference > 0:
 		# create difference
 		for i in range(difference):
-			var new_ui_dice : UIDice = ui_dice.instantiate()
+			var new_ui_dice : UIDice = UI_DICE.instantiate()
 			add_child(new_ui_dice)
 			ui_dice_instances.append(new_ui_dice)
 	elif difference < 0:

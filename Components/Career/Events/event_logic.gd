@@ -1,8 +1,9 @@
+class_name EventBtn
 extends Button
 
 const FIGHT_ICON := preload("uid://mm8tj2eop46")
 const TRAIN_ICON := preload("uid://kmcec7e4fpkp")
-const REST_ICON := preload("uid://bgusgmoejbeyf")
+const REST_ICON = preload("uid://csfoeefvxqsd2")
 
 const FIGHT_COLOUR := Color(0.979, 0.408, 0.317, 1.0)
 const TRAIN_COLOUR := Color(0.195, 0.783, 0.93, 1.0)

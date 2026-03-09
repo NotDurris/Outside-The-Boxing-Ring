@@ -55,42 +55,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("3_lp22g")
 
-[node name="Event" parent="RankContents/Level/Container" unique_id=1911831022 instance=ExtResource("1_vrr4x")]
-layout_mode = 2
-type = 4
-
-[node name="Event2" parent="RankContents/Level/Container" unique_id=719024461 instance=ExtResource("1_vrr4x")]
-layout_mode = 2
-type = 4
-
-[node name="Event3" parent="RankContents/Level/Container" unique_id=36104377 instance=ExtResource("1_vrr4x")]
-layout_mode = 2
-type = 4
-
-[node name="Event4" parent="RankContents/Level/Container" unique_id=2114238566 instance=ExtResource("1_vrr4x")]
-layout_mode = 2
-type = 4
-
-[node name="Event5" parent="RankContents/Level/Container" unique_id=873266557 instance=ExtResource("1_vrr4x")]
-layout_mode = 2
-type = 4
-
-[node name="Event6" parent="RankContents/Level/Container" unique_id=478254062 instance=ExtResource("1_vrr4x")]
-layout_mode = 2
-type = 4
-
-[node name="Event7" parent="RankContents/Level/Container" unique_id=826203271 instance=ExtResource("1_vrr4x")]
-layout_mode = 2
-type = 4
-
-[node name="Event8" parent="RankContents/Level/Container" unique_id=216179016 instance=ExtResource("1_vrr4x")]
-layout_mode = 2
-type = 4
-
-[node name="Event9" parent="RankContents/Level/Container" unique_id=270142238 instance=ExtResource("1_vrr4x")]
-layout_mode = 2
-type = 4
-
 [node name="Divider" type="ColorRect" parent="RankContents" unique_id=165693718]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2

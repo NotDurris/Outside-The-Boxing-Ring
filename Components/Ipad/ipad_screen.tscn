@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://djt4wr6ruik4k" path="res://Components/UI/UISubMenu/pop_up_menu.tscn" id="8_ukew1"]
 [ext_resource type="PackedScene" uid="uid://djntghqtmsbk3" path="res://Components/Battle/battle_screen.tscn" id="9_b1tnq"]
 [ext_resource type="PackedScene" uid="uid://ddw3upd02leoe" path="res://Components/UI/PauseMenu/pause.tscn" id="10_b1tnq"]
+[ext_resource type="Script" uid="uid://en6ex2pn2gg3" path="res://Components/Career/Events/event_manager.gd" id="13_pd8w2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy1cj"]
 bg_color = Color(0.9418254, 0.9886218, 0.99865526, 1)
@@ -77,7 +78,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="profile_btn" type="Button" parent="Main/Header/MarginContainer/HBoxContainer/Profile" unique_id=1180730980 node_paths=PackedStringArray("target_ui_panel")]
+[node name="profile_btn" type="Button" parent="Main/Header/MarginContainer/HBoxContainer/Profile" unique_id=1180730980]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
@@ -93,7 +94,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_pd8w2")
 icon = ExtResource("2_aokq0")
 expand_icon = true
 script = ExtResource("5_gnf6a")
-target_ui_panel = NodePath("../../../../../../SubMenu")
 title = "FIGHTER"
 contents = ExtResource("5_2v6ia")
 
@@ -106,7 +106,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="pause_btn" type="Button" parent="Main/Header/MarginContainer/HBoxContainer/Pause" unique_id=1955101362 node_paths=PackedStringArray("target_ui_panel")]
+[node name="pause_btn" type="Button" parent="Main/Header/MarginContainer/HBoxContainer/Pause" unique_id=1955101362]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
@@ -122,7 +122,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_pd8w2")
 icon = ExtResource("3_2v6ia")
 expand_icon = true
 script = ExtResource("5_gnf6a")
-target_ui_panel = NodePath("../../../../../../SubMenu")
 title = "PAUSED"
 contents = ExtResource("10_b1tnq")
 
@@ -153,3 +152,6 @@ layout_mode = 2
 [node name="Pause" parent="." unique_id=90087904 instance=ExtResource("10_b1tnq")]
 visible = false
 layout_mode = 2
+
+[node name="EventManager" type="Node" parent="." unique_id=1011263388]
+script = ExtResource("13_pd8w2")

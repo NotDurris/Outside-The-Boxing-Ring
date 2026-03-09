@@ -7,10 +7,10 @@ const ZOOMED_OUT_ROTATION = Vector3(-45, 0.0, 0.0)
 const ZOOMED_IN_ROTATION = Vector3(-60, 0.0, 0.0)
 
 func _ready() -> void:
-	GlobalSignals.zoom_changed.connect(update_zoom)
+	Settings.zoom_changed.connect(update_zoom)
 
 func _exit_tree() -> void:
-	GlobalSignals.zoom_changed.disconnect(update_zoom)
+	Settings.zoom_changed.disconnect(update_zoom)
 
 func update_zoom(value) : zoom = value
 

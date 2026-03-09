@@ -7,6 +7,10 @@ extends Control
 @export var sway_toggle : CheckButton
 
 func _ready() -> void:
-	zoom_slider.value_changed.connect(func(value) : GlobalSignals.zoom_changed.emit(value))
-	screen_toggle.toggled.connect(func(value) : GlobalSignals.screen_effect_changed.emit(value))
-	sway_toggle.toggled.connect(func(value) : GlobalSignals.sway_effect_changed.emit(value))
+	zoom_slider.value = Settings.zoom
+	screen_toggle.button_pressed = Settings.screen_effect
+	sway_toggle.button_pressed = Settings.sway_effect
+	
+	zoom_slider.value_changed.connect(func(value) : Settings.zoom = value)
+	screen_toggle.toggled.connect(func(value) : Settings.screen_effect = value)
+	sway_toggle.toggled.connect(func(value) : Settings.sway_effect = value)

@@ -12,10 +12,10 @@ var offset : Vector2 = Vector2.ZERO
 var do_sway : bool = true
 
 func _ready() -> void:
-	GlobalSignals.sway_effect_changed.connect(handle_sway_effect_toggled)
+	Settings.sway_effect_changed.connect(handle_sway_effect_toggled)
 
 func _exit_tree() -> void:
-	GlobalSignals.sway_effect_changed.disconnect(handle_sway_effect_toggled)
+	Settings.sway_effect_changed.disconnect(handle_sway_effect_toggled)
 
 func handle_sway_effect_toggled(value):
 	do_sway = value

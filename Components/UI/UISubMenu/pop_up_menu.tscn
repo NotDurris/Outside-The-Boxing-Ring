@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dcdl8x4jty1ec" path="res://Components/UI/UIPanel/panel_logic.gd" id="1_i0ek2"]
 [ext_resource type="FontFile" uid="uid://dgyi70xosiqs4" path="res://Assets/Fonts/Melon Pop.ttf" id="2_7345u"]
+[ext_resource type="Script" uid="uid://3iipvnedmt74" path="res://Components/UI/UISubMenu/pop_up_menu_controller.gd" id="3_7345u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmh70"]
 bg_color = Color(1, 1, 1, 1)
@@ -94,6 +95,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_rgf78")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rgf78")
 text = "Title"
 horizontal_alignment = 1
+uppercase = true
 
 [node name="CloseButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1918806357]
 custom_minimum_size = Vector2(32, 33.595)
@@ -128,3 +130,7 @@ vertical_alignment = 1
 [node name="Contents" type="MarginContainer" parent="CenterContainer/PanelContainer/VBoxContainer" unique_id=1662809835]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="PopUpMenuController" type="Node" parent="." unique_id=581956247 node_paths=PackedStringArray("menu")]
+script = ExtResource("3_7345u")
+menu = NodePath("..")

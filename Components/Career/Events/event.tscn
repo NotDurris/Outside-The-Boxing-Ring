@@ -11,7 +11,7 @@ expand_margin_top = 12.0
 expand_margin_right = 12.0
 expand_margin_bottom = 12.0
 
-[node name="Event" type="Button" unique_id=1582012923]
+[node name="Event" type="Button" unique_id=1582012923 groups=["event"]]
 custom_minimum_size = Vector2(48, 48)
 theme_override_styles/normal = SubResource("StyleBoxTexture_344my")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_344my")

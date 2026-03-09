@@ -3,9 +3,10 @@
 [ext_resource type="StyleBox" uid="uid://cw7wmfdoumei7" path="res://Assets/Themes/Panels/ipad_screen_background.tres" id="1_8iaoj"]
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="1_mvles"]
 [ext_resource type="Texture2D" uid="uid://bpwph8oefl43s" path="res://Assets/Sprites/man_silhouette.png" id="2_mvles"]
-[ext_resource type="PackedScene" uid="uid://cnaq5a2xcgp8y" path="res://Components/Fighter/stat_block.tscn" id="3_x736n"]
+[ext_resource type="Script" uid="uid://jjh3pwp07swm" path="res://Components/Fighter/stat_block.gd" id="3_x736n"]
 [ext_resource type="StyleBox" uid="uid://db0ujnhteaba" path="res://Components/DiceManager/Dice/UI_Dice/endurance_background.tres" id="4_5jl2g"]
 [ext_resource type="StyleBox" uid="uid://k5a7h25xx5f3" path="res://Components/DiceManager/Dice/UI_Dice/aggro_background.tres" id="5_1waff"]
+[ext_resource type="FontFile" uid="uid://wvdspsgmxewv" path="res://Assets/Fonts/Nunito-SemiBold.ttf" id="6_5jl2g"]
 [ext_resource type="StyleBox" uid="uid://dsujrwsu6y5ay" path="res://Components/DiceManager/Dice/UI_Dice/agility_background.tres" id="6_d33ph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iaoj"]
@@ -26,11 +27,15 @@ border_width_top = 2
 border_width_bottom = 2
 border_color = Color(0.13333334, 1, 0.6313726, 1)
 
-[node name="FighterPortrait" type="PanelContainer" unique_id=399528683]
+[node name="FighterPortrait" type="PanelContainer" unique_id=399528683 node_paths=PackedStringArray("aggro_label", "endurance_label", "agility_label")]
 material = ExtResource("1_mvles")
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 theme_override_styles/panel = ExtResource("1_8iaoj")
+script = ExtResource("3_x736n")
+aggro_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer3/StatBlock2/Label")
+endurance_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/StatBlock/Label")
+agility_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/StatBlock3/Label")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=535018464]
 layout_mode = 2
@@ -53,10 +58,19 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=330248637]
 layout_mode = 2
 
-[node name="StatBlock" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=554590223 instance=ExtResource("3_x736n")]
+[node name="StatBlock" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=554590223]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_5jl2g")
-dice_type = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/StatBlock" unique_id=2019202345]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_5jl2g")
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
 
 [node name="Spacer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1942129803]
 layout_mode = 2
@@ -83,9 +97,19 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_mvles")
 
-[node name="StatBlock2" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1889614228 instance=ExtResource("3_x736n")]
+[node name="StatBlock2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1889614228]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("5_1waff")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/StatBlock2" unique_id=1387191068]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_5jl2g")
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1415575181]
 layout_mode = 2
@@ -94,10 +118,19 @@ size_flags_vertical = 3
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1745689857]
 layout_mode = 2
 
-[node name="StatBlock3" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1600761563 instance=ExtResource("3_x736n")]
+[node name="StatBlock3" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1600761563]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("6_d33ph")
-dice_type = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2/StatBlock3" unique_id=480017570]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_5jl2g")
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
 
 [node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=332020842]
 custom_minimum_size = Vector2(32, 4)

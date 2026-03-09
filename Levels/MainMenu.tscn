@@ -15,8 +15,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_17ajd"]
 shader = ExtResource("2_gerv3")
 shader_parameter/time_scale = 0.01
-shader_parameter/scale = 162.62
-shader_parameter/dot_scale = 1.40000000596048
+shader_parameter/scale = 160.0
+shader_parameter/dot_scale = 1.55000000819566
 shader_parameter/colour_one = Color(0.80174387, 0.28690112, 0.27274984, 1)
 shader_parameter/colour_two = Color(1, 1, 1, 1)
 shader_parameter/target_point = Vector2(0.5, 0.5)

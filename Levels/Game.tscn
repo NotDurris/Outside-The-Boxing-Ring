@@ -71,3 +71,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_dygi0")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=472748594]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 9.6982355, 0)
 light_energy = 0.3
+
+[node name="Node" type="Node" parent="." unique_id=1664716091]

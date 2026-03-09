@@ -26,13 +26,13 @@ func _ready() -> void:
 
 func create_events():
 	for i in range(fight_count):
-		create_event_btn(EventBtn.EventType.Fight)
+		create_event_btn(Event.EventType.Fight)
 	for i in range(rest_count):
-		create_event_btn(EventBtn.EventType.Rest)
+		create_event_btn(Event.EventType.Rest)
 	for i in range(train_count):
-		create_event_btn(EventBtn.EventType.Train)
+		create_event_btn(Event.EventType.Train)
 
-func create_event_btn(type : EventBtn.EventType):
-	var event_btn : EventBtn = EVENT.instantiate()
+func create_event_btn(type : Event.EventType):
+	var event_btn : Event = EVENT.instantiate()
 	event_btn.type = type
 	event_container.add_child(event_btn)

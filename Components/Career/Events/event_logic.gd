@@ -1,4 +1,4 @@
-class_name EventBtn
+class_name Event
 extends Button
 
 const FIGHT_ICON := preload("uid://mm8tj2eop46")
@@ -16,6 +16,8 @@ func _ready():
 	if type == EventType.Random:
 		type = randi_range(0,2) as EventType
 	update_visual()
+	
+	pressed.connect(func() : GlobalSignals.event_clicked.emit(self))
 
 func update_visual():
 	match type:

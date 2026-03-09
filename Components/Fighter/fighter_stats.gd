@@ -1,8 +1,25 @@
 extends Node
 
-var aggro_max : int = 6
-var endurance_max : int = 6
-var agility_max : int = 6
+var aggro_max : int = 6 :
+	set(value):
+		aggro_max_updated.emit(value)
+		aggro_max = value
+@warning_ignore("unused_signal")
+signal aggro_max_updated(new_aggro : int)
+
+var endurance_max : int = 6 :
+	set(value):
+		endurance_max_updated.emit(value)
+		endurance_max = value
+@warning_ignore("unused_signal")
+signal endurance_max_updated(new_endurance : int)
+
+var agility_max : int = 6 :
+	set(value):
+		agility_max_updated.emit(value)
+		agility_max = value
+@warning_ignore("unused_signal")
+signal agility_max_updated(new_agility : int)
 
 var reputation : int = 3
 var stamina : int = 5

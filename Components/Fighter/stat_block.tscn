@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cnaq5a2xcgp8y"]
 
+[ext_resource type="Script" uid="uid://jjh3pwp07swm" path="res://Components/Fighter/stat_block.gd" id="1_ufmp7"]
 [ext_resource type="FontFile" uid="uid://wvdspsgmxewv" path="res://Assets/Fonts/Nunito-SemiBold.ttf" id="1_ytqtm"]
 
 [node name="StatBlock" type="PanelContainer" unique_id=554590223]
@@ -11,6 +12,7 @@ offset_right = -1088.0
 offset_bottom = -584.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ufmp7")
 
 [node name="Label" type="Label" parent="." unique_id=2019202345]
 layout_mode = 2

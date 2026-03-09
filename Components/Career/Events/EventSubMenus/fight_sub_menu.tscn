@@ -13,17 +13,34 @@ grow_vertical = 2
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=303782898]
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=609591742]
 layout_mode = 2
 
-[node name="Reputation" type="PanelContainer" parent="HBoxContainer" unique_id=613186836]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=140211434]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reputation" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=613186836]
 material = ExtResource("1_i657i")
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/Reputation" unique_id=1182606404]
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer/Reputation" unique_id=1182606404]
 layout_mode = 2
-text = "REPUTATION"
+text = "OPPOnent"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Reputation2" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=1091190460]
+material = ExtResource("1_i657i")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer/Reputation2" unique_id=14966703]
+layout_mode = 2
+text = "STATS"
 horizontal_alignment = 1
 uppercase = true
 
@@ -32,19 +49,8 @@ material = ExtResource("1_i657i")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="HBoxContainer/Strategy" unique_id=969169498]
+[node name="Button" type="Button" parent="HBoxContainer/Strategy" unique_id=335986206]
 layout_mode = 2
-text = "STRATEGY"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="Skills" type="PanelContainer" parent="HBoxContainer" unique_id=1134355242]
-material = ExtResource("1_i657i")
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label3" type="Label" parent="HBoxContainer/Skills" unique_id=805308593]
-layout_mode = 2
-text = "SKILLS"
-horizontal_alignment = 1
-uppercase = true
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "FIGHT"

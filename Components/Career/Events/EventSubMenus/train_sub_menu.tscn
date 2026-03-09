@@ -13,38 +13,79 @@ grow_vertical = 2
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=303782898]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1904868254]
 layout_mode = 2
 
-[node name="Reputation" type="PanelContainer" parent="HBoxContainer" unique_id=613186836]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=303782898]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reputation" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=613186836]
 material = ExtResource("1_d8rg6")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/Reputation" unique_id=1182606404]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Reputation" unique_id=1182606404]
 layout_mode = 2
-text = "REPUTATION"
+text = "STRENGTH"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Strategy" type="PanelContainer" parent="HBoxContainer" unique_id=1328943134]
+[node name="Strategy" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=1328943134]
 material = ExtResource("1_d8rg6")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="HBoxContainer/Strategy" unique_id=969169498]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Strategy" unique_id=969169498]
 layout_mode = 2
-text = "STRATEGY"
+text = "ENDURANCE"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Skills" type="PanelContainer" parent="HBoxContainer" unique_id=1134355242]
+[node name="Skills" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=1134355242]
 material = ExtResource("1_d8rg6")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label3" type="Label" parent="HBoxContainer/Skills" unique_id=805308593]
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/Skills" unique_id=805308593]
 layout_mode = 2
-text = "SKILLS"
+text = "AGILITY"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=2108973400]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Reputation" type="PanelContainer" parent="VBoxContainer/HBoxContainer2" unique_id=399966364]
+material = ExtResource("1_d8rg6")
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Reputation" unique_id=905448658]
+layout_mode = 2
+text = "RESILIENCE"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Strategy" type="PanelContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1701018644]
+material = ExtResource("1_d8rg6")
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2/Strategy" unique_id=1924588376]
+layout_mode = 2
+text = "Stamina"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Skills" type="PanelContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1251710399]
+material = ExtResource("1_d8rg6")
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2/Skills" unique_id=505348707]
+layout_mode = 2
+text = "mental"
 horizontal_alignment = 1
 uppercase = true

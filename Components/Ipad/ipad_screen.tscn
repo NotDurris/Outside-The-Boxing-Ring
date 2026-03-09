@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://b7mgcwos037qv" path="res://Assets/Sprites/icons/settings.png" id="3_2v6ia"]
 [ext_resource type="PackedScene" uid="uid://b4m2k3e6havwy" path="res://Components/Ipad/screens/career_screen.tscn" id="4_aokq0"]
 [ext_resource type="PackedScene" uid="uid://ceb1ctsskiko1" path="res://Components/UI/Buttons/button_effects_handler.tscn" id="4_m8gs1"]
-[ext_resource type="PackedScene" uid="uid://c5288rsfw5qqf" path="res://Components/Ipad/screens/fighter_screen.tscn" id="5_2v6ia"]
-[ext_resource type="PackedScene" uid="uid://djntghqtmsbk3" path="res://Components/Ipad/screens/battle_screen.tscn" id="9_b1tnq"]
+[ext_resource type="PackedScene" uid="uid://c5288rsfw5qqf" path="res://Components/Fighter/fighter_screen.tscn" id="5_2v6ia"]
+[ext_resource type="Script" uid="uid://dp1gd68uiah0a" path="res://Components/UI/UISubMenu/sub_menu_button.gd" id="5_gnf6a"]
+[ext_resource type="PackedScene" uid="uid://djt4wr6ruik4k" path="res://Components/UI/UISubMenu/pop_up_menu.tscn" id="8_ukew1"]
+[ext_resource type="PackedScene" uid="uid://djntghqtmsbk3" path="res://Components/Battle/battle_screen.tscn" id="9_b1tnq"]
 [ext_resource type="PackedScene" uid="uid://ddw3upd02leoe" path="res://Components/UI/PauseMenu/pause.tscn" id="10_b1tnq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy1cj"]
@@ -75,7 +77,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="profile_btn" type="Button" parent="Main/Header/MarginContainer/HBoxContainer/Profile" unique_id=1180730980]
+[node name="profile_btn" type="Button" parent="Main/Header/MarginContainer/HBoxContainer/Profile" unique_id=1180730980 node_paths=PackedStringArray("target_ui_panel")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
@@ -90,6 +92,10 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_gnf6a")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pd8w2")
 icon = ExtResource("2_aokq0")
 expand_icon = true
+script = ExtResource("5_gnf6a")
+target_ui_panel = NodePath("../../../../../../SubMenu")
+title = "FIGHTER"
+contents = ExtResource("5_2v6ia")
 
 [node name="ButtonEffectsHandler" parent="Main/Header/MarginContainer/HBoxContainer/Profile/profile_btn" unique_id=1596210632 instance=ExtResource("4_m8gs1")]
 
@@ -100,7 +106,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="pause_btn" type="Button" parent="Main/Header/MarginContainer/HBoxContainer/Pause" unique_id=1955101362]
+[node name="pause_btn" type="Button" parent="Main/Header/MarginContainer/HBoxContainer/Pause" unique_id=1955101362 node_paths=PackedStringArray("target_ui_panel")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
@@ -115,6 +121,10 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_gnf6a")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pd8w2")
 icon = ExtResource("3_2v6ia")
 expand_icon = true
+script = ExtResource("5_gnf6a")
+target_ui_panel = NodePath("../../../../../../SubMenu")
+title = "PAUSED"
+contents = ExtResource("10_b1tnq")
 
 [node name="ButtonEffectsHandler" parent="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" unique_id=1220882839 instance=ExtResource("4_m8gs1")]
 
@@ -125,15 +135,8 @@ size_flags_vertical = 3
 [node name="Career" parent="Main/Body" unique_id=950127154 instance=ExtResource("4_aokq0")]
 layout_mode = 2
 
-[node name="Profile" type="CenterContainer" parent="." unique_id=2100170257]
+[node name="SubMenu" parent="." unique_id=476231961 instance=ExtResource("8_ukew1")]
 visible = false
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Profile" unique_id=1392882560]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-
-[node name="Fighter" parent="Profile/PanelContainer" unique_id=2084284173 instance=ExtResource("5_2v6ia")]
 layout_mode = 2
 
 [node name="Battle" type="CenterContainer" parent="." unique_id=1544150435]
@@ -150,6 +153,3 @@ layout_mode = 2
 [node name="Pause" parent="." unique_id=90087904 instance=ExtResource("10_b1tnq")]
 visible = false
 layout_mode = 2
-
-[connection signal="pressed" from="Main/Header/MarginContainer/HBoxContainer/Profile/profile_btn" to="Profile" method="show"]
-[connection signal="pressed" from="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" to="Pause" method="show"]

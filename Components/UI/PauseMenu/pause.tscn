@@ -1,89 +1,87 @@
 [gd_scene format=3 uid="uid://ddw3upd02leoe"]
 
+[ext_resource type="Theme" uid="uid://jf1feh0ph03d" path="res://Assets/Themes/_UI/pausemenu.tres" id="1_npp0t"]
 [ext_resource type="PackedScene" uid="uid://cghp40xvj72iu" path="res://Components/UI/UISections/VolumeControl/volume_control_section.tscn" id="1_ruj2f"]
 [ext_resource type="Script" uid="uid://6nbc7bnaykgh" path="res://Components/UI/PauseMenu/pause.gd" id="1_x8ur2"]
+[ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="3_7ftsx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0y6he"]
-bg_color = Color(0, 0, 0, 0.84705883)
-
-[node name="Pause" type="PanelContainer" unique_id=90087904 node_paths=PackedStringArray("zoom_slider", "screen_toggle", "sway_toggle")]
-theme_override_styles/panel = SubResource("StyleBoxFlat_0y6he")
+[node name="Pause" type="MarginContainer" unique_id=1973072182 node_paths=PackedStringArray("zoom_slider", "screen_toggle", "sway_toggle")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_npp0t")
 script = ExtResource("1_x8ur2")
-zoom_slider = NodePath("MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2/HSlider")
-screen_toggle = NodePath("MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2/screen_effect")
-sway_toggle = NodePath("MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2/sway_effect")
+zoom_slider = NodePath("VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2/HSlider")
+screen_toggle = NodePath("VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2/screen_effect")
+sway_toggle = NodePath("VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2/sway_effect")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1382778922]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=269981299]
+material = ExtResource("3_7ftsx")
 layout_mode = 2
-theme_override_constants/margin_left = 128
-theme_override_constants/margin_right = 128
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=76199275]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=76199275]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=257941303]
-layout_mode = 2
-text = "PAUSED"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1260952322]
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1260952322]
 layout_mode = 2
 text = "volume"
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=768601980]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=768601980]
 layout_mode = 2
 
-[node name="VolumeControlSection" parent="MarginContainer/VBoxContainer" unique_id=10756484 instance=ExtResource("1_ruj2f")]
+[node name="VolumeControlSection" parent="VBoxContainer" unique_id=10756484 instance=ExtResource("1_ruj2f")]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1151827601]
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1151827601]
 layout_mode = 2
 text = "visuals"
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1463027978]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1463027978]
 layout_mode = 2
 
-[node name="VolumeControlSection2" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1382670184]
+[node name="VolumeControlSection2" type="VBoxContainer" parent="VBoxContainer" unique_id=1382670184]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VolumeControlSection2" unique_id=1911239477]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VolumeControlSection2" unique_id=1911239477]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer" unique_id=1095871520]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VolumeControlSection2/HBoxContainer" unique_id=1095871520]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer" unique_id=1201007132]
+[node name="Label" type="Label" parent="VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer" unique_id=1201007132]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "zoom"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer" unique_id=174036915]
+[node name="Label2" type="Label" parent="VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer" unique_id=174036915]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "screen effect"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer" unique_id=426122598]
+[node name="Label3" type="Label" parent="VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer" unique_id=426122598]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "sway effect"
 horizontal_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer" unique_id=597450082]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/VolumeControlSection2/HBoxContainer" unique_id=597450082]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2" unique_id=1000990096]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2" unique_id=1000990096]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -91,20 +89,12 @@ size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
 
-[node name="screen_effect" type="CheckButton" parent="MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2" unique_id=186099944]
+[node name="screen_effect" type="CheckButton" parent="VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2" unique_id=186099944]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 button_pressed = true
 
-[node name="sway_effect" type="CheckButton" parent="MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2" unique_id=400028239]
+[node name="sway_effect" type="CheckButton" parent="VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2" unique_id=400028239]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 button_pressed = true
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1452553928]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
-text = " close "
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="hide"]

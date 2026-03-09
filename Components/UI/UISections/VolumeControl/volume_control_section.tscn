@@ -21,18 +21,21 @@ size_flags_horizontal = 3
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1201007132]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_vertical = 6
 text = "master"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=174036915]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_vertical = 6
 text = "sfx"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=426122598]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_vertical = 6
 text = "music"
 horizontal_alignment = 1
 
@@ -45,7 +48,7 @@ size_flags_stretch_ratio = 3.0
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+size_flags_vertical = 6
 max_value = 1.0
 step = 0.01
 script = ExtResource("1_fm6dh")
@@ -55,7 +58,7 @@ bus_name = "Master"
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+size_flags_vertical = 6
 max_value = 1.0
 step = 0.01
 script = ExtResource("1_fm6dh")
@@ -65,7 +68,7 @@ bus_name = "SFX"
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
+size_flags_vertical = 6
 max_value = 1.0
 step = 0.01
 script = ExtResource("1_fm6dh")

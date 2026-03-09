@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://c5288rsfw5qqf"]
 
-[ext_resource type="StyleBox" uid="uid://cw7wmfdoumei7" path="res://Assets/Themes/Panels/ipad_screen_background.tres" id="1_flo6y"]
-[ext_resource type="PackedScene" uid="uid://cr3xr2di6i0fp" path="res://Components/Fighter/fighter_portrait.tscn" id="1_s41r1"]
-[ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="2_fml5f"]
-[ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/DiceManager/strategy_ui.gd" id="3_10sic"]
-[ext_resource type="PackedScene" uid="uid://b16piwmo3c5nf" path="res://Components/DiceManager/Dice/UI_Dice/ui_dice.tscn" id="4_5u8nr"]
-[ext_resource type="Texture2D" uid="uid://csfoeefvxqsd2" path="res://Assets/Sprites/icons/heart.png" id="7_m1xir"]
-[ext_resource type="Texture2D" uid="uid://bmlkn4d8ln8ck" path="res://Assets/Sprites/icons/bolt.png" id="8_fxiyc"]
-[ext_resource type="Texture2D" uid="uid://boqunl0ws3uul" path="res://Assets/Sprites/icons/brain.png" id="9_2orsr"]
+[ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="1_gkr2j"]
+[ext_resource type="StyleBox" uid="uid://cw7wmfdoumei7" path="res://Assets/Themes/Panels/ipad_screen_background.tres" id="2_cm6ec"]
+[ext_resource type="Texture2D" uid="uid://csfoeefvxqsd2" path="res://Assets/Sprites/icons/heart.png" id="3_14e25"]
+[ext_resource type="Texture2D" uid="uid://bmlkn4d8ln8ck" path="res://Assets/Sprites/icons/bolt.png" id="4_mldra"]
+[ext_resource type="Texture2D" uid="uid://boqunl0ws3uul" path="res://Assets/Sprites/icons/brain.png" id="5_lfyoy"]
+[ext_resource type="PackedScene" uid="uid://cr3xr2di6i0fp" path="res://Components/Fighter/fighter_portrait.tscn" id="6_4dl1j"]
+[ext_resource type="Script" uid="uid://c1ch0u7dmw3u1" path="res://Components/Fighter/fighter_strategy.gd" id="7_uijpd"]
+[ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/Fighter/strategy_ui.gd" id="8_4niip"]
+[ext_resource type="PackedScene" uid="uid://b16piwmo3c5nf" path="res://Components/DiceManager/Dice/UI_Dice/ui_dice.tscn" id="9_7x8yj"]
 
 [sub_resource type="Gradient" id="Gradient_fml5f"]
 interpolation_mode = 1
@@ -51,9 +52,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Stats" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=2047538241]
-material = ExtResource("2_fml5f")
+material = ExtResource("1_gkr2j")
 layout_mode = 2
-theme_override_styles/panel = ExtResource("1_flo6y")
+theme_override_styles/panel = ExtResource("2_cm6ec")
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Stats" unique_id=29484583]
 layout_mode = 2
@@ -99,7 +100,7 @@ theme_override_constants/margin_bottom = 32
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Stats/MarginContainer2/VBoxContainer/HBoxContainer/TextureProgressBar/MarginContainer" unique_id=108567294]
 self_modulate = Color(0.7294118, 1, 0.4, 1)
 layout_mode = 2
-texture = ExtResource("7_m1xir")
+texture = ExtResource("3_14e25")
 expand_mode = 2
 stretch_mode = 5
 
@@ -127,7 +128,7 @@ theme_override_constants/margin_bottom = 32
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Stats/MarginContainer2/VBoxContainer/HBoxContainer/TextureProgressBar2/MarginContainer2" unique_id=1709258779]
 self_modulate = Color(0.7294118, 1, 0.4, 1)
 layout_mode = 2
-texture = ExtResource("8_fxiyc")
+texture = ExtResource("4_mldra")
 expand_mode = 2
 stretch_mode = 5
 
@@ -160,12 +161,12 @@ color = Color(0.06666667, 0.13725491, 0.09411765, 1)
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Stats/MarginContainer2/VBoxContainer/HBoxContainer/TextureProgressBar3/MarginContainer3" unique_id=1428076211]
 self_modulate = Color(0.7294118, 1, 0.4, 1)
 layout_mode = 2
-texture = ExtResource("9_2orsr")
+texture = ExtResource("5_lfyoy")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="FighterPortrait" parent="VBoxContainer/HBoxContainer" unique_id=399528683 instance=ExtResource("1_s41r1")]
-custom_minimum_size = Vector2(440, 0)
+[node name="FighterPortrait" parent="VBoxContainer/HBoxContainer" unique_id=399528683 instance=ExtResource("6_4dl1j")]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.0
@@ -175,12 +176,12 @@ layout_mode = 2
 theme_override_constants/separation = 4
 
 [node name="Traits" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1555738036]
-material = ExtResource("2_fml5f")
+material = ExtResource("1_gkr2j")
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("1_flo6y")
+theme_override_styles/panel = ExtResource("2_cm6ec")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Traits" unique_id=375206996]
 layout_mode = 2
@@ -226,12 +227,12 @@ text = "-"
 horizontal_alignment = 1
 
 [node name="Skills" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=817391474]
-material = ExtResource("2_fml5f")
+material = ExtResource("1_gkr2j")
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("1_flo6y")
+theme_override_styles/panel = ExtResource("2_cm6ec")
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer2/Skills" unique_id=394564911]
 layout_mode = 2
@@ -276,12 +277,14 @@ theme_override_colors/font_color = Color(0.7750634, 0.7750634, 0.7750634, 1)
 text = "-"
 horizontal_alignment = 1
 
-[node name="Strategy" type="PanelContainer" parent="VBoxContainer" unique_id=1554607513]
-material = ExtResource("2_fml5f")
+[node name="Strategy" type="PanelContainer" parent="VBoxContainer" unique_id=1554607513 node_paths=PackedStringArray("strategy_ui")]
+material = ExtResource("1_gkr2j")
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/panel = ExtResource("1_flo6y")
+theme_override_styles/panel = ExtResource("2_cm6ec")
+script = ExtResource("7_uijpd")
+strategy_ui = NodePath("MarginContainer/VBoxContainer/StrategyContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Strategy" unique_id=1087935737]
 layout_mode = 2
@@ -301,5 +304,5 @@ horizontal_alignment = 1
 [node name="StrategyContainer" type="HBoxContainer" parent="VBoxContainer/Strategy/MarginContainer/VBoxContainer" unique_id=673656075]
 layout_mode = 2
 alignment = 1
-script = ExtResource("3_10sic")
-ui_dice = ExtResource("4_5u8nr")
+script = ExtResource("8_4niip")
+ui_dice = ExtResource("9_7x8yj")

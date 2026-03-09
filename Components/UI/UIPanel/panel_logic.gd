@@ -5,7 +5,6 @@ signal on_panel_close_button_clicked
 signal on_panel_closed
 signal on_panel_opened
 
-
 @export var panel_title : String
 @export var panel_contents : PackedScene
 
@@ -20,11 +19,12 @@ signal on_panel_opened
 @export var hide_tween_trans : Tween.TransitionType = Tween.TRANS_BACK
 @export var hide_tween_ease : Tween.EaseType = Tween.EASE_IN
 
-@onready var title_label : Label = $MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Title
-@onready var background : ColorRect = $Background
-@onready var foreground : Control = $MarginContainer
-@onready var close_button : Button = $MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Close/CloseButton
-@onready var content_container : Control = $MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/ContentContainer
+@export_group("Elements")
+@export var title_label : Label
+@export var background : ColorRect
+@export var foreground : Control
+@export var close_button : Button
+@export var content_container : Control
 
 var background_colour : Color
 
@@ -50,9 +50,26 @@ func initialise_layout():
 	var instanced_contents = panel_contents.instantiate()
 	content_container.add_child(instanced_contents)
 
+func open_and_change_contents(new_title : String, new_contents : PackedScene):
+	if content_container.get_children().size() > 0 : content_container.get_child(0).queue_free()
+	
+	panel_contents = new_contents
+	panel_title = new_title
+	
+	title_label.text = panel_title
+	var instanced_contents = panel_contents.instantiate()
+	content_container.add_child(instanced_contents)
+	
+	open_panel()
+
 func open_panel():
 	show()
 	foreground.scale = Vector2.ZERO
+	if show_duration == 0:
+		foreground.scale = Vector2.ONE
+		background.color = background_colour
+		on_panel_opened.emit()
+		return
 	var tweener = create_tween()
 	tweener.set_trans(show_tween_trans).set_ease(show_tween_ease).set_parallel()
 	tweener.tween_property(foreground, "scale", Vector2.ONE, show_duration)
@@ -60,6 +77,12 @@ func open_panel():
 	tweener.chain().tween_callback(on_panel_opened.emit)
 
 func close_panel():
+	if show_duration == 0:
+		foreground.scale = Vector2.ZERO
+		background.color = Color(background_colour, 0.0)
+		on_panel_closed.emit()
+		return
+	
 	var tweener = create_tween()
 	tweener.set_trans(hide_tween_trans).set_ease(hide_tween_ease).set_parallel()
 	tweener.tween_property(foreground, "scale", Vector2.ZERO, hide_duration)

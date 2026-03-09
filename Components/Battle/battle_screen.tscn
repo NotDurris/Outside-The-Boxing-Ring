@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://djntghqtmsbk3"]
 
-[ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="1_1iuwx"]
-[ext_resource type="PackedScene" uid="uid://b16piwmo3c5nf" path="res://Components/DiceManager/Dice/UI_Dice/ui_dice.tscn" id="1_ifo3l"]
-[ext_resource type="Texture2D" uid="uid://bpwph8oefl43s" path="res://Assets/Sprites/man_silhouette.png" id="1_lrsdx"]
+[ext_resource type="Script" uid="uid://bjnkn1jucjvy7" path="res://Components/Battle/battle_logic.gd" id="1_4pprc"]
+[ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="2_nngot"]
+[ext_resource type="Texture2D" uid="uid://bpwph8oefl43s" path="res://Assets/Sprites/man_silhouette.png" id="3_db32d"]
+[ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/Fighter/strategy_ui.gd" id="4_4pprc"]
 
-[node name="BattleScreen" type="MarginContainer" unique_id=1888939456]
+[node name="BattleScreen" type="MarginContainer" unique_id=1888939456 node_paths=PackedStringArray("fighter_strategy_ui", "opponent_strategy_ui")]
+script = ExtResource("1_4pprc")
+fighter_strategy_ui = NodePath("VBoxContainer/YourStrategy/Strategy")
+opponent_strategy_ui = NodePath("VBoxContainer/OpponentStrategy/Strategy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1434618825]
 layout_mode = 2
@@ -15,41 +19,41 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
 
 [node name="YouFighter" type="PanelContainer" parent="VBoxContainer/Fighters" unique_id=90767082]
-material = ExtResource("1_1iuwx")
+material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Fighters/YouFighter" unique_id=1769747990]
 layout_mode = 2
-texture = ExtResource("1_lrsdx")
+texture = ExtResource("3_db32d")
 expand_mode = 4
 stretch_mode = 5
 
 [node name="Vs" type="PanelContainer" parent="VBoxContainer/Fighters" unique_id=561004784]
-material = ExtResource("1_1iuwx")
+material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.33
 
 [node name="Vs3" type="PanelContainer" parent="VBoxContainer/Fighters" unique_id=590683585]
-material = ExtResource("1_1iuwx")
+material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.33
 
 [node name="OpponentFighter" type="PanelContainer" parent="VBoxContainer/Fighters" unique_id=403659926]
-material = ExtResource("1_1iuwx")
+material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Fighters/OpponentFighter" unique_id=484052145]
 layout_mode = 2
-texture = ExtResource("1_lrsdx")
+texture = ExtResource("3_db32d")
 expand_mode = 4
 stretch_mode = 5
 
 [node name="Round" type="PanelContainer" parent="VBoxContainer" unique_id=1144307839]
-material = ExtResource("1_1iuwx")
+material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
@@ -74,83 +78,39 @@ text = "THREE"
 horizontal_alignment = 1
 
 [node name="YourStrategy" type="PanelContainer" parent="VBoxContainer" unique_id=586461256]
-material = ExtResource("1_1iuwx")
+material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/YourStrategy" unique_id=713354863]
-layout_mode = 2
-
-[node name="Strategy" type="HBoxContainer" parent="VBoxContainer/YourStrategy/VBoxContainer" unique_id=470334578]
+[node name="Strategy" type="HBoxContainer" parent="VBoxContainer/YourStrategy" unique_id=470334578]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_constants/separation = 8
-
-[node name="UIDice" parent="VBoxContainer/YourStrategy/VBoxContainer/Strategy" unique_id=1573092950 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice2" parent="VBoxContainer/YourStrategy/VBoxContainer/Strategy" unique_id=1344667440 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice3" parent="VBoxContainer/YourStrategy/VBoxContainer/Strategy" unique_id=1432592899 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice4" parent="VBoxContainer/YourStrategy/VBoxContainer/Strategy" unique_id=1750598846 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice5" parent="VBoxContainer/YourStrategy/VBoxContainer/Strategy" unique_id=1096961644 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice6" parent="VBoxContainer/YourStrategy/VBoxContainer/Strategy" unique_id=126404383 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice7" parent="VBoxContainer/YourStrategy/VBoxContainer/Strategy" unique_id=456187589 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
+script = ExtResource("4_4pprc")
 
 [node name="OpponentStrategy" type="PanelContainer" parent="VBoxContainer" unique_id=619934408]
-material = ExtResource("1_1iuwx")
+material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/OpponentStrategy" unique_id=1110312887]
-layout_mode = 2
-
-[node name="Strategy" type="HBoxContainer" parent="VBoxContainer/OpponentStrategy/VBoxContainer" unique_id=1481661448]
+[node name="Strategy" type="HBoxContainer" parent="VBoxContainer/OpponentStrategy" unique_id=1481661448]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_constants/separation = 8
-
-[node name="UIDice" parent="VBoxContainer/OpponentStrategy/VBoxContainer/Strategy" unique_id=1698380955 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice2" parent="VBoxContainer/OpponentStrategy/VBoxContainer/Strategy" unique_id=1828632389 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice3" parent="VBoxContainer/OpponentStrategy/VBoxContainer/Strategy" unique_id=890782703 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice4" parent="VBoxContainer/OpponentStrategy/VBoxContainer/Strategy" unique_id=1078622905 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice5" parent="VBoxContainer/OpponentStrategy/VBoxContainer/Strategy" unique_id=907358456 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice6" parent="VBoxContainer/OpponentStrategy/VBoxContainer/Strategy" unique_id=2069984120 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
-
-[node name="UIDice7" parent="VBoxContainer/OpponentStrategy/VBoxContainer/Strategy" unique_id=951635741 instance=ExtResource("1_ifo3l")]
-layout_mode = 2
+script = ExtResource("4_4pprc")
 
 [node name="Inventory" type="HBoxContainer" parent="VBoxContainer" unique_id=319571]
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Skills" type="PanelContainer" parent="VBoxContainer/Inventory" unique_id=1663818551]
-material = ExtResource("1_1iuwx")
+material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -178,7 +138,7 @@ size_flags_horizontal = 3
 text = "skill4"
 
 [node name="Traits" type="PanelContainer" parent="VBoxContainer/Inventory" unique_id=1194038171]
-material = ExtResource("1_1iuwx")
+material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -210,7 +170,7 @@ text = "trait4"
 horizontal_alignment = 1
 
 [node name="Fight" type="PanelContainer" parent="VBoxContainer" unique_id=850910479]
-material = ExtResource("1_1iuwx")
+material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5

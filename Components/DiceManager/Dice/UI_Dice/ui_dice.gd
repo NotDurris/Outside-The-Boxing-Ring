@@ -11,7 +11,13 @@ const DEFAULT_BACKGROUND = preload("uid://b1hsaw56djxkx")
 const EMPTY_BACKGROUND = preload("uid://chccsww0104xp")
 
 func set_dice_visual(type : dice.DiceType, label : String):
+	set_dice_text(label)
+	set_dice_background(type)
+
+func set_dice_text(label : String):
 	value_label.text = label
+
+func set_dice_background(type : dice.DiceType):
 	match(type):
 		dice.DiceType.Aggro:
 			background_panel.add_theme_stylebox_override("panel", AGGRO_BACKGROUND)

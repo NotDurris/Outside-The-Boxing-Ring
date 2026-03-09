@@ -14,7 +14,7 @@ border_width_right = 8
 border_width_bottom = 8
 border_color = Color(0, 0, 0, 1)
 
-[node name="UIPanel" type="Control" unique_id=1256259504]
+[node name="UIPanel" type="Control" unique_id=1256259504 node_paths=PackedStringArray("title_label", "background", "foreground", "close_button", "content_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +23,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_f6fbm")
 script = ExtResource("1_wlgud")
+title_label = NodePath("MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Title")
+background = NodePath("Background")
+foreground = NodePath("MarginContainer")
+close_button = NodePath("MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/TitleBar/Close/CloseButton")
+content_container = NodePath("MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/ContentContainer")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1234555341]
 layout_mode = 1

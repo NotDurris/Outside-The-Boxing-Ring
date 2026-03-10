@@ -139,10 +139,12 @@ layout_mode = 2
 
 [node name="SubMenu" parent="." unique_id=476231961 instance=ExtResource("8_ukew1")]
 visible = false
+z_index = 2
 layout_mode = 2
 
 [node name="Pause" parent="." unique_id=90087904 instance=ExtResource("10_b1tnq")]
 visible = false
+z_index = 2
 layout_mode = 2
 
 [node name="EventManager" type="Node" parent="." unique_id=1011263388]

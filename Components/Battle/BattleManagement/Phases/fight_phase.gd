@@ -1,6 +1,14 @@
 extends BattlePhase
 
+var score_manager : ScoreManager
+
+var your_score : int
+var opponent_score : int
+
 func enter_phase(br : BattleRefs):
+	your_score = 0
+	opponent_score = 0
+	if not score_manager : score_manager = ScoreManager.new()
 	var your_dices : Array[UIDice] = br.your_strategy.ui_dice_instances
 	var opponent_dices : Array[UIDice] = br.opponents_strategy.ui_dice_instances
 	var your_strategy_count : int = your_dices.size()
@@ -18,7 +26,7 @@ func enter_phase(br : BattleRefs):
 		if i < opponent_strategy_count: 
 			tweener.tween_property(opponent_dices[i], "global_position", br.opponent_dice_slot.global_position, 0.2)
 		tweener.chain().tween_interval(0.4)
-		tweener.chain().tween_interval(0.1)
+		tweener.chain().tween_interval(0.0)
 		if i < your_strategy_count:
 			tweener.tween_property(your_dices[i], "global_position", br.your_dice_slot.global_position + Vector2.RIGHT * 16, 0.1)
 			tweener.tween_property(your_dices[i], "scale", Vector2.ZERO, 0.2)
@@ -26,11 +34,13 @@ func enter_phase(br : BattleRefs):
 			tweener.tween_property(opponent_dices[i], "global_position", br.opponent_dice_slot.global_position + Vector2.LEFT * 16, 0.1)
 			tweener.tween_property(opponent_dices[i], "scale", Vector2.ZERO, 0.2)
 		tweener.chain().tween_interval(0.2)
+		tweener.tween_callback(func() : update_scores(i, br))
 	
 	tweener.chain().tween_interval(0.1)
 	tweener.tween_callback(func() : transition.emit("PlanningPhase"))
 
 func exit_phase(br : BattleRefs):
+	score_manager = null
 	br.your_strategy.queue_sort()
 	br.opponents_strategy.queue_sort()
 	for ui_dice in br.your_strategy.ui_dice_instances:
@@ -49,3 +59,14 @@ func exit_phase(br : BattleRefs):
 
 func update_phase(_br : BattleRefs, _delta : float):
 	pass
+
+func update_scores(id : int, br : BattleRefs):
+	if not score_manager : return
+	
+	var result : Vector2i = score_manager.calculate_individual_score(id, br.your_dice, br.opponent_dice)
+	
+	your_score += result.x
+	opponent_score += result.y
+	
+	br.your_score_label.text = str(your_score)
+	br.opponent_score_label.text = str(opponent_score)

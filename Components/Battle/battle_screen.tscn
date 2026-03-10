@@ -36,13 +36,15 @@ corner_radius_bottom_left = 12
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qlbi"]
 bg_color = Color(0.72464263, 0.72464263, 0.72464246, 1)
 
-[node name="BattleScreen" type="MarginContainer" unique_id=1888939456 node_paths=PackedStringArray("fight_button", "fighter_strategy_ui", "opponent_strategy_ui", "your_dice_slot", "opponent_dice_slot")]
+[node name="BattleScreen" type="MarginContainer" unique_id=1888939456 node_paths=PackedStringArray("fight_button", "fighter_strategy_ui", "opponent_strategy_ui", "your_dice_slot", "opponent_dice_slot", "your_score_label", "opponent_score_label")]
 script = ExtResource("1_4pprc")
 fight_button = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Fight/MarginContainer/Button")
 fighter_strategy_ui = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/YourStrategy/VBoxContainer/Strategy")
 opponent_strategy_ui = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/OpponentStrategy/VBoxContainer/Strategy")
-your_dice_slot = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer/YourDiceSlot")
-opponent_dice_slot = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer/OpponentDiceSlot")
+your_dice_slot = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer/YourDiceSlot")
+opponent_dice_slot = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer/OpponentDiceSlot")
+your_score_label = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/YourScore")
+opponent_score_label = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/OpponentScore")
 
 [node name="BattleManager" type="Node" parent="." unique_id=1419682277]
 script = ExtResource("2_db32d")
@@ -113,64 +115,69 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle" unique_id=1969524665]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle" unique_id=581769034]
+layout_mode = 2
+
+[node name="YourScore" type="Label" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer" unique_id=1094020948]
+layout_mode = 2
+size_flags_horizontal = 11
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer" unique_id=1969524665]
 layout_mode = 2
 alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer" unique_id=1241605551]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer" unique_id=1241605551]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer3" unique_id=777329341]
+[node name="Label" type="Label" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=777329341]
 layout_mode = 2
 text = "round one"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer" unique_id=1060174012]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer" unique_id=1060174012]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Dot" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer2" unique_id=477857750 instance=ExtResource("5_nngot")]
+[node name="Dot" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=477857750 instance=ExtResource("5_nngot")]
 layout_mode = 2
 
-[node name="Dot2" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer2" unique_id=1014065665 instance=ExtResource("5_nngot")]
+[node name="Dot2" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1014065665 instance=ExtResource("5_nngot")]
 layout_mode = 2
 
-[node name="Dot3" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer2" unique_id=675292062 instance=ExtResource("5_nngot")]
+[node name="Dot3" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=675292062 instance=ExtResource("5_nngot")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer" unique_id=1946972333]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer" unique_id=1946972333]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer" unique_id=1094020948]
-layout_mode = 2
-size_flags_horizontal = 11
-text = "0"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="YourDiceSlot" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer" unique_id=287129497]
+[node name="YourDiceSlot" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=287129497]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4pprc")
 
-[node name="Label3" type="Label" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer" unique_id=899101619]
+[node name="Label3" type="Label" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=899101619]
 layout_mode = 2
 text = "vs"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="OpponentDiceSlot" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer" unique_id=61881877]
+[node name="OpponentDiceSlot" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=61881877]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4pprc")
 
-[node name="Label2" type="Label" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer" unique_id=349066831]
+[node name="OpponentScore" type="Label" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer" unique_id=349066831]
 layout_mode = 2
 size_flags_horizontal = 11
+theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 1
 uppercase = true

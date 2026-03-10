@@ -27,8 +27,8 @@ buses/default_bus_layout="uid://bjdurj1gm67bn"
 
 AudioManager="*res://Components/Autoloads/AudioManager/audio_manager.tscn"
 GlobalSignals="*uid://bej2xyqf7mwg6"
-FighterStats="*uid://b3m8bt8v2va8u"
 Settings="*uid://dhqjj8mt0pynv"
+YourFighter="*uid://b3m8bt8v2va8u"
 
 [display]
 

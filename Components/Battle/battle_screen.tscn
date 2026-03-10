@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bjnkn1jucjvy7" path="res://Components/Battle/battle_logic.gd" id="1_4pprc"]
 [ext_resource type="Script" uid="uid://dkfo1pat7rfyu" path="res://Components/Battle/BattleManagement/battle_manager.gd" id="2_db32d"]
+[ext_resource type="Script" uid="uid://jgxlq1inpv33" path="res://Components/Battle/BattleManagement/battle_refs.gd" id="2_fh60k"]
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="2_nngot"]
 [ext_resource type="Script" uid="uid://b1gmoisuikaw4" path="res://Components/Battle/BattleManagement/Phases/start_phase.gd" id="3_db32d"]
 [ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/Fighter/strategy_ui.gd" id="4_4pprc"]
 [ext_resource type="Script" uid="uid://dw5jv8am8krf0" path="res://Components/Battle/BattleManagement/Phases/planning_phase.gd" id="4_bg1ub"]
 [ext_resource type="Script" uid="uid://bjdk18o056syn" path="res://Components/Battle/BattleManagement/Phases/fight_phase.gd" id="5_2qlbi"]
 [ext_resource type="Script" uid="uid://di27uxityq5ca" path="res://Components/Battle/BattleManagement/Phases/resolution_phase.gd" id="6_rl3qr"]
+[ext_resource type="Script" uid="uid://cgiwr31kj74pd" path="res://Components/Battle/BattleManagement/Phases/evaluation_phase.gd" id="8_aluyq"]
 [ext_resource type="Script" uid="uid://d4i7pyly3olq3" path="res://Components/Battle/RoundTracker/round_tracker.gd" id="8_rl3qr"]
 [ext_resource type="Script" uid="uid://b5ibt4mm3rlw6" path="res://Components/Battle/results_screen.gd" id="10_rak0q"]
 
@@ -105,20 +107,24 @@ corner_radius_bottom_left = 8
 expand_margin_left = 8.0
 expand_margin_right = 8.0
 
-[node name="BattleScreen" type="MarginContainer" unique_id=1888939456 node_paths=PackedStringArray("fight_button", "round_tracker", "fighter_strategy_ui", "opponent_strategy_ui", "your_dice_slot", "opponent_dice_slot", "your_score_label", "opponent_score_label", "results_screen")]
+[node name="BattleScreen" type="MarginContainer" unique_id=1888939456]
 script = ExtResource("1_4pprc")
-fight_button = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Fight/MarginContainer/Button")
-round_tracker = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/RoundTracker")
-fighter_strategy_ui = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/YourStrategy/VBoxContainer/Strategy")
-opponent_strategy_ui = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/OpponentStrategy/VBoxContainer/Strategy")
-your_dice_slot = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer/YourDiceSlot")
-opponent_dice_slot = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer/OpponentDiceSlot")
-your_score_label = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/YourScore")
-opponent_score_label = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/OpponentScore")
-results_screen = NodePath("MarginContainer2/ResultsScreen")
 
-[node name="BattleManager" type="Node" parent="." unique_id=1419682277]
+[node name="BattleRefs" type="Node" parent="." unique_id=522565900 node_paths=PackedStringArray("fight_btn", "round_tracker", "your_strategy", "opponents_strategy", "your_dice_slot", "opponent_dice_slot", "your_score_label", "opponent_score_label", "results_screen")]
+script = ExtResource("2_fh60k")
+fight_btn = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Fight/MarginContainer/FightBtn")
+round_tracker = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/RoundTracker")
+your_strategy = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/YourStrategy/VBoxContainer/Strategy")
+opponents_strategy = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/OpponentStrategy/VBoxContainer/Strategy")
+your_dice_slot = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer/YourDiceSlot")
+opponent_dice_slot = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer/OpponentDiceSlot")
+your_score_label = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/YourScore")
+opponent_score_label = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/OpponentScore")
+results_screen = NodePath("../MarginContainer2/ResultsScreen")
+
+[node name="BattleManager" type="Node" parent="." unique_id=1419682277 node_paths=PackedStringArray("battle_refs")]
 script = ExtResource("2_db32d")
+battle_refs = NodePath("../BattleRefs")
 
 [node name="StartPhase" type="Node" parent="BattleManager" unique_id=1892541034]
 script = ExtResource("3_db32d")
@@ -128,6 +134,9 @@ script = ExtResource("4_bg1ub")
 
 [node name="FightPhase" type="Node" parent="BattleManager" unique_id=1408284778]
 script = ExtResource("5_2qlbi")
+
+[node name="EvaluationPhase" type="Node" parent="BattleManager" unique_id=1347561097]
+script = ExtResource("8_aluyq")
 
 [node name="ResolutionPhase" type="Node" parent="BattleManager" unique_id=1594188244]
 script = ExtResource("6_rl3qr")
@@ -400,7 +409,7 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Button" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Fight/MarginContainer" unique_id=174104662]
+[node name="FightBtn" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Fight/MarginContainer" unique_id=174104662]
 layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2qlbi")
 text = "FIGHT"
@@ -448,4 +457,4 @@ vertical_alignment = 1
 [node name="Close" type="Button" parent="MarginContainer2/ResultsScreen/VBoxContainer" unique_id=27571920]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "finish"
+text = " finish "

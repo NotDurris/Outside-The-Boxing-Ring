@@ -5,8 +5,8 @@ extends Control
 @export var agility_label : Label
 
 func _ready() -> void:
-	update_labels(FighterStats.stats)
-	FighterStats.stats_updated.connect(func(value) : update_labels(value))
+	update_labels(YourFighter.stats)
+	YourFighter.stats_updated.connect(func(value) : update_labels(value))
 
 func update_labels(stats : Stats):
 	aggro_label.text = str(stats.aggro_max)

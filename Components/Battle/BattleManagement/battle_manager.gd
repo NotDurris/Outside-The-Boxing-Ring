@@ -1,21 +1,16 @@
 class_name BattleManager
 extends Node
 
-@export var initial_phase : BattlePhase
 var current_phase : BattlePhase
 var phases : Dictionary = {}
 
-var battle_refs : BattleRefs
+@export var battle_refs : BattleRefs
 
 func _ready():
 	for child in get_children():
 		if child is BattlePhase:
 			phases[child.name.to_lower()] = child
 			child.transition.connect(transition_phase)
-
-	#if initial_phase:
-		#initial_phase.enter_phase(battle_refs)
-		#current_phase = initial_phase
 
 func _process(delta):
 	if current_phase:

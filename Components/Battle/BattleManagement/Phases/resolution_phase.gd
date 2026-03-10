@@ -3,6 +3,7 @@ extends BattlePhase
 func enter_phase(br : BattleRefs):
 	br.fight_btn.disabled = true
 	br.results_screen.show_results(br)
+	br.round_tracker.results.clear()
 
 func exit_phase(br : BattleRefs):
 	br.reset()

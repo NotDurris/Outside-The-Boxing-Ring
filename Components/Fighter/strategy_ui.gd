@@ -44,8 +44,9 @@ func update_strategy_container_from_type(new_strategy : Array[dice.DiceType]):
 	for i in range(new_strategy.size()):
 		var target_ui_dice = ui_dice_instances[i]
 		var type = new_strategy[i]
+		target_ui_dice.type = type
 		
-		target_ui_dice.set_dice_visual(type,"?")
+		target_ui_dice.set_dice_text("?")
 
 func update_strategy_from_dice(new_strategy : Array[dice]):
 	# Create right amount of ui dices
@@ -53,7 +54,5 @@ func update_strategy_from_dice(new_strategy : Array[dice]):
 	
 	for i in range(new_strategy.size()):
 		var target_ui_dice = ui_dice_instances[i]
-		var type = new_strategy[i].type
-		var text = str(new_strategy[i].value)
 		
-		target_ui_dice.set_dice_visual(type,text)
+		target_ui_dice.target_dice = new_strategy[i]

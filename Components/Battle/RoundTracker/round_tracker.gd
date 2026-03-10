@@ -11,18 +11,21 @@ const round_count_to_string : Array = ["ROUND ONE", "ROUND TWO", "FINAL ROUND"]
 @onready var round_label : Label = $RoundLabel
 @onready var round_dots : Array = [$DotsIndicators/DotOne, $DotsIndicators/DotTwo, $DotsIndicators/DotThree]
 
-func update_visual(round_count : int, results : Array[int]):
+var results : Array[int]
+
+func set_round_label(round_count : int):
 	round_label.text = round_count_to_string[round_count]
+
+func set_dot_indicator(round_count : int, result : int):
+	var target_dot : Panel = round_dots[round_count]
+	var target_stylebox : StyleBoxFlat = target_dot.get_theme_stylebox("panel") as StyleBoxFlat
 	
-	for i in range(results.size()):
-		var target_dot : Panel = round_dots[i]
-		var target_stylebox : StyleBoxFlat = target_dot.get_theme_stylebox("panel") as StyleBoxFlat
-		if results[i] > 0:
-			# Won
-			target_stylebox.bg_color = GREEN_COLOUR
-		elif results[i] < 0:
-			# Lost
-			target_stylebox.bg_color = RED_COLOUR
-		else:
-			# Tied
-			target_stylebox.bg_color = BLUE_COLOUR
+	if result > 0:
+		# Won
+		target_stylebox.bg_color = GREEN_COLOUR
+	elif result < 0:
+		# Lost
+		target_stylebox.bg_color = RED_COLOUR
+	else:
+		# Tied
+		target_stylebox.bg_color = BLUE_COLOUR

@@ -7,12 +7,7 @@ extends PanelContainer
 
 func show_results(br : BattleRefs):
 	show()
-	var final_result : int = 0
-	for result in br.round_results:
-		if result < 0:
-			final_result -= 1
-		elif result > 0:
-			final_result += 1
+	var final_result : int = br.you.wins - br.opponent.wins
 	
 	if final_result > 0:
 		# Won

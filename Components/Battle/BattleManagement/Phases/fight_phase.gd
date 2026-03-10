@@ -37,45 +37,40 @@ func enter_phase(br : BattleRefs):
 		tweener.tween_callback(func() : update_scores(i, br))
 	
 	tweener.chain().tween_interval(0.1)
-	tweener.tween_callback(func() :
-		if br.current_round >= 2 :
-			transition.emit("ResolutionPhase")
-		else:
-			transition.emit("PlanningPhase")
-	)
+	tweener.tween_callback(func() : transition.emit("EvaluationPhase"))
 
 func exit_phase(br : BattleRefs):
+	# Reset
 	score_manager = null
 	
-	br.your_strategy.queue_sort()
-	br.opponents_strategy.queue_sort()
+	scale_strategy_dice(br.your_strategy)
+	scale_strategy_dice(br.opponents_strategy)
 	
-	br.your_score_label.text = "0"
-	br.opponent_score_label.text = "0"
+	# Updating Score
+	var compare_scores : int =  your_score - opponent_score
+	if compare_scores > 0:
+		br.you.wins += 1
+	elif compare_scores < 0:
+		br.opponent.wins += 1
 	
-	br.round_results.append(your_score - opponent_score)
+	# Update round count
+	br.round_tracker.set_dot_indicator(clampi(br.current_round,0,2), compare_scores)
 	br.current_round += 1
-	if br.current_round <= 2 :
-		br.round_tracker.update_visual(br.current_round, br.round_results)
-	else:
-		br.round_tracker.update_visual(2, br.round_results)
 	
-	# Create Tweener
-	#var tweener : Tween = create_tween()
-	#tweener.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK).set_parallel()
-	#
-	#for ui_dice in br.your_strategy.ui_dice_instances:
-		#tweener.tween_property(ui_dice, "scale", Vector2.ONE, 0.6)
-	#for ui_dice in br.opponents_strategy.ui_dice_instances:
-		#tweener.tween_property(ui_dice, "scale", Vector2.ONE, 0.6)
 
 func update_phase(_br : BattleRefs, _delta : float):
 	pass
 
+func scale_strategy_dice(target_strategy : StrategyUI):
+	target_strategy.queue_sort()
+	await target_strategy.sort_children
+	for die in target_strategy.ui_dice_instances:
+		die.scale = Vector2.ZERO
+
 func update_scores(id : int, br : BattleRefs):
 	if not score_manager : return
 	
-	var result : Vector2i = score_manager.calculate_individual_score(id, br.your_dice, br.opponent_dice)
+	var result : Vector2i = score_manager.calculate_individual_score(id, br.you.available_dice, br.opponent.available_dice)
 	
 	your_score += result.x
 	opponent_score += result.y

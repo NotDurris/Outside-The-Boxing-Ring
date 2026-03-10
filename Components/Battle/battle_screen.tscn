@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://djntghqtmsbk3"]
 
 [ext_resource type="Script" uid="uid://bjnkn1jucjvy7" path="res://Components/Battle/battle_logic.gd" id="1_4pprc"]
+[ext_resource type="Script" uid="uid://dkfo1pat7rfyu" path="res://Components/Battle/BattleManagement/battle_manager.gd" id="2_db32d"]
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="2_nngot"]
+[ext_resource type="Script" uid="uid://b1gmoisuikaw4" path="res://Components/Battle/BattleManagement/Phases/start_phase.gd" id="3_db32d"]
 [ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/Fighter/strategy_ui.gd" id="4_4pprc"]
+[ext_resource type="Script" uid="uid://dw5jv8am8krf0" path="res://Components/Battle/BattleManagement/Phases/planning_phase.gd" id="4_bg1ub"]
+[ext_resource type="Script" uid="uid://bjdk18o056syn" path="res://Components/Battle/BattleManagement/Phases/fight_phase.gd" id="5_2qlbi"]
 [ext_resource type="PackedScene" uid="uid://g8fptfm0a2ey" path="res://Components/Reputation/dot.tscn" id="5_nngot"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pprc"]
@@ -17,10 +21,42 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="BattleScreen" type="MarginContainer" unique_id=1888939456 node_paths=PackedStringArray("fighter_strategy_ui", "opponent_strategy_ui")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_db32d"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qlbi"]
+bg_color = Color(0.72464263, 0.72464263, 0.72464246, 1)
+
+[node name="BattleScreen" type="MarginContainer" unique_id=1888939456 node_paths=PackedStringArray("fight_button", "fighter_strategy_ui", "opponent_strategy_ui", "your_dice_slot", "opponent_dice_slot")]
 script = ExtResource("1_4pprc")
+fight_button = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Fight/MarginContainer/Button")
 fighter_strategy_ui = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/YourStrategy/VBoxContainer/Strategy")
 opponent_strategy_ui = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/OpponentStrategy/VBoxContainer/Strategy")
+your_dice_slot = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer/YourDiceSlot")
+opponent_dice_slot = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer/OpponentDiceSlot")
+
+[node name="BattleManager" type="Node" parent="." unique_id=1419682277]
+script = ExtResource("2_db32d")
+
+[node name="StartPhase" type="Node" parent="BattleManager" unique_id=1892541034]
+script = ExtResource("3_db32d")
+
+[node name="PlanningPhase" type="Node" parent="BattleManager" unique_id=1498657590]
+script = ExtResource("4_bg1ub")
+
+[node name="FightPhase" type="Node" parent="BattleManager" unique_id=1408284778]
+script = ExtResource("5_2qlbi")
+
+[node name="ResolutionPhase" type="Node" parent="BattleManager" unique_id=1594188244]
 
 [node name="Panel" type="ColorRect" parent="." unique_id=1654876946]
 layout_mode = 2
@@ -116,7 +152,7 @@ text = "0"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="DiceSlot" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer" unique_id=287129497]
+[node name="YourDiceSlot" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer" unique_id=287129497]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4pprc")
@@ -127,7 +163,7 @@ text = "vs"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="DiceSlot2" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer" unique_id=61881877]
+[node name="OpponentDiceSlot" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/VBoxContainer/HBoxContainer" unique_id=61881877]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4pprc")
@@ -247,6 +283,25 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 text = "skill4"
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer" unique_id=388984543]
+layout_mode = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer3" unique_id=330569329]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_db32d")
+
+[node name="Panel2" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer3" unique_id=1703330919]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_db32d")
+
+[node name="Panel3" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer3" unique_id=733248977]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_db32d")
+
 [node name="Fight" type="PanelContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=850910479]
 material = ExtResource("2_nngot")
 layout_mode = 2
@@ -262,4 +317,5 @@ theme_override_constants/margin_bottom = 8
 
 [node name="Button" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Fight/MarginContainer" unique_id=174104662]
 layout_mode = 2
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2qlbi")
 text = "FIGHT"

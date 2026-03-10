@@ -26,6 +26,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="UIDice" type="Button" unique_id=1573092950]
+z_index = 1
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = 15
 anchor_right = 1.0

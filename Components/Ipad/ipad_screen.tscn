@@ -141,17 +141,6 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="Battle" type="CenterContainer" parent="." unique_id=1544150435]
-visible = false
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Battle" unique_id=1095648831]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-
-[node name="BattleScreen" parent="Battle/PanelContainer" unique_id=1299633290 instance=ExtResource("9_b1tnq")]
-layout_mode = 2
-
 [node name="Pause" parent="." unique_id=90087904 instance=ExtResource("10_b1tnq")]
 visible = false
 layout_mode = 2

@@ -7,13 +7,16 @@ var your_dice_slot : Control
 var opponent_dice_slot : Control
 var your_score_label : Label
 var opponent_score_label : Label
+var round_tracker : RoundTracker
 
 var your_dice : Array[dice]
 var opponent_dice : Array[dice]
 var your_score : int
 var opponent_score : int
+var round_results : Array[int]
+var current_round : int = 0
 
-func _init(new_fight_btn : Button,
+func _init(new_fight_btn : Button, new_round_tracker : RoundTracker,
 		new_your_strategy : StrategyUI, 
 		new_opponents_strategy : StrategyUI,
 		new_your_dice_slot : Control,
@@ -21,6 +24,7 @@ func _init(new_fight_btn : Button,
 		new_your_score_label : Label,
 		new_opponent_score_label : Label):
 	fight_btn = new_fight_btn
+	round_tracker = new_round_tracker
 	your_strategy = new_your_strategy
 	opponents_strategy = new_opponents_strategy
 	your_dice_slot = new_your_dice_slot

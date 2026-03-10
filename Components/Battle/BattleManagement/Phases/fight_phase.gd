@@ -37,16 +37,28 @@ func enter_phase(br : BattleRefs):
 		tweener.tween_callback(func() : update_scores(i, br))
 	
 	tweener.chain().tween_interval(0.1)
-	tweener.tween_callback(func() : transition.emit("PlanningPhase"))
+	tweener.tween_callback(func() :
+		if br.current_round >= 2 :
+			transition.emit("ResolutionPhase")
+		else:
+			transition.emit("PlanningPhase")
+	)
 
 func exit_phase(br : BattleRefs):
 	score_manager = null
+	
 	br.your_strategy.queue_sort()
 	br.opponents_strategy.queue_sort()
-	for ui_dice in br.your_strategy.ui_dice_instances:
-		ui_dice.scale = Vector2.ZERO
-	for ui_dice in br.opponents_strategy.ui_dice_instances:
-		ui_dice.scale = Vector2.ZERO
+	
+	br.your_score_label.text = "0"
+	br.opponent_score_label.text = "0"
+	
+	br.round_results.append(your_score - opponent_score)
+	br.current_round += 1
+	if br.current_round <= 2 :
+		br.round_tracker.update_visual(br.current_round, br.round_results)
+	else:
+		br.round_tracker.update_visual(2, br.round_results)
 	
 	# Create Tweener
 	#var tweener : Tween = create_tween()

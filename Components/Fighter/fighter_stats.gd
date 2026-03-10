@@ -8,5 +8,9 @@ var stats : Stats :
 
 signal stats_updated(new_stats : Stats)
 
+var skills : Array[Skill]
+
+var traits : Array[Trait]
+
 func _ready() -> void:
 	stats = Stats.new()

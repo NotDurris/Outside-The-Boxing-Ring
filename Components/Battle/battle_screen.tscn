@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bjdk18o056syn" path="res://Components/Battle/BattleManagement/Phases/fight_phase.gd" id="5_2qlbi"]
 [ext_resource type="Script" uid="uid://di27uxityq5ca" path="res://Components/Battle/BattleManagement/Phases/resolution_phase.gd" id="6_rl3qr"]
 [ext_resource type="Script" uid="uid://d4i7pyly3olq3" path="res://Components/Battle/RoundTracker/round_tracker.gd" id="8_rl3qr"]
+[ext_resource type="Script" uid="uid://b5ibt4mm3rlw6" path="res://Components/Battle/results_screen.gd" id="10_rak0q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rl3qr"]
 bg_color = Color(0.3032328, 0.30323285, 0.30323276, 1)
@@ -73,7 +74,38 @@ corner_radius_bottom_left = 12
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qlbi"]
 bg_color = Color(0.72464263, 0.72464263, 0.72464246, 1)
 
-[node name="BattleScreen" type="MarginContainer" unique_id=1888939456 node_paths=PackedStringArray("fight_button", "round_tracker", "fighter_strategy_ui", "opponent_strategy_ui", "your_dice_slot", "opponent_dice_slot", "your_score_label", "opponent_score_label")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aluyq"]
+bg_color = Color(0.06, 0.06, 0.06, 0.8862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2wqo"]
+bg_color = Color(0.09839172, 0.24025732, 0.25969642, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjp1k"]
+bg_color = Color(0.3995453, 0.061816193, 0.13781351, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
+[node name="BattleScreen" type="MarginContainer" unique_id=1888939456 node_paths=PackedStringArray("fight_button", "round_tracker", "fighter_strategy_ui", "opponent_strategy_ui", "your_dice_slot", "opponent_dice_slot", "your_score_label", "opponent_score_label", "results_screen")]
 script = ExtResource("1_4pprc")
 fight_button = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Fight/MarginContainer/Button")
 round_tracker = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/RoundTracker")
@@ -83,6 +115,7 @@ your_dice_slot = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxCo
 opponent_dice_slot = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer/OpponentDiceSlot")
 your_score_label = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/YourScore")
 opponent_score_label = NodePath("MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/OpponentScore")
+results_screen = NodePath("MarginContainer2/ResultsScreen")
 
 [node name="BattleManager" type="Node" parent="." unique_id=1419682277]
 script = ExtResource("2_db32d")
@@ -371,3 +404,48 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2qlbi")
 text = "FIGHT"
+
+[node name="ResultsScreen" type="PanelContainer" parent="MarginContainer2" unique_id=794103329]
+visible = false
+z_index = 2
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_aluyq")
+script = ExtResource("10_rak0q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/ResultsScreen" unique_id=1781175805]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="result_label" type="Label" parent="MarginContainer2/ResultsScreen/VBoxContainer" unique_id=1497753037]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "VICTORY | DEFEAT | DRAW"
+horizontal_alignment = 1
+
+[node name="Upgrade" type="PanelContainer" parent="MarginContainer2/ResultsScreen/VBoxContainer" unique_id=841060396]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_f2wqo")
+
+[node name="new_upgrade" type="Label" parent="MarginContainer2/ResultsScreen/VBoxContainer/Upgrade" unique_id=506546048]
+layout_mode = 2
+text = "new trait and/or new skill"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loss" type="PanelContainer" parent="MarginContainer2/ResultsScreen/VBoxContainer" unique_id=1579824791]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_qjp1k")
+
+[node name="rep_hit" type="Label" parent="MarginContainer2/ResultsScreen/VBoxContainer/Loss" unique_id=333367954]
+layout_mode = 2
+text = "lost reputation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="MarginContainer2/ResultsScreen/VBoxContainer" unique_id=27571920]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "finish"

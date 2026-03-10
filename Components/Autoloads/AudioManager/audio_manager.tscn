@@ -1,19 +1,26 @@
 [gd_scene format=3 uid="uid://co8hfdg348x1h"]
 
 [ext_resource type="Script" uid="uid://g4b23cn5juqd" path="res://Components/Autoloads/AudioManager/audio_manager.gd" id="1_5yyfr"]
+[ext_resource type="AudioStream" uid="uid://bg8hyq3ayxfdp" path="res://Assets/Sounds/BackgroundMusic/MainMenu.wav" id="2_2kn3g"]
+[ext_resource type="AudioStream" uid="uid://bxvm3hsab1til" path="res://Assets/Sounds/UI/Wood Block1.wav" id="3_x4cf8"]
+[ext_resource type="AudioStream" uid="uid://duk1bjri6qp8m" path="res://Assets/Sounds/UI/Modern3.wav" id="4_jmh28"]
 
 [node name="AudioManager" type="Node" unique_id=624646947]
 process_mode = 3
 script = ExtResource("1_5yyfr")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1040002515]
-volume_db = -5.0
+stream = ExtResource("2_2kn3g")
+volume_db = -20.0
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=787861585]
+stream = ExtResource("3_x4cf8")
 volume_db = -5.0
 
 [node name="ButtonHover" type="AudioStreamPlayer" parent="." unique_id=1440278165]
+stream = ExtResource("4_jmh28")
 volume_db = -5.0
+pitch_scale = 0.8
 
 [node name="MenuOpen" type="AudioStreamPlayer" parent="." unique_id=97615354]
 volume_db = -5.0

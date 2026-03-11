@@ -5,49 +5,15 @@
 [ext_resource type="Script" uid="uid://jgxlq1inpv33" path="res://Components/Battle/BattleManagement/battle_refs.gd" id="2_fh60k"]
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="2_nngot"]
 [ext_resource type="Script" uid="uid://b1gmoisuikaw4" path="res://Components/Battle/BattleManagement/Phases/start_phase.gd" id="3_db32d"]
-[ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/Fighter/strategy_ui.gd" id="4_4pprc"]
 [ext_resource type="Script" uid="uid://dw5jv8am8krf0" path="res://Components/Battle/BattleManagement/Phases/planning_phase.gd" id="4_bg1ub"]
 [ext_resource type="Script" uid="uid://bjdk18o056syn" path="res://Components/Battle/BattleManagement/Phases/fight_phase.gd" id="5_2qlbi"]
 [ext_resource type="Script" uid="uid://di27uxityq5ca" path="res://Components/Battle/BattleManagement/Phases/resolution_phase.gd" id="6_rl3qr"]
 [ext_resource type="Script" uid="uid://cgiwr31kj74pd" path="res://Components/Battle/BattleManagement/Phases/evaluation_phase.gd" id="8_aluyq"]
 [ext_resource type="Script" uid="uid://d4i7pyly3olq3" path="res://Components/Battle/RoundTracker/round_tracker.gd" id="8_rl3qr"]
+[ext_resource type="Script" uid="uid://c4vuiqy1cf3jg" path="res://Components/Battle/DiceContainers/dice_container.gd" id="10_qjp1k"]
 [ext_resource type="Script" uid="uid://b5ibt4mm3rlw6" path="res://Components/Battle/results_screen.gd" id="10_rak0q"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rl3qr"]
-bg_color = Color(0.3032328, 0.30323285, 0.30323276, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rak0q"]
-bg_color = Color(0.3032328, 0.30323285, 0.30323276, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh60k"]
-bg_color = Color(0.3032328, 0.30323285, 0.30323276, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[ext_resource type="Script" uid="uid://yjt2xo4038ap" path="res://Components/Battle/SkillsManager/skills_manager.gd" id="12_f2wqo"]
+[ext_resource type="PackedScene" uid="uid://g8fptfm0a2ey" path="res://Components/Dot/dot.tscn" id="12_qjp1k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pprc"]
 bg_color = Color(0, 0, 0, 1)
@@ -61,20 +27,11 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_db32d"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qlbi"]
 bg_color = Color(0.72464263, 0.72464263, 0.72464246, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jlt6"]
+bg_color = Color(0.12591085, 0.12591085, 0.12591082, 0.7529412)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aluyq"]
 bg_color = Color(0.06, 0.06, 0.06, 0.8862745)
@@ -110,17 +67,18 @@ expand_margin_right = 8.0
 [node name="BattleScreen" type="MarginContainer" unique_id=1888939456]
 script = ExtResource("1_4pprc")
 
-[node name="BattleRefs" type="Node" parent="." unique_id=522565900 node_paths=PackedStringArray("fight_btn", "round_tracker", "your_strategy", "opponents_strategy", "your_dice_slot", "opponent_dice_slot", "your_score_label", "opponent_score_label", "results_screen")]
+[node name="BattleRefs" type="Node" parent="." unique_id=522565900 node_paths=PackedStringArray("fight_btn", "round_tracker", "your_dice_visual", "opponents_dice_visual", "your_dice_slot", "opponent_dice_slot", "your_score_label", "opponent_score_label", "results_screen", "skill_manager")]
 script = ExtResource("2_fh60k")
 fight_btn = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Fight/MarginContainer/FightBtn")
 round_tracker = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/RoundTracker")
-your_strategy = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/YourStrategy/VBoxContainer/Strategy")
-opponents_strategy = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/OpponentStrategy/VBoxContainer/Strategy")
+your_dice_visual = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/YourStrategy/VBoxContainer/you_dice_visual")
+opponents_dice_visual = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/OpponentStrategy/VBoxContainer/opponent_dice_visual")
 your_dice_slot = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer/YourDiceSlot")
 opponent_dice_slot = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/HBoxContainer/OpponentDiceSlot")
 your_score_label = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/YourScore")
 opponent_score_label = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/OpponentScore")
 results_screen = NodePath("../MarginContainer2/ResultsScreen")
+skill_manager = NodePath("../MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills")
 
 [node name="BattleManager" type="Node" parent="." unique_id=1419682277 node_paths=PackedStringArray("battle_refs")]
 script = ExtResource("2_db32d")
@@ -183,12 +141,12 @@ text = "opponent"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Strategy" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/OpponentStrategy/VBoxContainer" unique_id=1481661448]
+[node name="opponent_dice_visual" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/OpponentStrategy/VBoxContainer" unique_id=1481661448]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_constants/separation = 8
-script = ExtResource("4_4pprc")
+script = ExtResource("10_qjp1k")
 
 [node name="Battle" type="PanelContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1274329178]
 material = ExtResource("2_nngot")
@@ -226,20 +184,14 @@ layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="DotOne" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/RoundTracker/DotsIndicators" unique_id=99809768]
-custom_minimum_size = Vector2(20, 20)
+[node name="Dot" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/RoundTracker/DotsIndicators" unique_id=477857750 instance=ExtResource("12_qjp1k")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rl3qr")
 
-[node name="DotTwo" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/RoundTracker/DotsIndicators" unique_id=417605606]
-custom_minimum_size = Vector2(20, 20)
+[node name="Dot2" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/RoundTracker/DotsIndicators" unique_id=832511999 instance=ExtResource("12_qjp1k")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_rak0q")
 
-[node name="DotThree" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/RoundTracker/DotsIndicators" unique_id=1151778116]
-custom_minimum_size = Vector2(20, 20)
+[node name="Dot3" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer/RoundTracker/DotsIndicators" unique_id=816329337 instance=ExtResource("12_qjp1k")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fh60k")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/Battle/HBoxContainer/VBoxContainer" unique_id=1946972333]
 layout_mode = 2
@@ -282,12 +234,12 @@ text = "YOU"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Strategy" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/YourStrategy/VBoxContainer" unique_id=470334578]
+[node name="you_dice_visual" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer/YourStrategy/VBoxContainer" unique_id=470334578]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_constants/separation = 8
-script = ExtResource("4_4pprc")
+script = ExtResource("10_qjp1k")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer" unique_id=1463374721]
 layout_mode = 2
@@ -335,12 +287,18 @@ size_flags_horizontal = 3
 text = "trait4"
 horizontal_alignment = 1
 
-[node name="Skills" type="PanelContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1663818551]
+[node name="Skills" type="PanelContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1663818551 node_paths=PackedStringArray("skill_buttons", "dots_container", "selection_pop_up", "selection_pop_up_label", "selection_pop_up_button")]
 material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+script = ExtResource("12_f2wqo")
+skill_buttons = [NodePath("VBoxContainer/HBoxContainer/skill1"), NodePath("VBoxContainer/HBoxContainer/skill2"), NodePath("VBoxContainer/HBoxContainer2/skill3"), NodePath("VBoxContainer/HBoxContainer2/skill4")]
+dots_container = NodePath("VBoxContainer/HBoxContainer3")
+selection_pop_up = NodePath("../../../../SelectionPopUp")
+selection_pop_up_label = NodePath("../../../../SelectionPopUp/VBoxContainer/Label")
+selection_pop_up_button = NodePath("../../../../SelectionPopUp/VBoxContainer/Button")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills" unique_id=292475860]
 layout_mode = 2
@@ -349,13 +307,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="button" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer" unique_id=1101034408]
+[node name="skill1" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer" unique_id=1101034408]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 text = "skill1"
 
-[node name="button2" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer" unique_id=1189688435]
+[node name="skill2" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer" unique_id=1189688435]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -365,13 +323,13 @@ text = "skill2"
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="button3" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer2" unique_id=236795870]
+[node name="skill3" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer2" unique_id=236795870]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 text = "skill3"
 
-[node name="button4" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer2" unique_id=718692455]
+[node name="skill4" type="Button" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer2" unique_id=718692455]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
@@ -380,21 +338,6 @@ text = "skill4"
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer" unique_id=388984543]
 layout_mode = 2
 alignment = 1
-
-[node name="Panel" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer3" unique_id=330569329]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_db32d")
-
-[node name="Panel2" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer3" unique_id=1703330919]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_db32d")
-
-[node name="Panel3" type="Panel" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills/VBoxContainer/HBoxContainer3" unique_id=733248977]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_db32d")
 
 [node name="Fight" type="PanelContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=850910479]
 material = ExtResource("2_nngot")
@@ -413,6 +356,27 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2qlbi")
 text = "FIGHT"
+
+[node name="SelectionPopUp" type="PanelContainer" parent="MarginContainer2" unique_id=752189817]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7jlt6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/SelectionPopUp" unique_id=177962988]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer2/SelectionPopUp/VBoxContainer" unique_id=1052630956]
+layout_mode = 2
+text = "SELECT X DICE"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer2/SelectionPopUp/VBoxContainer" unique_id=320261957]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "cancel"
 
 [node name="ResultsScreen" type="PanelContainer" parent="MarginContainer2" unique_id=794103329]
 visible = false

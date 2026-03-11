@@ -9,8 +9,8 @@ func enter_phase(br : BattleRefs):
 	your_score = 0
 	opponent_score = 0
 	if not score_manager : score_manager = ScoreManager.new()
-	var your_dices : Array[UIDice] = br.your_strategy.ui_dice_instances
-	var opponent_dices : Array[UIDice] = br.opponents_strategy.ui_dice_instances
+	var your_dices : Array[UIDice] = br.your_dice_visual.ui_dice_instances
+	var opponent_dices : Array[UIDice] = br.opponents_dice_visual.ui_dice_instances
 	var your_strategy_count : int = your_dices.size()
 	var opponent_strategy_count : int = opponent_dices.size()
 	var max_count : int = max(your_strategy_count, opponent_strategy_count)
@@ -43,8 +43,8 @@ func exit_phase(br : BattleRefs):
 	# Reset
 	score_manager = null
 	
-	scale_strategy_dice(br.your_strategy)
-	scale_strategy_dice(br.opponents_strategy)
+	scale_strategy_dice(br.your_dice_visual)
+	scale_strategy_dice(br.opponents_dice_visual)
 	
 	# Updating Score
 	var compare_scores : int =  your_score - opponent_score
@@ -61,7 +61,7 @@ func exit_phase(br : BattleRefs):
 func update_phase(_br : BattleRefs, _delta : float):
 	pass
 
-func scale_strategy_dice(target_strategy : StrategyUI):
+func scale_strategy_dice(target_strategy : DiceContainer):
 	target_strategy.queue_sort()
 	await target_strategy.sort_children
 	for die in target_strategy.ui_dice_instances:

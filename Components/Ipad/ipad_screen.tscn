@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cdry02xops1qh"]
 
 [ext_resource type="Theme" uid="uid://bst7cn8b0ldyg" path="res://Assets/Themes/_UI/ipadinterface.tres" id="1_jy1cj"]
-[ext_resource type="PackedScene" uid="uid://g8fptfm0a2ey" path="res://Components/Reputation/dot.tscn" id="2_2v6ia"]
+[ext_resource type="PackedScene" uid="uid://g8fptfm0a2ey" path="res://Components/Dot/dot.tscn" id="2_2v6ia"]
 [ext_resource type="Texture2D" uid="uid://c6ld56uuetj7b" path="res://Assets/Sprites/icons/profile.png" id="2_aokq0"]
 [ext_resource type="Script" uid="uid://rfp551787gb6" path="res://Components/Reputation/reputation.gd" id="2_m8gs1"]
 [ext_resource type="Texture2D" uid="uid://b7mgcwos037qv" path="res://Assets/Sprites/icons/settings.png" id="3_2v6ia"]

@@ -1,6 +1,8 @@
 class_name StrategyUI
 extends Container
 
+signal dice_selected(id : int)
+
 const UI_DICE = preload("uid://b16piwmo3c5nf")
 
 var ui_dice_instances : Array[UIDice]
@@ -28,6 +30,7 @@ func resize_strategy(target_size : int):
 		# create difference
 		for i in range(difference):
 			var new_ui_dice : UIDice = UI_DICE.instantiate()
+			new_ui_dice.pressed.connect(func() : dice_selected.emit(i))
 			add_child(new_ui_dice)
 			ui_dice_instances.append(new_ui_dice)
 	elif difference < 0:

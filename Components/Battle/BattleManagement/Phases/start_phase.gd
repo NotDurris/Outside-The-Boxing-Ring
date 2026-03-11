@@ -1,6 +1,9 @@
 extends BattlePhase
 
 func enter_phase(br : BattleRefs):
+	# Initiate Skills
+	br.skill_manager.initiate_skills()
+	
 	# Generate Fighters
 	br.you = Fighter.new(YourFighter.stats, YourFighter.skills, YourFighter.traits)
 	br.opponent = Fighter.new(Stats.new())
@@ -8,8 +11,8 @@ func enter_phase(br : BattleRefs):
 	br.you.available_dice = get_fighters_dice(br.you.stats)
 	br.opponent.available_dice = get_fighters_dice(br.opponent.stats)
 	
-	br.your_strategy.update_strategy_from_dice(br.you.available_dice)
-	br.opponents_strategy.update_strategy_from_dice(br.opponent.available_dice)
+	br.your_dice_visual.update_target_fighter(br.you)
+	br.opponents_dice_visual.update_target_fighter(br.opponent)
 
 func exit_phase(_br : BattleRefs):
 	pass
@@ -19,7 +22,7 @@ func update_phase(_br : BattleRefs, _delta : float):
 
 func get_fighters_dice(stats : Stats) -> Array[dice]:
 	var fighter_dice : Array[dice]
-	for type in YourFighter.stats.strategy:
+	for type in stats.strategy:
 		var sides = 0
 		match type:
 			dice.DiceType.Aggro:

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://g8fptfm0a2ey"]
 
+[ext_resource type="Script" uid="uid://cttov364qn7sj" path="res://Components/Dot/dot_logic.gd" id="1_ottnn"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwq67"]
 bg_color = Color(1, 1, 1, 1)
 border_width_left = 4
@@ -16,3 +18,4 @@ corner_radius_bottom_left = 16
 custom_minimum_size = Vector2(32, 32)
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_lwq67")
+script = ExtResource("1_ottnn")

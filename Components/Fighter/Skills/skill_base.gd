@@ -10,4 +10,4 @@ enum TargetAffiliation { SELF, OPPONENT, BOTH }
 enum Frequency { ALWAYS, PERROUND, PERCOMBAT }
 @export var frequency : Frequency
 
-@abstract func on_skill_apply(br : BattleRefs, targets : Array = [])
+@export var skill_action : SkillAction

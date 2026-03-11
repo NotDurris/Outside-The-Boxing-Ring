@@ -45,6 +45,8 @@ folder_colors={
 "res://Assets/": "red",
 "res://Components/": "orange",
 "res://Levels/": "gray",
+"res://Skills/": "green",
+"res://Traits/": "teal",
 "res://addons/": "blue"
 }
 

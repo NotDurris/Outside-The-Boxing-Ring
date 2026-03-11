@@ -13,43 +13,51 @@ grow_vertical = 2
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=609591742]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=140211434]
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=140211434]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Reputation" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=613186836]
+[node name="Reputation" type="PanelContainer" parent="HBoxContainer2" unique_id=613186836]
 material = ExtResource("1_i657i")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer/Reputation" unique_id=1182606404]
+[node name="Label" type="Label" parent="HBoxContainer2/Reputation" unique_id=1182606404]
 layout_mode = 2
 text = "OPPOnent"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Reputation2" type="PanelContainer" parent="HBoxContainer/HBoxContainer" unique_id=1091190460]
+[node name="Vbox" type="VBoxContainer" parent="HBoxContainer2" unique_id=609591742]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Reputation2" type="PanelContainer" parent="HBoxContainer2/Vbox" unique_id=1091190460]
 material = ExtResource("1_i657i")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer/Reputation2" unique_id=14966703]
+[node name="Label" type="Label" parent="HBoxContainer2/Vbox/Reputation2" unique_id=14966703]
 layout_mode = 2
 text = "STATS"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Strategy" type="PanelContainer" parent="HBoxContainer" unique_id=1328943134]
+[node name="Strategy" type="PanelContainer" parent="HBoxContainer2/Vbox" unique_id=1328943134]
 material = ExtResource("1_i657i")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/Strategy" unique_id=335986206]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer2/Vbox/Strategy" unique_id=1864680508]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Button" type="Button" parent="HBoxContainer2/Vbox/Strategy/MarginContainer" unique_id=335986206]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

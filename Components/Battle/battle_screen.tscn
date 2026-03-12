@@ -287,7 +287,7 @@ size_flags_horizontal = 3
 text = "trait4"
 horizontal_alignment = 1
 
-[node name="Skills" type="PanelContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1663818551 node_paths=PackedStringArray("skill_buttons", "dots_container", "selection_pop_up", "selection_pop_up_label", "selection_pop_up_button")]
+[node name="Skills" type="PanelContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1663818551 node_paths=PackedStringArray("skill_buttons", "dots_container", "selection_pop_up", "selection_pop_up_label", "selection_pop_up_close", "selection_pop_up_confirm")]
 material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_horizontal = 3
@@ -297,8 +297,9 @@ script = ExtResource("12_f2wqo")
 skill_buttons = [NodePath("VBoxContainer/HBoxContainer/skill1"), NodePath("VBoxContainer/HBoxContainer/skill2"), NodePath("VBoxContainer/HBoxContainer2/skill3"), NodePath("VBoxContainer/HBoxContainer2/skill4")]
 dots_container = NodePath("VBoxContainer/HBoxContainer3")
 selection_pop_up = NodePath("../../../../SelectionPopUp")
-selection_pop_up_label = NodePath("../../../../SelectionPopUp/VBoxContainer/Label")
-selection_pop_up_button = NodePath("../../../../SelectionPopUp/VBoxContainer/Button")
+selection_pop_up_label = NodePath("../../../../SelectionPopUp/HBoxContainer/VBoxContainer/Label")
+selection_pop_up_close = NodePath("../../../../SelectionPopUp/HBoxContainer/VBoxContainer/close")
+selection_pop_up_confirm = NodePath("../../../../SelectionPopUp/HBoxContainer/VBoxContainer/confirm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2/Skills" unique_id=292475860]
 layout_mode = 2
@@ -358,22 +359,38 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_2qlbi")
 text = "FIGHT"
 
 [node name="SelectionPopUp" type="PanelContainer" parent="MarginContainer2" unique_id=752189817]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7jlt6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/SelectionPopUp" unique_id=177962988]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/SelectionPopUp" unique_id=2008410340]
 layout_mode = 2
 mouse_filter = 2
+
+[node name="Control" type="Control" parent="MarginContainer2/SelectionPopUp/HBoxContainer" unique_id=448280994]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/SelectionPopUp/HBoxContainer" unique_id=177962988]
+layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer2/SelectionPopUp/VBoxContainer" unique_id=1052630956]
+[node name="Label" type="Label" parent="MarginContainer2/SelectionPopUp/HBoxContainer/VBoxContainer" unique_id=1052630956]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "SELECT X DICE"
 horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer2/SelectionPopUp/VBoxContainer" unique_id=320261957]
+[node name="confirm" type="Button" parent="MarginContainer2/SelectionPopUp/HBoxContainer/VBoxContainer" unique_id=1201372799]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "confirm"
+
+[node name="close" type="Button" parent="MarginContainer2/SelectionPopUp/HBoxContainer/VBoxContainer" unique_id=320261957]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "cancel"

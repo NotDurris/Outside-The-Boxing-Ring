@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://7e5d0nk40pcj"]
+
+[ext_resource type="Script" uid="uid://c5vmees2082jx" path="res://Components/Fighter/Skills/skill_base.gd" id="1_0s5l8"]
+[ext_resource type="Script" uid="uid://cfvjei6j5rfik" path="res://Components/Fighter/Skills/actions/action_swap.gd" id="2_bv24d"]
+
+[resource]
+script = ExtResource("1_0s5l8")
+name = "switch"
+description = "swaps the position of two selected dice"
+target_type = 1
+target_amount = 2
+skill_action = ExtResource("2_bv24d")
+metadata/_custom_type_script = "uid://c5vmees2082jx"

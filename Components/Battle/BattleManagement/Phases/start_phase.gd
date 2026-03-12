@@ -2,10 +2,10 @@ extends BattlePhase
 
 func enter_phase(br : BattleRefs):
 	# Initiate Skills
-	br.skill_manager.initiate_skills()
+	br.skill_manager.initiate_skills(br)
 	
 	# Generate Fighters
-	br.you = Fighter.new(YourFighter.stats, YourFighter.skills, YourFighter.traits)
+	br.you = Fighter.new(YourFighter.stats)
 	br.opponent = Fighter.new(Stats.new())
 	
 	br.you.available_dice = get_fighters_dice(br.you.stats)

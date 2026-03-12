@@ -4,6 +4,9 @@
 [ext_resource type="StyleBox" uid="uid://30531b3oxvua" path="res://Assets/Themes/Buttons/ipad/normal.tres" id="2_0ytpw"]
 [ext_resource type="StyleBox" uid="uid://bro1x5jn84gwa" path="res://Assets/Themes/Buttons/ipad/highlight.tres" id="3_eqt26"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t5ug"]
+bg_color = Color(0.5053437, 0.5053442, 0.5053436, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqt26"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2kjet"]
@@ -75,11 +78,12 @@ corner_radius_bottom_left = 4
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 Button/fonts/font = ExtResource("1_w6lx2")
-Button/styles/disabled = ExtResource("2_0ytpw")
+Button/styles/disabled = SubResource("StyleBoxFlat_8t5ug")
 Button/styles/focus = ExtResource("3_eqt26")
 Button/styles/hover = ExtResource("2_0ytpw")
 Button/styles/normal = ExtResource("2_0ytpw")

@@ -37,12 +37,14 @@ void fragment() {
 	vec3 colour = texture(albedo, adjusted_uv).rgb;
 	if(apply_pixels){
 		ALBEDO = get_screen_pixel_colour(adjusted_uv, colour);
+		EMISSION = ALBEDO * (1.0 + bloom_intensity);
 	}
 	else{
 		ALBEDO = colour;
+		EMISSION = ALBEDO * (1.0 + bloom_intensity * 0.15);
 	}
 	
-	EMISSION = ALBEDO * (1.0 + bloom_intensity);
+	
 }
 
 //void light() {

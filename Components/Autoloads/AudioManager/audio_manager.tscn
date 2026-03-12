@@ -12,18 +12,23 @@ script = ExtResource("1_5yyfr")
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1040002515]
 stream = ExtResource("2_2kn3g")
 volume_db = -20.0
+bus = &"Music"
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=787861585]
 stream = ExtResource("3_x4cf8")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="ButtonHover" type="AudioStreamPlayer" parent="." unique_id=1440278165]
 stream = ExtResource("4_jmh28")
 volume_db = -5.0
 pitch_scale = 0.8
+bus = &"SFX"
 
 [node name="MenuOpen" type="AudioStreamPlayer" parent="." unique_id=97615354]
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="MenuClose" type="AudioStreamPlayer" parent="." unique_id=881822284]
 volume_db = -5.0
+bus = &"SFX"

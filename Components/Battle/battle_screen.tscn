@@ -379,7 +379,7 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer2/SelectionPopUp/HBoxContainer/VBoxContainer" unique_id=1052630956]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 text = "SELECT X DICE"
 horizontal_alignment = 1

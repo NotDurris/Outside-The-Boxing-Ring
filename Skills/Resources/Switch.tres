@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Skill" format=3 uid="uid://7e5d0nk40pcj"]
 
-[ext_resource type="Script" uid="uid://c5vmees2082jx" path="res://Components/Fighter/Skills/skill_base.gd" id="1_0s5l8"]
-[ext_resource type="Script" uid="uid://cfvjei6j5rfik" path="res://Components/Fighter/Skills/actions/action_swap.gd" id="2_bv24d"]
+[ext_resource type="Script" uid="uid://c5vmees2082jx" path="res://Skills/skill_base.gd" id="1_0s5l8"]
+[ext_resource type="Script" uid="uid://cfvjei6j5rfik" path="res://Skills/Actions/action_swap.gd" id="2_bv24d"]
 
 [resource]
 script = ExtResource("1_0s5l8")

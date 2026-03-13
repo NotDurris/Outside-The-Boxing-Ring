@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://db4rfl2mr6l4j"]
+
+[ext_resource type="Script" uid="uid://c5vmees2082jx" path="res://Skills/skill_base.gd" id="1_r5mx4"]
+[ext_resource type="Script" uid="uid://b8r7a5hteu3n3" path="res://Skills/Actions/action_reroll.gd" id="2_7l1gx"]
+
+[resource]
+script = ExtResource("1_r5mx4")
+name = "footwork"
+description = "Reroll one of your dice"
+target_type = 1
+target_amount = 1
+skill_action = ExtResource("2_7l1gx")
+metadata/_custom_type_script = "uid://c5vmees2082jx"

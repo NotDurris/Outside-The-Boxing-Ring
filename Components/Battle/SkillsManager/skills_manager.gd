@@ -10,6 +10,7 @@ const DOT = preload("uid://g8fptfm0a2ey")
 @export var dots_container : Control
 @export var selection_pop_up : Control
 @export var selection_pop_up_label : Label
+@export var selection_pop_up_description : Label
 @export var selection_pop_up_close : Button
 @export var selection_pop_up_confirm : Button
 
@@ -42,6 +43,7 @@ func skill_selected(id : int):
 	selected_skill = YourFighter.stats.skills[id]
 	
 	update_reminder_text()
+	update_description_text()
 	
 	match (selected_skill.target_type):
 		Skill.TargetType.NONE:
@@ -73,6 +75,9 @@ func update_reminder_text():
 				selection_pop_up_label.text = "Confirm to use skill"
 		Skill.TargetType.ALL_DICE:
 			selection_pop_up_label.text = "Confirm to use skill"
+
+func update_description_text():
+	selection_pop_up_description.text = selected_skill.name + "\n" + selected_skill.description
 
 func set_usage_dots():
 	for dot in skill_dots:

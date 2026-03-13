@@ -90,7 +90,6 @@ _data = {
 
 [node name="UIDice" type="Button" unique_id=1573092950]
 z_index = 1
-custom_minimum_size = Vector2(64, 64)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

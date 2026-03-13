@@ -44,6 +44,13 @@ func resize_dice_array(target_size : int):
 		for i in range(abs(difference)):
 			var dice_instance = ui_dice_instances.pop_back()
 			dice_instance.queue_free()
+	
+	# Set dice sizes
+	var x_size : float = max(453.0, size.x)
+	var dice_size : float = min(x_size / ui_dice_instances.size(), 64)
+	for die in ui_dice_instances:
+		die.target_scale = dice_size
+	
 
 func scale_strategy_dice(target_scale : Vector2):
 	var tweener : Tween = create_tween()

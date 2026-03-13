@@ -287,7 +287,7 @@ size_flags_horizontal = 3
 text = "trait4"
 horizontal_alignment = 1
 
-[node name="Skills" type="PanelContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1663818551 node_paths=PackedStringArray("skill_buttons", "dots_container", "selection_pop_up", "selection_pop_up_label", "selection_pop_up_close", "selection_pop_up_confirm")]
+[node name="Skills" type="PanelContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1663818551 node_paths=PackedStringArray("skill_buttons", "dots_container", "selection_pop_up", "selection_pop_up_label", "selection_pop_up_description", "selection_pop_up_close", "selection_pop_up_confirm")]
 material = ExtResource("2_nngot")
 layout_mode = 2
 size_flags_horizontal = 3
@@ -297,7 +297,8 @@ script = ExtResource("12_f2wqo")
 skill_buttons = [NodePath("VBoxContainer/HBoxContainer/skill1"), NodePath("VBoxContainer/HBoxContainer/skill2"), NodePath("VBoxContainer/HBoxContainer2/skill3"), NodePath("VBoxContainer/HBoxContainer2/skill4")]
 dots_container = NodePath("VBoxContainer/HBoxContainer3")
 selection_pop_up = NodePath("../../../../SelectionPopUp")
-selection_pop_up_label = NodePath("../../../../SelectionPopUp/HBoxContainer/VBoxContainer/Label")
+selection_pop_up_label = NodePath("../../../../SelectionPopUp/HBoxContainer/VBoxContainer/Reminder")
+selection_pop_up_description = NodePath("../../../../SelectionPopUp/HBoxContainer/VBoxContainer/Description")
 selection_pop_up_close = NodePath("../../../../SelectionPopUp/HBoxContainer/VBoxContainer/close")
 selection_pop_up_confirm = NodePath("../../../../SelectionPopUp/HBoxContainer/VBoxContainer/confirm")
 
@@ -378,10 +379,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer2/SelectionPopUp/HBoxContainer/VBoxContainer" unique_id=1052630956]
-custom_minimum_size = Vector2(200, 100)
+[node name="Reminder" type="Label" parent="MarginContainer2/SelectionPopUp/HBoxContainer/VBoxContainer" unique_id=1052630956]
+custom_minimum_size = Vector2(200, 85)
 layout_mode = 2
 text = "SELECT X DICE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Description" type="Label" parent="MarginContainer2/SelectionPopUp/HBoxContainer/VBoxContainer" unique_id=1440337674]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+text = "Skill
+Description"
 horizontal_alignment = 1
 autowrap_mode = 2
 

@@ -1,17 +1,21 @@
 extends BattlePhase
 
 func enter_phase(br : BattleRefs):
-	br.fight_btn.disabled = false
 	br.fight_btn.text = "FIGHT"
 	br.fight_btn.pressed.connect(start_fight)
-	
-	br.opponents_dice_visual.scale_strategy_dice(Vector2.ONE)
-	br.your_dice_visual.scale_strategy_dice(Vector2.ONE)
 	
 	br.you.available_dice = get_fighters_dice(br.you.stats)
 	br.opponent.available_dice = get_fighters_dice(br.opponent.stats)
 	
+	if br.you.available_dice.size() > br.opponent.available_dice.size():
+		br.opponents_dice_visual.scale_strategy_dice(Vector2.ONE)
+		await br.your_dice_visual.scale_strategy_dice(Vector2.ONE)
+	else:
+		br.your_dice_visual.scale_strategy_dice(Vector2.ONE)
+		await br.opponents_dice_visual.scale_strategy_dice(Vector2.ONE)
+	
 	br.skill_manager.activate(br)
+	br.fight_btn.disabled = false
 
 func exit_phase(br : BattleRefs):
 	br.skill_manager.deactivate(br)

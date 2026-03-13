@@ -58,3 +58,5 @@ func scale_strategy_dice(target_scale : Vector2):
 	
 	for die in ui_dice_instances:
 		tweener.tween_property(die, "scale", target_scale, 0.1)
+	
+	await tweener.finished

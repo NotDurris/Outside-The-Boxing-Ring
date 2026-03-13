@@ -5,7 +5,11 @@ extends Node
 @warning_ignore("unused_signal")
 signal event_clicked(event : Event)
 @warning_ignore("unused_signal")
+signal event_completed()
+@warning_ignore("unused_signal")
 signal start_fight(opponent : OpponentStats)
+@warning_ignore("unused_signal")
+signal battle_finished(result : int)
 
 # SubMenu
 @warning_ignore("unused_signal")

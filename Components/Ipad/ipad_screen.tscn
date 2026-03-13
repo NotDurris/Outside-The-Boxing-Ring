@@ -94,7 +94,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_pd8w2")
 icon = ExtResource("2_aokq0")
 expand_icon = true
 script = ExtResource("5_gnf6a")
-title = "FIGHTER"
 contents = ExtResource("5_2v6ia")
 
 [node name="ButtonEffectsHandler" parent="Main/Header/MarginContainer/HBoxContainer/Profile/profile_btn" unique_id=1596210632 instance=ExtResource("4_m8gs1")]
@@ -122,7 +121,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_pd8w2")
 icon = ExtResource("3_2v6ia")
 expand_icon = true
 script = ExtResource("5_gnf6a")
-title = "PAUSED"
 contents = ExtResource("10_b1tnq")
 
 [node name="ButtonEffectsHandler" parent="Main/Header/MarginContainer/HBoxContainer/Pause/pause_btn" unique_id=1220882839 instance=ExtResource("4_m8gs1")]

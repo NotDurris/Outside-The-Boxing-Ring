@@ -91,7 +91,7 @@ func set_usage_dots():
 
 func initiate_btns(br : BattleRefs):
 	for connection in selection_pop_up_confirm.pressed.get_connections():
-		selection_pop_up_confirm.pressed.disconnect(connection)
+		selection_pop_up_confirm.pressed.disconnect(connection.callable)
 	
 	selection_pop_up_confirm.pressed.connect(func() : apply_skill(br))
 	br.your_dice_visual.dice_selected.connect(func(value) : your_dice_selection(value, br))

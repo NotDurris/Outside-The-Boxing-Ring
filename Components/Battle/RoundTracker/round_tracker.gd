@@ -11,6 +11,10 @@ var results : Array[int]
 func set_round_label(round_count : int):
 	round_label.text = round_count_to_string[round_count]
 
+func reset():
+	for target_dot in round_dots:
+		target_dot.set_colour(Dot.GREY_COLOUR)
+
 func set_dot_indicator(round_count : int, result : int):
 	var target_dot : Dot = round_dots[round_count]
 	if result > 0:

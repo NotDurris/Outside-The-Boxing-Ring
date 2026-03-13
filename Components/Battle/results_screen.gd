@@ -25,3 +25,6 @@ func show_results(br : BattleRefs):
 		results_label.text = "DRAW"
 		loss_notification.show()
 		reward_notification.hide()
+
+func hide_results(_br : BattleRefs):
+	hide()

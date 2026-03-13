@@ -4,6 +4,7 @@ extends UIPanel
 func _ready() -> void:
 	super._ready()
 	GlobalSignals.open_pop_up_menu.connect(open_and_change_contents)
+	GlobalSignals.close_pop_up_menu.connect(close_panel)
 
 func open_and_change_contents(new_contents : PackedScene):
 	var instanced_contents : SubMenu = new_contents.instantiate()

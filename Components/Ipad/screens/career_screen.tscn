@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://b4m2k3e6havwy"]
 
 [ext_resource type="PackedScene" uid="uid://d2fopyho8jnkt" path="res://Components/Career/rank.tscn" id="1_6fdxb"]
+[ext_resource type="Script" uid="uid://7u3sif2dq0r1" path="res://Components/Career/career_logic.gd" id="1_oqrye"]
 [ext_resource type="Script" uid="uid://cuaxbmhto2x8r" path="res://Components/Career/auto_scroll.gd" id="1_yeji3"]
 
-[node name="Career" type="MarginContainer" unique_id=2111181882]
+[node name="Career" type="MarginContainer" unique_id=2111181882 node_paths=PackedStringArray("ranks")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_oqrye")
+ranks = [NodePath("ScrollContainer/VBoxContainer/Rank"), NodePath("ScrollContainer/VBoxContainer/Rank2"), NodePath("ScrollContainer/VBoxContainer/Rank3"), NodePath("ScrollContainer/VBoxContainer/Rank4"), NodePath("ScrollContainer/VBoxContainer/Rank5"), NodePath("ScrollContainer/VBoxContainer/Rank6"), NodePath("ScrollContainer/VBoxContainer/Rank7"), NodePath("ScrollContainer/VBoxContainer/Rank8"), NodePath("ScrollContainer/VBoxContainer/Rank9"), NodePath("ScrollContainer/VBoxContainer/Rank10")]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=647375614]
 layout_mode = 2

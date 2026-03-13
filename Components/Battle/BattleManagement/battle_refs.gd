@@ -3,6 +3,7 @@ extends Node
 
 var you : Fighter
 var opponent : Fighter
+var opponent_stats : Stats
 var current_round : int = 0
 
 @export var fight_btn : Button

@@ -8,6 +8,8 @@ const TRAIN_SUB_MENU = preload("uid://d2xfieuj21bw5")
 
 func _ready() -> void:
 	GlobalSignals.event_clicked.connect(event_selected)
+	GlobalSignals.event_completed.connect(event_completed)
+	GlobalSignals.battle_finished.connect(battle_completed)
 
 func event_selected(target_event : Event):
 	selected_event = target_event
@@ -19,3 +21,9 @@ func event_selected(target_event : Event):
 			GlobalSignals.open_pop_up_menu.emit(REST_SUB_MENU)
 		Event.EventType.Train:
 			GlobalSignals.open_pop_up_menu.emit(TRAIN_SUB_MENU)
+
+func event_completed():
+	selected_event.disabled = true
+
+func battle_completed(result : int):
+	selected_event.disabled = true

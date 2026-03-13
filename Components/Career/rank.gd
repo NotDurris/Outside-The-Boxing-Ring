@@ -1,3 +1,4 @@
+class_name Rank
 extends Control
 
 @export_group("Rank Settings")
@@ -5,13 +6,7 @@ extends Control
 @export var colour : Color
 @export var locked : bool = true
 
-const EVENT = preload("uid://bta5mcq7j6vk")
 @onready var event_container : Container = $RankContents/Level/Container
-@export_group("Event Composition")
-@export var fight_count : int = 3
-@export var rest_count : int = 1
-@export var train_count : int = 2
-@export var rando_count : int = 1
 
 @export_group("Dependencies")
 @export var rank_label: Label
@@ -22,20 +17,3 @@ func _ready() -> void:
 	rank_label.text = str(rank)
 	background.color = colour
 	lock_screen.visible = locked
-	
-	create_events()
-
-func create_events():
-	for i in range(fight_count):
-		create_event_btn(Event.EventType.Fight)
-	for i in range(rest_count):
-		create_event_btn(Event.EventType.Rest)
-	for i in range(train_count):
-		create_event_btn(Event.EventType.Train)
-	for i in range(rando_count):
-		create_event_btn(Event.EventType.Random)
-
-func create_event_btn(type : Event.EventType):
-	var event_btn : Event = EVENT.instantiate()
-	event_btn.type = type
-	event_container.add_child(event_btn)

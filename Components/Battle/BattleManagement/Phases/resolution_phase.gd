@@ -6,6 +6,8 @@ func enter_phase(br : BattleRefs):
 	br.round_tracker.results.clear()
 
 func exit_phase(br : BattleRefs):
+	br.results_screen.hide_results(br)
+	br.round_tracker.reset()
 	br.reset()
 
 func update_phase(_br : BattleRefs, _delta : float):

@@ -16,6 +16,7 @@ script = ExtResource("1_x8ur2")
 zoom_slider = NodePath("MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2/HSlider")
 screen_toggle = NodePath("MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2/screen_effect")
 sway_toggle = NodePath("MarginContainer/VBoxContainer/VolumeControlSection2/HBoxContainer/VBoxContainer2/sway_effect")
+title = "PAUSE"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=269981299]
 material = ExtResource("3_7ftsx")

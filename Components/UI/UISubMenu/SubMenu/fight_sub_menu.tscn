@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://b368iaeoy10mo"]
 
+[ext_resource type="Script" uid="uid://de85c42c7f47p" path="res://Components/UI/UISubMenu/SubMenu/sub_menu.gd" id="1_f5c5a"]
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="1_i657i"]
 
-[node name="Rest" type="MarginContainer" unique_id=1787524947]
+[node name="Fight" type="MarginContainer" unique_id=1787524947]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_f5c5a")
+title = "FIGHT"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=971745321]
 layout_mode = 2

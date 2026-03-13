@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cw33gbms8nr1b"]
 
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="1_h7rdh"]
+[ext_resource type="Script" uid="uid://de85c42c7f47p" path="res://Components/UI/UISubMenu/SubMenu/sub_menu.gd" id="1_q6f8m"]
 [ext_resource type="Script" uid="uid://dj154eokkttpn" path="res://Components/Career/Events/EventSubMenus/hover_effect.gd" id="2_vhg80"]
 
 [node name="Rest" type="MarginContainer" unique_id=1787524947]
@@ -9,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_q6f8m")
+title = "REST"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=971745321]
 layout_mode = 2

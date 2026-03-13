@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5288rsfw5qqf"]
 
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="1_gkr2j"]
+[ext_resource type="Script" uid="uid://de85c42c7f47p" path="res://Components/UI/UISubMenu/SubMenu/sub_menu.gd" id="1_ynvua"]
 [ext_resource type="StyleBox" uid="uid://cw7wmfdoumei7" path="res://Assets/Themes/Panels/ipad_screen_background.tres" id="2_cm6ec"]
 [ext_resource type="Texture2D" uid="uid://csfoeefvxqsd2" path="res://Assets/Sprites/icons/heart.png" id="3_14e25"]
 [ext_resource type="Texture2D" uid="uid://bmlkn4d8ln8ck" path="res://Assets/Sprites/icons/bolt.png" id="4_mldra"]
@@ -39,6 +40,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ynvua")
+title = "FIGHTER"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1821633567]
 layout_mode = 2

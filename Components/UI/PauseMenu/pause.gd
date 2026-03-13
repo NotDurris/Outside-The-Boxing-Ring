@@ -1,5 +1,5 @@
 class_name PauseLogic
-extends Control
+extends SubMenu
 
 @export_group("Dependencies")
 @export var zoom_slider : Slider

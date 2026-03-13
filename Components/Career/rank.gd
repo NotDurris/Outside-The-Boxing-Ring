@@ -11,6 +11,7 @@ const EVENT = preload("uid://bta5mcq7j6vk")
 @export var fight_count : int = 3
 @export var rest_count : int = 1
 @export var train_count : int = 2
+@export var rando_count : int = 1
 
 @export_group("Dependencies")
 @export var rank_label: Label
@@ -31,6 +32,8 @@ func create_events():
 		create_event_btn(Event.EventType.Rest)
 	for i in range(train_count):
 		create_event_btn(Event.EventType.Train)
+	for i in range(rando_count):
+		create_event_btn(Event.EventType.Random)
 
 func create_event_btn(type : Event.EventType):
 	var event_btn : Event = EVENT.instantiate()

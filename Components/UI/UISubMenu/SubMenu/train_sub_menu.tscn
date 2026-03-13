@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://d2xfieuj21bw5"]
 
+[ext_resource type="Script" uid="uid://de85c42c7f47p" path="res://Components/UI/UISubMenu/SubMenu/sub_menu.gd" id="1_6x7rf"]
 [ext_resource type="Material" uid="uid://b5rsytjcl71hg" path="res://Assets/Materials/stripes.tres" id="1_d8rg6"]
 [ext_resource type="Script" uid="uid://dj154eokkttpn" path="res://Components/Career/Events/EventSubMenus/hover_effect.gd" id="2_16ylh"]
 
-[node name="Rest" type="MarginContainer" unique_id=1787524947]
+[node name="Train" type="MarginContainer" unique_id=1787524947]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6x7rf")
+title = "TRAIN"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=971745321]
 layout_mode = 2

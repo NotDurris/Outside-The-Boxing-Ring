@@ -50,18 +50,6 @@ func initialise_layout():
 	var instanced_contents = panel_contents.instantiate()
 	content_container.add_child(instanced_contents)
 
-func open_and_change_contents(new_title : String, new_contents : PackedScene):
-	if content_container.get_children().size() > 0 : content_container.get_child(0).queue_free()
-	
-	panel_contents = new_contents
-	panel_title = new_title
-	
-	title_label.text = panel_title
-	var instanced_contents = panel_contents.instantiate()
-	content_container.add_child(instanced_contents)
-	
-	open_panel()
-
 func open_panel():
 	show()
 	foreground.scale = Vector2.ZERO

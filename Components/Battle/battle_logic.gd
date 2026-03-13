@@ -7,8 +7,6 @@ signal battle_finished(result : int)
 
 func _ready() -> void:
 	battle_refs.results_screen.close_button.pressed.connect(finish_battle)
-	
-	start_battle()
 
 func start_battle():
 	show()

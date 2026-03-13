@@ -14,8 +14,8 @@ func event_selected(target_event : Event):
 	
 	match selected_event.type:
 		Event.EventType.Fight:
-			GlobalSignals.open_pop_up_menu.emit("fight", FIGHT_SUB_MENU)
+			GlobalSignals.open_pop_up_menu.emit(FIGHT_SUB_MENU)
 		Event.EventType.Rest:
-			GlobalSignals.open_pop_up_menu.emit("rest", REST_SUB_MENU)
+			GlobalSignals.open_pop_up_menu.emit(REST_SUB_MENU)
 		Event.EventType.Train:
-			GlobalSignals.open_pop_up_menu.emit("train", TRAIN_SUB_MENU)
+			GlobalSignals.open_pop_up_menu.emit(TRAIN_SUB_MENU)

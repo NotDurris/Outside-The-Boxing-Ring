@@ -9,7 +9,7 @@ func _ready() -> void:
 	bus_index = AudioServer.get_bus_index(bus_name)
 	value_changed.connect(_on_value_changed)
 	
-	value = 0.5
+	value = AudioServer.get_bus_volume_linear(bus_index)
 	_on_value_changed(value)
 
 func _on_value_changed(new_value : float) -> void:

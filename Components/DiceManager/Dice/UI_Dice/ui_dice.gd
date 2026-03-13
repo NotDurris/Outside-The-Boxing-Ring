@@ -27,6 +27,7 @@ var target_scale : float = 16 :
 	set(value):
 		target_scale = value
 		custom_minimum_size = Vector2.ONE * target_scale
+		value_label.add_theme_font_size_override("font_size", roundi(target_scale * 0.5))
 		update_minimum_size()
 		pivot_offset = Vector2.ONE * target_scale * 0.5
 

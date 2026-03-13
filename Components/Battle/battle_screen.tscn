@@ -145,7 +145,7 @@ uppercase = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_constants/separation = 8
+theme_override_constants/separation = 4
 script = ExtResource("10_qjp1k")
 
 [node name="Battle" type="PanelContainer" parent="MarginContainer2/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1274329178]

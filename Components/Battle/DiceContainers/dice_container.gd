@@ -37,6 +37,7 @@ func resize_dice_array(target_size : int):
 		for i in range(difference):
 			var new_ui_dice : UIDice = UI_DICE.instantiate()
 			new_ui_dice.pressed.connect(func() : dice_selected.emit(i))
+			new_ui_dice.name = new_ui_dice.name + name
 			add_child(new_ui_dice)
 			ui_dice_instances.append(new_ui_dice)
 	elif difference < 0:
@@ -47,13 +48,13 @@ func resize_dice_array(target_size : int):
 	
 	# Set dice sizes
 	var x_size : float = max(453.0, size.x)
-	var dice_size : float = min(x_size / ui_dice_instances.size(), 64)
+	var dice_size : float = min(x_size / (ui_dice_instances.size() + 2), 64)
 	for die in ui_dice_instances:
 		die.target_scale = dice_size
-	
 
 func scale_strategy_dice(target_scale : Vector2):
-	var tweener : Tween = create_tween()
+	var tweener : Tween = get_tree().create_tween()
 	tweener.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	
 	for die in ui_dice_instances:
 		tweener.tween_property(die, "scale", target_scale, 0.1)

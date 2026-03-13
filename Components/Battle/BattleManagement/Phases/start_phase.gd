@@ -6,7 +6,9 @@ func enter_phase(br : BattleRefs):
 	
 	# Generate Fighters
 	br.you = Fighter.new(YourFighter.stats)
-	br.opponent = Fighter.new(Stats.new())
+	var op_stats : Stats = Stats.new()
+	#op_stats.strategy.append_array([dice.DiceType.Aggro, dice.DiceType.Endurance, dice.DiceType.Agility, dice.DiceType.Aggro, dice.DiceType.Endurance, dice.DiceType.Agility, dice.DiceType.Aggro, dice.DiceType.Endurance, dice.DiceType.Agility])
+	br.opponent = Fighter.new(op_stats)
 	
 	br.you.available_dice = get_fighters_dice(br.you.stats)
 	br.opponent.available_dice = get_fighters_dice(br.opponent.stats)

@@ -15,6 +15,8 @@ func enter_phase(br : BattleRefs):
 	var opponent_strategy_count : int = opponent_dices.size()
 	var max_count : int = max(your_strategy_count, opponent_strategy_count)
 	
+	br.opponents_dice_visual.process_mode = Node.PROCESS_MODE_DISABLED
+	
 	# Create Tweener
 	var tweener : Tween = create_tween()
 	tweener.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK).set_parallel()
@@ -23,8 +25,10 @@ func enter_phase(br : BattleRefs):
 	for i in range(max_count):
 		if i < your_strategy_count: 
 			tweener.tween_property(your_dices[i], "global_position", br.your_dice_slot.global_position, 0.2)
+			tweener.tween_property(your_dices[i], "scale", your_dices[i].scale * (64.0 / your_dices[i].size.x), 0.1)
 		if i < opponent_strategy_count: 
 			tweener.tween_property(opponent_dices[i], "global_position", br.opponent_dice_slot.global_position, 0.2)
+			tweener.tween_property(opponent_dices[i], "scale", opponent_dices[i].scale * (64.0 / opponent_dices[i].size.x), 0.1)
 		tweener.chain().tween_interval(0.4)
 		tweener.chain().tween_interval(0.0)
 		if i < your_strategy_count:

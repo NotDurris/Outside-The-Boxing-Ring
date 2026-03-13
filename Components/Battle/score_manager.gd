@@ -32,9 +32,13 @@ func calculate_individual_score(index : int, your_strategy : Array[dice], oppone
 	# Apply Traits
 	
 	# Apply Typal Bonus
-	var typal_bonus : Vector2i = matchup_table[your_dice.type][opponent_dice.type]
+	var typal_bonus : Vector2i = Vector2i.ZERO
+	if opponent_dice != null and your_dice != null:
+		typal_bonus = matchup_table[your_dice.type][opponent_dice.type]
 	
 	# Add Scores
-	result = Vector2i(your_dice.value, opponent_dice.value) + typal_bonus
+	var your_value : int = your_dice.value if your_dice != null else 0
+	var opponent_value : int = opponent_dice.value if opponent_dice != null else 0
+	result = Vector2i(your_value, opponent_value) + typal_bonus
 	
 	return result

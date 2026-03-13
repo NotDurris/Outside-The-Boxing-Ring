@@ -128,6 +128,15 @@ func apply_skill(br : BattleRefs):
 	uses_left -= 1
 	if uses_left == 0:
 		deactivate(br)
+	
+	var id = YourFighter.stats.skills.find(selected_skill)
+	match (selected_skill.frequency):
+		Skill.Frequency.PERROUND:
+			skill_buttons[id].disabled = true
+		Skill.Frequency.PERCOMBAT:
+			skill_buttons[id].disabled = true
+			button_disabled[id] = true
+	
 	var skill_action : SkillAction = selected_skill.skill_action.new()
 	skill_action.do_action(br, selected_dice)
 	

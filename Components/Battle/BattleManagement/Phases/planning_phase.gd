@@ -5,8 +5,8 @@ func enter_phase(br : BattleRefs):
 	br.fight_btn.text = "FIGHT"
 	br.fight_btn.pressed.connect(start_fight)
 	
-	br.your_dice_visual.scale_strategy_dice(Vector2.ONE)
 	br.opponents_dice_visual.scale_strategy_dice(Vector2.ONE)
+	br.your_dice_visual.scale_strategy_dice(Vector2.ONE)
 	
 	br.you.available_dice = get_fighters_dice(br.you.stats)
 	br.opponent.available_dice = get_fighters_dice(br.opponent.stats)

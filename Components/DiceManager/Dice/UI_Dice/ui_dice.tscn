@@ -14,7 +14,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3sdnt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqexl"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -34,41 +34,47 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="Animation" id="Animation_cqexl"]
 length = 0.001
-tracks/0/type = "value"
+
+[sub_resource type="Animation" id="Animation_52te0"]
+resource_name = "pop"
+length = 0.5
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.25),
 "transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_value_and_type"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(1, 1), Vector2(0, 0), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_o0fcd"]
 resource_name = "roll"
 length = 0.5
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 12.566370614359172]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.04, 0.16666667, 0.27, 0.38, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
@@ -88,10 +94,23 @@ tracks/1/keys = {
 "method": &"reset_value"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12.566370614359172]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_52te0"]
 _data = {
 &"RESET": SubResource("Animation_cqexl"),
+&"pop": SubResource("Animation_52te0"),
 &"roll": SubResource("Animation_o0fcd")
 }
 
@@ -100,12 +119,11 @@ z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -16.0
-offset_right = -1104.0
-offset_bottom = -600.0
+offset_right = -1088.0
+offset_bottom = -584.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(32, 32)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cqexl")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_o0fcd")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_52te0")
@@ -113,33 +131,28 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_yd138")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3sdnt")
 script = ExtResource("1_nb2ja")
 
-[node name="outline" type="Panel" parent="." unique_id=32703467]
+[node name="DiceVisual" type="MarginContainer" parent="." unique_id=108104231]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+
+[node name="outline" type="Panel" parent="DiceVisual" unique_id=32703467]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cqexl")
 
-[node name="background" type="Panel" parent="." unique_id=1083256951]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="background" type="Panel" parent="DiceVisual" unique_id=1083256951]
+layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ellfp")
 
-[node name="value" type="Label" parent="." unique_id=502463039]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="value" type="Label" parent="DiceVisual" unique_id=502463039]
+layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_mgcvt")

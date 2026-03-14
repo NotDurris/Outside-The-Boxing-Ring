@@ -5,10 +5,12 @@ signal type_changed()
 signal value_set()
 signal value_modified(diff : int)
 signal die_set()
+signal die_select_changed(select_state : bool)
 
 var value : int
 var type : DiceType
 var sides : int
+var selected : bool = false
 
 enum DiceType {Aggro, Endurance, Agility}
 
@@ -24,7 +26,10 @@ func set_dice(new_dice : dice):
 	die_set.emit()
 
 func roll():
-	value = randi_range(1, sides)
+	var rolled_num : int = randi_range(1, sides-1)
+	if rolled_num >= value:
+		rolled_num += 1
+	value = rolled_num
 	die_rolled.emit()
 
 func set_type(new_type : DiceType):
@@ -38,3 +43,11 @@ func set_value(new_value : int):
 func modify_value(diff : int):
 	value += diff
 	value_modified.emit(diff)
+
+func select_die():
+	selected = true
+	die_select_changed.emit(selected)
+
+func deselect_die():
+	selected = false
+	die_select_changed.emit(selected)

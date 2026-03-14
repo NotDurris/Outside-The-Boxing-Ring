@@ -5,6 +5,24 @@
 [ext_resource type="Script" uid="uid://egcc1revl18q" path="res://Components/Camera/dolly.gd" id="2_mxblp"]
 [ext_resource type="Script" uid="uid://blboofh4u5lkt" path="res://Components/Camera/camera_logic.gd" id="2_qocyw"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_7hykl"]
+
+[sub_resource type="Gradient" id="Gradient_qocyw"]
+colors = PackedColorArray(0.8474744, 0.84747446, 0.84747446, 1, 0.92535293, 0.9253528, 0.9253529, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mxblp"]
+noise_type = 5
+frequency = 0.0631
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jr1ro"]
+width = 1024
+noise = SubResource("FastNoiseLite_mxblp")
+color_ramp = SubResource("Gradient_qocyw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dygi0"]
+shading_mode = 0
+albedo_texture = SubResource("NoiseTexture2D_jr1ro")
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7hykl"]
 sky_top_color = Color(0.3179603, 0.6135702, 0.9180989, 1)
 sky_horizon_color = Color(0.91160864, 0.8826131, 0.732201, 1)
@@ -26,23 +44,6 @@ glow_bloom = 0.3
 fog_enabled = true
 fog_light_energy = 0.0
 
-[sub_resource type="BoxMesh" id="BoxMesh_7hykl"]
-
-[sub_resource type="Gradient" id="Gradient_qocyw"]
-colors = PackedColorArray(0.72464263, 0.7246426, 0.7246426, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_mxblp"]
-noise_type = 5
-frequency = 0.0631
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jr1ro"]
-noise = SubResource("FastNoiseLite_mxblp")
-color_ramp = SubResource("Gradient_qocyw")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dygi0"]
-shading_mode = 0
-albedo_texture = SubResource("NoiseTexture2D_jr1ro")
-
 [node name="Game" type="Node3D" unique_id=413611698]
 script = ExtResource("1_h48gd")
 current_level = "Game"
@@ -60,9 +61,6 @@ rotation_speed = 0.01
 [node name="Ipad" parent="." unique_id=1638631390 instance=ExtResource("2_7hykl")]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, -1.424, -0.86)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1700514322]
-environment = SubResource("Environment_7hykl")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=788641227]
 transform = Transform3D(35.74419, 0, 0, 0, 1, 0, 0, 0, 15.071549, 0, -3.4072213, 0)
 mesh = SubResource("BoxMesh_7hykl")
@@ -70,6 +68,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_dygi0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=472748594]
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 9.6982355, 0)
+visible = false
 light_energy = 0.3
 
-[node name="Node" type="Node" parent="." unique_id=1664716091]
+[node name="EnvironmentController" type="Node" parent="." unique_id=1997905110]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="EnvironmentController" unique_id=1700514322]
+environment = SubResource("Environment_7hykl")

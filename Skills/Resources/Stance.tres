@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Skill" format=3 uid="uid://dfn8jtwygi1y2"]
+
+[ext_resource type="Script" uid="uid://c5vmees2082jx" path="res://Skills/skill_base.gd" id="1_gclff"]
+[ext_resource type="Script" uid="uid://dh244enax5npa" path="res://Skills/Actions/action_change_type.gd" id="2_gclff"]
+
+[resource]
+script = ExtResource("1_gclff")
+name = "stance"
+description = "randomise the type of one dice"
+target_type = 1
+target_amount = 1
+skill_action = ExtResource("2_gclff")
+metadata/_custom_type_script = "uid://c5vmees2082jx"

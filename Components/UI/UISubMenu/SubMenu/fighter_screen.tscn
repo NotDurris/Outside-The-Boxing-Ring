@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://boqunl0ws3uul" path="res://Assets/Sprites/icons/brain.png" id="5_lfyoy"]
 [ext_resource type="PackedScene" uid="uid://cr3xr2di6i0fp" path="res://Components/Fighter/fighter_portrait.tscn" id="6_4dl1j"]
 [ext_resource type="Script" uid="uid://c1ch0u7dmw3u1" path="res://Components/Fighter/fighter_strategy.gd" id="7_uijpd"]
-[ext_resource type="Script" uid="uid://8x2p6ue7sb1x" path="res://Components/Fighter/strategy_ui.gd" id="8_4niip"]
 
 [sub_resource type="Gradient" id="Gradient_fml5f"]
 interpolation_mode = 1
@@ -286,7 +285,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("2_cm6ec")
 script = ExtResource("7_uijpd")
-strategy_ui = NodePath("MarginContainer/VBoxContainer/StrategyContainer")
+strategy_ui = NodePath("")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Strategy" unique_id=1087935737]
 layout_mode = 2
@@ -302,8 +301,3 @@ layout_mode = 2
 layout_mode = 2
 text = "strategy"
 horizontal_alignment = 1
-
-[node name="StrategyContainer" type="HBoxContainer" parent="VBoxContainer/Strategy/MarginContainer/VBoxContainer" unique_id=673656075]
-layout_mode = 2
-alignment = 1
-script = ExtResource("8_4niip")

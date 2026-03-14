@@ -35,7 +35,7 @@ func _ready() -> void:
 
 func close_selection_pop_up():
 	selection_pop_up.hide()
-	selected_dice.clear()
+	reset_selected_dice()
 	selected_skill = null
 
 func skill_selected(id : int):
@@ -92,6 +92,10 @@ func set_usage_dots():
 func initiate_btns(br : BattleRefs):
 	for connection in selection_pop_up_confirm.pressed.get_connections():
 		selection_pop_up_confirm.pressed.disconnect(connection.callable)
+	for connection in br.your_dice_visual.dice_selected.get_connections():
+		br.your_dice_visual.dice_selected.disconnect(connection.callable)
+	for connection in br.opponents_dice_visual.dice_selected.get_connections():
+		br.opponents_dice_visual.dice_selected.disconnect(connection.callable)
 	
 	selection_pop_up_confirm.pressed.connect(func() : apply_skill(br))
 	br.your_dice_visual.dice_selected.connect(func(value) : your_dice_selection(value, br))
@@ -140,11 +144,16 @@ func apply_skill(br : BattleRefs):
 	var skill_action : SkillAction = selected_skill.skill_action.new()
 	skill_action.do_action(br, selected_dice)
 	
-	br.your_dice_visual.update_dice_container(br.you.available_dice)
-	br.opponents_dice_visual.update_dice_container(br.opponent.available_dice)
+	#br.your_dice_visual.update_dice_container(br.you.available_dice)
+	#br.opponents_dice_visual.update_dice_container(br.opponent.available_dice)
 	
 	selection_pop_up.hide()
 	selected_skill = null
+	reset_selected_dice()
+
+func reset_selected_dice():
+	for die in selected_dice:
+		die.deselect_die()
 	selected_dice.clear()
 
 func your_dice_selection(id : int, br : BattleRefs):
@@ -163,10 +172,12 @@ func handle_dice_selection(id : int, target_dice : Array[dice], target_affiliati
 	
 	if selected_dice.has(die):
 		# Remove
+		die.deselect_die()
 		selected_dice.pop_at(selected_dice.find(die))
 	else:
 		# Add
 		if selected_dice.size() >= selected_skill.target_amount : return
+		die.select_die()
 		selected_dice.append(die)
 	
 	selection_pop_up_confirm.disabled = selected_dice.size() < selected_skill.target_amount

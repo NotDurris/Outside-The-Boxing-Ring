@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EventEnv" format=3 uid="uid://dbuwvfcxdxum"]
+
+[ext_resource type="PackedScene" uid="uid://dwghs4tfir5vp" path="res://Components/Environment/EventEnvironments/Train/train_environment.tscn" id="1_3i6or"]
+[ext_resource type="Script" uid="uid://da10hvlab0wx0" path="res://Components/Environment/EventEnvironments/event_env.gd" id="2_vacv4"]
+
+[resource]
+script = ExtResource("2_vacv4")
+event_colour = Color(0.62352943, 0.95686275, 0.56078434, 1)
+room = ExtResource("1_3i6or")
+metadata/_custom_type_script = "uid://da10hvlab0wx0"

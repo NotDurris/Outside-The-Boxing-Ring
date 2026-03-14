@@ -33,6 +33,8 @@ vec3 get_screen_pixel_colour(vec2 uv, vec3 colour){
 }
 
 void fragment() {
+	ROUGHNESS = 0.2;
+	METALLIC = 0.0;
 	vec2 adjusted_uv = vec2(UV.x * uv_scale.x, UV.y * uv_scale.y) + uv_offset;
 	vec3 colour = texture(albedo, adjusted_uv).rgb;
 	if(apply_pixels){
@@ -43,11 +45,4 @@ void fragment() {
 		ALBEDO = colour;
 		EMISSION = ALBEDO * (1.0 + bloom_intensity * 0.15);
 	}
-	
-	
 }
-
-//void light() {
-//	// Called for every pixel for every light affecting the material.
-//	// Uncomment to replace the default light processing function with this one.
-//}

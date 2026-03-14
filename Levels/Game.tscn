@@ -4,6 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://bppsb38p6a8d2" path="res://Components/Ipad/ipad.tscn" id="2_7hykl"]
 [ext_resource type="Script" uid="uid://egcc1revl18q" path="res://Components/Camera/dolly.gd" id="2_mxblp"]
 [ext_resource type="Script" uid="uid://blboofh4u5lkt" path="res://Components/Camera/camera_logic.gd" id="2_qocyw"]
+[ext_resource type="Script" uid="uid://ccqp01jgrgbej" path="res://Components/Environment/environment_controller.gd" id="5_dygi0"]
+[ext_resource type="Environment" uid="uid://nj8okyfwgs7y" path="res://Components/Environment/world_environment.tres" id="6_d5jmm"]
+[ext_resource type="Script" uid="uid://da10hvlab0wx0" path="res://Components/Environment/EventEnvironments/event_env.gd" id="6_yl7kl"]
+[ext_resource type="Resource" uid="uid://du2duc4e10dup" path="res://Components/Environment/EventEnvironments/Fight/fight.tres" id="7_tx4co"]
+[ext_resource type="Resource" uid="uid://drur4xkmgfwf8" path="res://Components/Environment/EventEnvironments/Rest/rest.tres" id="8_h107k"]
+[ext_resource type="Resource" uid="uid://dbuwvfcxdxum" path="res://Components/Environment/EventEnvironments/Train/train.tres" id="9_wndho"]
+[ext_resource type="PackedScene" uid="uid://too8le5jqull" path="res://Components/Environment/EventEnvironments/Fight/fight_environment.tscn" id="11_yl7kl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_7hykl"]
 
@@ -20,29 +27,7 @@ noise = SubResource("FastNoiseLite_mxblp")
 color_ramp = SubResource("Gradient_qocyw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dygi0"]
-shading_mode = 0
 albedo_texture = SubResource("NoiseTexture2D_jr1ro")
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7hykl"]
-sky_top_color = Color(0.3179603, 0.6135702, 0.9180989, 1)
-sky_horizon_color = Color(0.91160864, 0.8826131, 0.732201, 1)
-sky_curve = 0.0230839
-ground_bottom_color = Color(0.2782796, 0.2928472, 0.32258892, 1)
-ground_horizon_color = Color(0.76521504, 0.7712276, 0.7832465, 1)
-
-[sub_resource type="Sky" id="Sky_qocyw"]
-sky_material = SubResource("ProceduralSkyMaterial_7hykl")
-
-[sub_resource type="Environment" id="Environment_7hykl"]
-background_mode = 1
-background_color = Color(0.5362641, 0.81638974, 0.9383235, 1)
-sky = SubResource("Sky_qocyw")
-tonemap_mode = 2
-ssao_enabled = true
-glow_enabled = true
-glow_bloom = 0.3
-fog_enabled = true
-fog_light_energy = 0.0
 
 [node name="Game" type="Node3D" unique_id=413611698]
 script = ExtResource("1_h48gd")
@@ -50,7 +35,7 @@ current_level = "Game"
 next_level = "EndScreen"
 
 [node name="Dolly" type="Node3D" parent="." unique_id=878491427]
-transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 1.5, 2)
+transform = Transform3D(1, 0, 0, 0, 0.81915194, 0.5735764, 0, -0.5735764, 0.81915194, 0, 1.2, 2.5)
 script = ExtResource("2_mxblp")
 
 [node name="Camera3D" type="Camera3D" parent="Dolly" unique_id=1189298633]
@@ -62,7 +47,7 @@ rotation_speed = 0.01
 transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, -1.424, -0.86)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=788641227]
-transform = Transform3D(35.74419, 0, 0, 0, 1, 0, 0, 0, 15.071549, 0, -3.4072213, 0)
+transform = Transform3D(35.74419, 0, 0, 0, 1, 0, 0, 0, 15.071549, 0, -3.4072213, 3.444818)
 mesh = SubResource("BoxMesh_7hykl")
 surface_material_override/0 = SubResource("StandardMaterial3D_dygi0")
 
@@ -72,6 +57,12 @@ visible = false
 light_energy = 0.3
 
 [node name="EnvironmentController" type="Node" parent="." unique_id=1997905110]
+script = ExtResource("5_dygi0")
+event_envs_array = Array[ExtResource("6_yl7kl")]([ExtResource("7_tx4co"), ExtResource("8_h107k"), ExtResource("9_wndho")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="EnvironmentController" unique_id=1700514322]
-environment = SubResource("Environment_7hykl")
+environment = ExtResource("6_d5jmm")
+
+[node name="RoomContainer" type="Node3D" parent="EnvironmentController" unique_id=1911803349]
+
+[node name="FightEnvironment" parent="EnvironmentController/RoomContainer" unique_id=87074406 instance=ExtResource("11_yl7kl")]

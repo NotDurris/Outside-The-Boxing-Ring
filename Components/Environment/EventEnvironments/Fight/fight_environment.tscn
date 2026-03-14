@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://too8le5jqull"]
+
+[ext_resource type="PackedScene" uid="uid://cajf0ft61gfhb" path="res://Components/Environment/EventEnvironments/Fight/boxing_ring.tscn" id="1_vtq8x"]
+[ext_resource type="Shader" uid="uid://bwccotq2f31qe" path="res://Assets/Shaders/toon.gdshader" id="3_dgglb"]
+[ext_resource type="Texture2D" uid="uid://xbbhl5kcr53w" path="res://Assets/Models/boxing_ring_side_Regulation_Boxing_Ring_V1_Diffuse_SG.jpg" id="3_ha3g6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgglb"]
+render_priority = 0
+shader = ExtResource("3_dgglb")
+shader_parameter/ToonRampOffset = 0.5
+shader_parameter/ToonRampSmoothness = 0.05
+shader_parameter/ToonRampTinting = Color(0, 0, 0, 1)
+shader_parameter/RimPower = 1.0
+shader_parameter/RimCutOff = 0.5
+shader_parameter/RimSmoothness = 0.05
+shader_parameter/RimLightBrightness = 20.0
+shader_parameter/SubSurfDistortion = 1.0
+shader_parameter/SubSurfTint = Color(0, 0, 0, 1)
+shader_parameter/SubSurfBrightness = 3.0
+shader_parameter/SubSurfCutoff = 0.5
+shader_parameter/SubSurfSmoothness = 0.05
+shader_parameter/Texture = ExtResource("3_ha3g6")
+
+[node name="FightEnvironment" type="Node3D" unique_id=87074406]
+
+[node name="BoxingRing" parent="." unique_id=982074652 instance=ExtResource("1_vtq8x")]
+transform = Transform3D(-1.3113417e-08, 0, -0.3, 0, 0.225, 0, 0.3, 0, -1.3113417e-08, 6.7192905e-06, -29.497341, -153.71944)
+surface_material_override/0 = SubResource("ShaderMaterial_dgglb")

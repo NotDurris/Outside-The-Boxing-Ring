@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d2f3qfqsrwifk"]
+
+[node name="TrainEnvironment" type="Node3D" unique_id=87074406]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=460180063]
+transform = Transform3D(0.92708576, -0.13625593, 0.34920815, -0.37484935, -0.3369912, 0.86366946, 1.4901161e-08, -0.93159604, -0.36349517, 12.585654, 29.141247, -9.811502)
+spot_range = 96.90791
+spot_angle = 21.592157

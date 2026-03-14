@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dwghs4tfir5vp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jr1ro"]
+size = Vector3(10, 50, 10)
+
+[sub_resource type="Gradient" id="Gradient_qocyw"]
+colors = PackedColorArray(0.8474744, 0.84747446, 0.84747446, 1, 0.92535293, 0.9253528, 0.9253529, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mxblp"]
+noise_type = 5
+frequency = 0.0631
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jr1ro"]
+width = 1024
+noise = SubResource("FastNoiseLite_mxblp")
+color_ramp = SubResource("Gradient_qocyw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dygi0"]
+albedo_texture = SubResource("NoiseTexture2D_jr1ro")
+
+[node name="TrainEnvironment" type="Node3D" unique_id=87074406]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=220493817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.825085, -30.881746, -61.805645)
+mesh = SubResource("BoxMesh_jr1ro")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_dygi0")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1776499000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.675213, -30.881746, -42.047226)
+mesh = SubResource("BoxMesh_jr1ro")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_dygi0")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=5751054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.222412, -36.887695, -57.820786)
+mesh = SubResource("BoxMesh_jr1ro")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_dygi0")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="." unique_id=464631408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.310688, -25.411152, -21.973694)
+mesh = SubResource("BoxMesh_jr1ro")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_dygi0")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=128190896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.100803, -30.881746, -64.10038)
+mesh = SubResource("BoxMesh_jr1ro")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_dygi0")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=657051633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.71589, -46.27281, -39.313454)
+mesh = SubResource("BoxMesh_jr1ro")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_dygi0")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=460180063]
+transform = Transform3D(0.92708576, -0.13625593, 0.34920815, -0.37484935, -0.3369912, 0.86366946, 1.4901161e-08, -0.93159604, -0.36349517, 12.585654, 29.141247, -9.811502)
+spot_range = 96.90791
+spot_angle = 21.592157

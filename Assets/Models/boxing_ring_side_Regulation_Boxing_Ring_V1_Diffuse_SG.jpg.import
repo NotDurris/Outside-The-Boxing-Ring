@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kmcec7e4fpkp"
-path.s3tc="res://.godot/imported/training.png-049bbfa7b5b7ccadf2d328bad818cae3.s3tc.ctex"
+uid="uid://xbbhl5kcr53w"
+path.s3tc="res://.godot/imported/boxing_ring_side_Regulation_Boxing_Ring_V1_Diffuse_SG.jpg-756edb46b4cd9cb18a2ac64336dceef3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "4f651541097a55005a15924c24331190"
+}
 
 [deps]
 
-source_file="res://Assets/Sprites/icons/training.png"
-dest_files=["res://.godot/imported/training.png-049bbfa7b5b7ccadf2d328bad818cae3.s3tc.ctex"]
+source_file="res://Assets/Models/boxing_ring_side_Regulation_Boxing_Ring_V1_Diffuse_SG.jpg"
+dest_files=["res://.godot/imported/boxing_ring_side_Regulation_Boxing_Ring_V1_Diffuse_SG.jpg-756edb46b4cd9cb18a2ac64336dceef3.s3tc.ctex"]
 
 [params]
 

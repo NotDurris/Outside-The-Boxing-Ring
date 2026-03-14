@@ -1,9 +1,9 @@
 extends Node3D
 
-const ZOOMED_OUT_POSITION = Vector3(0.0, 1.5, 2)
+const ZOOMED_OUT_POSITION = Vector3(0.0, 1.2, 2.5)
 const ZOOMED_IN_POSITION = Vector3(0.0, 1.1, 0.7)
 
-const ZOOMED_OUT_ROTATION = Vector3(-45, 0.0, 0.0)
+const ZOOMED_OUT_ROTATION = Vector3(-35, 0.0, 0.0)
 const ZOOMED_IN_ROTATION = Vector3(-60, 0.0, 0.0)
 
 func _ready() -> void:
